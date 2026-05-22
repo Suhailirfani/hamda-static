@@ -1,0 +1,563 @@
+/* ==========================================================================
+   DESIGN SYSTEM - VELVET OBSIDIAN
+   Hamda Science Academy Static Website Stylesheet
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+    /* Color Palette */
+    --bg-midnight: #0B0406;
+    --bg-card: #16070B;
+    --bg-card-hover: #1E0C0F;
+    --bg-dark-accent: #291016;
+    
+    --qatar-maroon: #8D1B3D;
+    --qatar-maroon-glow: #A1234A;
+    --qatar-maroon-dark: #581025;
+    
+    --premium-gold: #D4AF37;
+    --gold-glow: #F5D670;
+    --gold-dark: #AA8825;
+    
+    /* Text Colors */
+    --text-white: #FFFFFF;
+    --text-light: #F1F5F9;
+    --text-muted: #94A3B8;
+    --text-dark-muted: #64748B;
+    
+    /* Glassmorphism */
+    --glass-bg: rgba(22, 7, 11, 0.65);
+    --glass-border: rgba(212, 175, 55, 0.15);
+    --glass-border-hover: rgba(212, 175, 55, 0.35);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+    
+    /* Fonts */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Outfit', sans-serif;
+    
+    /* Standard Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.2s ease;
+}
+
+/* 1. Global Resets & Body Layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px; /* Offset for fixed glassmorphic navbar */
+    overflow-x: hidden;
+}
+
+body {
+    background-color: var(--bg-midnight);
+    color: var(--text-light);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-midnight);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--bg-card);
+    border: 2px solid var(--bg-midnight);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--qatar-maroon);
+}
+
+/* Typography Extensions */
+.font-serif {
+    font-family: var(--font-heading);
+}
+
+.text-gold {
+    color: var(--premium-gold);
+    background: linear-gradient(135deg, var(--gold-glow) 0%, var(--premium-gold) 50%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-maroon-accent {
+    color: var(--qatar-maroon-glow);
+}
+
+/* 2. Glassmorphism Panels & Cards */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.glass-panel:hover {
+    border-color: var(--glass-border-hover);
+    box-shadow: 0 12px 40px rgba(141, 27, 61, 0.2);
+}
+
+/* Premium Dynamic Interactive Cards */
+.card-premium {
+    background: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.08);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(141, 27, 61, 0.15) 0%, rgba(212, 175, 55, 0.02) 100%);
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition-smooth);
+}
+
+.card-premium:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212, 175, 55, 0.25);
+    box-shadow: 0 15px 40px rgba(141, 27, 61, 0.3);
+}
+
+.card-premium:hover::before {
+    opacity: 1;
+}
+
+/* 3. Header & Navigation System */
+.brand-navbar {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 3rem;
+    background: transparent;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid transparent;
+}
+
+/* Navbar active scroll state */
+.brand-navbar.scrolled {
+    background: rgba(11, 4, 6, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+    padding: 0.4rem 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.nav-link-custom {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 0.05rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: var(--transition-fast);
+}
+
+.nav-link-custom::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; width: 0; height: 2px;
+    background: var(--premium-gold);
+    transition: var(--transition-smooth);
+    transform: translateX(-50%);
+}
+
+.nav-link-custom:hover {
+    color: var(--gold-glow);
+}
+
+.nav-link-custom:hover::after,
+.nav-link-custom.active::after {
+    width: 80%;
+}
+
+.nav-link-custom.active {
+    color: var(--premium-gold);
+}
+
+/* 4. Luxury Buttons */
+.btn-gold {
+    background: linear-gradient(135deg, var(--gold-glow) 0%, var(--premium-gold) 50%, var(--gold-dark) 100%);
+    color: var(--bg-midnight) !important;
+    font-weight: 700;
+    letter-spacing: 0.05rem;
+    border: none;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.35);
+    transition: var(--transition-smooth);
+}
+
+.btn-gold:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.55);
+    filter: brightness(1.15);
+}
+
+.btn-maroon {
+    background: linear-gradient(135deg, var(--qatar-maroon-glow) 0%, var(--qatar-maroon) 50%, var(--qatar-maroon-dark) 100%);
+    color: var(--text-white) !important;
+    font-weight: 600;
+    letter-spacing: 0.05rem;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 15px rgba(141, 27, 61, 0.4);
+    transition: var(--transition-smooth);
+}
+
+.btn-maroon:hover {
+    transform: translateY(-3px) scale(1.03);
+    border-color: var(--premium-gold);
+    box-shadow: 0 8px 25px rgba(141, 27, 61, 0.6);
+    filter: brightness(1.15);
+}
+
+.btn-outline-gold {
+    color: var(--premium-gold) !important;
+    background: transparent !important;
+    border: 2px solid var(--premium-gold) !important;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-outline-gold:hover {
+    background: linear-gradient(135deg, var(--gold-glow) 0%, var(--premium-gold) 100%) !important;
+    color: var(--bg-midnight) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* 5. Hero Carousel Custom Styling */
+.carousel-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(11, 4, 6, 0.3) 0%, rgba(11, 4, 6, 0.75) 60%, rgba(11, 4, 6, 0.95) 100%);
+    z-index: 1;
+}
+
+.carousel-custom-item {
+    height: 100vh;
+    min-height: 700px;
+}
+
+.carousel-custom-caption {
+    position: absolute;
+    z-index: 10;
+    top: 54%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    width: 90%;
+    max-width: 980px;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.carousel-custom-caption p, 
+.carousel-custom-caption h1, 
+.carousel-custom-caption h2 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* 6. Floating Social Widgets with Glowing Waves */
+.floating-social {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 3000;
+}
+
+.social-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.8rem;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--glass-border);
+}
+
+.social-btn:hover {
+    transform: scale(1.15) translateY(-5px) rotate(8deg);
+    color: white;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7), 0 0 20px rgba(212, 175, 55, 0.25);
+    border-color: var(--premium-gold);
+}
+
+.social-btn.whatsapp {
+    background: #25D366;
+    border-color: rgba(37, 211, 102, 0.4);
+    animation: whatsappPulse 3s infinite;
+}
+
+.social-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: rgba(220, 39, 67, 0.4);
+    animation: instaPulse 3.5s infinite 1s;
+}
+
+@keyframes whatsappPulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes instaPulse {
+    0% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(220, 39, 67, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 39, 67, 0); }
+}
+
+/* 7. Image Galleries & Visual Overlays */
+.image-zoom-container {
+    overflow: hidden;
+    border-radius: 1.5rem;
+    position: relative;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    transition: var(--transition-smooth);
+}
+
+.image-zoom-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.image-zoom-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to top, rgba(22, 7, 11, 0.85) 0%, rgba(22, 7, 11, 0.2) 60%, rgba(22, 7, 11, 0.1) 100%);
+    opacity: 0.85;
+    transition: var(--transition-smooth);
+}
+
+.image-zoom-container:hover img {
+    transform: scale(1.12);
+}
+
+.image-zoom-container:hover .image-zoom-overlay {
+    opacity: 0.95;
+    background: linear-gradient(to top, rgba(141, 27, 61, 0.7) 0%, rgba(22, 7, 11, 0.4) 100%);
+}
+
+.image-zoom-title {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    z-index: 5;
+    color: var(--text-white);
+    margin: 0;
+    transition: var(--transition-smooth);
+}
+
+.image-zoom-container:hover .image-zoom-title {
+    transform: translateY(-5px);
+    color: var(--gold-glow);
+}
+
+/* 8. Call To Action (CTAs) & Section Lines */
+.bg-cta-glossy {
+    background: linear-gradient(135deg, #090305 0%, #16070B 40%, var(--bg-dark-accent) 70%, var(--qatar-maroon-dark) 100%) !important;
+    border: 1px solid rgba(212, 175, 55, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.bg-cta-glossy::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at 80% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%; width: 70px; height: 3px;
+    background: linear-gradient(90deg, var(--premium-gold), var(--qatar-maroon));
+    border-radius: 2px;
+    transform: translateX(-50%);
+}
+
+.section-title-left {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.section-title-left::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; width: 70px; height: 3px;
+    background: linear-gradient(90deg, var(--premium-gold), var(--qatar-maroon));
+    border-radius: 2px;
+}
+
+/* 9. Dynamic Reveal Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.reveal-element {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-element.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 10. Responsive Utilities */
+@media (max-width: 991px) {
+    .brand-navbar {
+        padding: 0.6rem 1.5rem;
+    }
+    .brand-navbar.scrolled {
+        padding: 0.5rem 1.5rem;
+    }
+    .carousel-custom-caption {
+        padding: 2rem 1.5rem;
+        top: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+    .brand-navbar {
+        padding: 0.5rem 1rem !important;
+        background: rgba(11, 4, 6, 0.95) !important;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+    .carousel-custom-item {
+        height: 80vh;
+        min-height: 500px;
+    }
+    .carousel-custom-caption {
+        padding: 1.25rem 0.75rem;
+        border-radius: 1.2rem;
+        top: 50%;
+        width: 95%;
+        transform: translate(-50%, -45%);
+    }
+    .floating-social {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        gap: 0.8rem;
+    }
+    .social-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Course Matrix Table CSS */
+.table-premium {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+}
+
+.table-premium th {
+    background-color: var(--bg-card);
+    color: var(--premium-gold);
+    font-weight: 600;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.25);
+    padding: 1rem 1.5rem;
+}
+
+.table-premium td {
+    background-color: rgba(22, 7, 11, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    transition: var(--transition-fast);
+}
+
+.table-premium tr:last-child td {
+    border-bottom: none;
+}
+
+.table-premium tr:hover td {
+    background-color: rgba(141, 27, 61, 0.08);
+    color: var(--text-white);
+}
+
+/* Glass Floating Input Fields (Contact Page) */
+.form-glass-input {
+    background: rgba(22, 7, 11, 0.5) !important;
+    border: 1px solid rgba(212, 175, 55, 0.15) !important;
+    color: var(--text-white) !important;
+    border-radius: 0.75rem !important;
+    padding: 0.75rem 1rem !important;
+    transition: var(--transition-smooth) !important;
+}
+
+.form-glass-input:focus {
+    background: rgba(22, 7, 11, 0.8) !important;
+    border-color: var(--premium-gold) !important;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2) !important;
+    outline: none !important;
+}
+
+.form-glass-label {
+    color: var(--text-muted) !important;
+    transition: var(--transition-fast) !important;
+}
+
+.form-glass-input:focus ~ .form-glass-label,
+.form-glass-input:not(:placeholder-shown) ~ .form-glass-label {
+    color: var(--premium-gold) !important;
+}
