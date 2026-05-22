@@ -129,14 +129,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     formCard.innerHTML = `
                         <div class="text-center py-5 reveal-element active">
-                            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold mb-6" style="background: linear-gradient(135deg, var(--gold-glow) 0%, var(--premium-gold) 100%);">
+                            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gold mb-6" style="background: linear-gradient(135deg, var(--purple-glow) 0%, var(--theme-purple) 100%);">
                                 <i class="fas fa-check text-bg-midnight text-4xl"></i>
                             </div>
-                            <h3 class="font-serif fw-bold text-gold fs-2 mb-3">Enquiry Submitted!</h3>
-                            <p class="text-slate-300 mb-6">Thank you, <b>${nameInput.value}</b>. Your interest in Hamda Science Academy is received. Our academic coordinator will contact you shortly on <b>${phoneInput.value}</b>.</p>
+                            <h3 class="font-serif fw-bold text-purple fs-2 mb-3">Enquiry Submitted!</h3>
+                            <p class="text-slate-700 mb-6">Thank you, <b>${nameInput.value}</b>. Your interest in Hamda Science Academy is received. Our academic coordinator will contact you shortly on <b>${phoneInput.value}</b>.</p>
                             <div class="inline-flex gap-3 justify-center">
                                 <a href="https://wa.me/919562844006?text=Hi,%20I%20have%20submitted%20my%20enquiry.%20Name:%20${encodeURIComponent(nameInput.value)}" target="_blank" class="btn btn-maroon px-4 py-2 rounded-pill"><i class="fab fa-whatsapp me-2"></i> WhatsApp Connect</a>
-                                <button id="resetFormBtn" class="btn btn-outline-gold px-4 py-2 rounded-pill">Submit Another</button>
+                                <button id="resetFormBtn" class="btn btn-outline-purple px-4 py-2 rounded-pill">Submit Another</button>
                             </div>
                         </div>
                     `;

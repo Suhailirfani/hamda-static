@@ -7,27 +7,27 @@
 
 :root {
     /* Color Palette */
-    --bg-midnight: #0B0406;
-    --bg-card: #16070B;
-    --bg-card-hover: #1E0C0F;
-    --bg-dark-accent: #291016;
+    --bg-midnight: #FFFFFF;
+    --bg-card: #F8F9FA;
+    --bg-card-hover: #E9ECEF;
+    --bg-dark-accent: #DEE2E6;
     
     --qatar-maroon: #8D1B3D;
     --qatar-maroon-glow: #A1234A;
     --qatar-maroon-dark: #581025;
     
-    --premium-gold: #D4AF37;
-    --gold-glow: #F5D670;
-    --gold-dark: #AA8825;
+    --theme-purple: #6f42c1;
+    --purple-glow: #F5D670;
+    --purple-dark: #AA8825;
     
     /* Text Colors */
-    --text-white: #FFFFFF;
-    --text-light: #F1F5F9;
-    --text-muted: #94A3B8;
+    --text-dark: #212529;
+    --text-light: #495057;
+    --text-muted: #6C757D;
     --text-dark-muted: #64748B;
     
     /* Glassmorphism */
-    --glass-bg: rgba(22, 7, 11, 0.65);
+    --glass-bg: rgba(255, 255, 255, 0.85);
     --glass-border: rgba(212, 175, 55, 0.15);
     --glass-border-hover: rgba(212, 175, 55, 0.35);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
@@ -84,9 +84,9 @@ body {
     font-family: var(--font-heading);
 }
 
-.text-gold {
-    color: var(--premium-gold);
-    background: linear-gradient(135deg, var(--gold-glow) 0%, var(--premium-gold) 50%, var(--gold-dark) 100%);
+.text-purple {
+    color: var(--theme-purple);
+    background: linear-gradient(135deg, var(--purple-glow) 0%, var(--theme-purple) 50%, var(--purple-dark) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -183,13 +183,13 @@ body {
     content: '';
     position: absolute;
     bottom: 0; left: 50%; width: 0; height: 2px;
-    background: var(--premium-gold);
+    background: var(--theme-purple);
     transition: var(--transition-smooth);
     transform: translateX(-50%);
 }
 
 .nav-link-custom:hover {
-    color: var(--gold-glow);
+    color: var(--purple-glow);
 }
 
 .nav-link-custom:hover::after,
@@ -198,12 +198,12 @@ body {
 }
 
 .nav-link-custom.active {
-    color: var(--premium-gold);
+    color: var(--theme-purple);
 }
 
 /* 4. Luxury Buttons */
-.btn-gold {
-    background: linear-gradient(135deg, var(--gold-glow) 0%, var(--premium-gold) 50%, var(--gold-dark) 100%);
+.btn-purple {
+    background: linear-gradient(135deg, var(--purple-glow) 0%, var(--theme-purple) 50%, var(--purple-dark) 100%);
     color: var(--bg-midnight) !important;
     font-weight: 700;
     letter-spacing: 0.05rem;
@@ -212,7 +212,7 @@ body {
     transition: var(--transition-smooth);
 }
 
-.btn-gold:hover {
+.btn-purple:hover {
     transform: translateY(-3px) scale(1.03);
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.55);
     filter: brightness(1.15);
@@ -220,7 +220,7 @@ body {
 
 .btn-maroon {
     background: linear-gradient(135deg, var(--qatar-maroon-glow) 0%, var(--qatar-maroon) 50%, var(--qatar-maroon-dark) 100%);
-    color: var(--text-white) !important;
+    color: var(--text-dark) !important;
     font-weight: 600;
     letter-spacing: 0.05rem;
     border: 1px solid rgba(212, 175, 55, 0.2);
@@ -230,21 +230,21 @@ body {
 
 .btn-maroon:hover {
     transform: translateY(-3px) scale(1.03);
-    border-color: var(--premium-gold);
+    border-color: var(--theme-purple);
     box-shadow: 0 8px 25px rgba(141, 27, 61, 0.6);
     filter: brightness(1.15);
 }
 
-.btn-outline-gold {
-    color: var(--premium-gold) !important;
+.btn-outline-purple {
+    color: var(--theme-purple) !important;
     background: transparent !important;
-    border: 2px solid var(--premium-gold) !important;
+    border: 2px solid var(--theme-purple) !important;
     font-weight: 600;
     transition: var(--transition-smooth);
 }
 
-.btn-outline-gold:hover {
-    background: linear-gradient(135deg, var(--gold-glow) 0%, var(--premium-gold) 100%) !important;
+.btn-outline-purple:hover {
+    background: linear-gradient(135deg, var(--purple-glow) 0%, var(--theme-purple) 100%) !important;
     color: var(--bg-midnight) !important;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
@@ -254,7 +254,7 @@ body {
 .carousel-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: linear-gradient(to bottom, rgba(11, 4, 6, 0.3) 0%, rgba(11, 4, 6, 0.75) 60%, rgba(11, 4, 6, 0.95) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.75) 60%, rgba(255, 255, 255, 0.95) 100%);
     z-index: 1;
 }
 
@@ -315,7 +315,7 @@ body {
     transform: scale(1.15) translateY(-5px) rotate(8deg);
     color: white;
     box-shadow: 0 15px 35px rgba(0,0,0,0.7), 0 0 20px rgba(212, 175, 55, 0.25);
-    border-color: var(--premium-gold);
+    border-color: var(--theme-purple);
 }
 
 .social-btn.whatsapp {
@@ -372,7 +372,7 @@ body {
 
 .image-zoom-container:hover .image-zoom-overlay {
     opacity: 0.95;
-    background: linear-gradient(to top, rgba(141, 27, 61, 0.7) 0%, rgba(22, 7, 11, 0.4) 100%);
+    background: linear-gradient(to top, rgba(141, 27, 61, 0.7) 0%, rgba(255, 255, 255, 0.6) 100%);
 }
 
 .image-zoom-title {
@@ -380,19 +380,19 @@ body {
     bottom: 1.5rem;
     left: 1.5rem;
     z-index: 5;
-    color: var(--text-white);
+    color: var(--text-dark);
     margin: 0;
     transition: var(--transition-smooth);
 }
 
 .image-zoom-container:hover .image-zoom-title {
     transform: translateY(-5px);
-    color: var(--gold-glow);
+    color: var(--purple-glow);
 }
 
 /* 8. Call To Action (CTAs) & Section Lines */
 .bg-cta-glossy {
-    background: linear-gradient(135deg, #090305 0%, #16070B 40%, var(--bg-dark-accent) 70%, var(--qatar-maroon-dark) 100%) !important;
+    background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 40%, var(--bg-dark-accent) 70%, var(--qatar-maroon-dark) 100%) !important;
     border: 1px solid rgba(212, 175, 55, 0.12);
     position: relative;
     overflow: hidden;
@@ -416,7 +416,7 @@ body {
     content: '';
     position: absolute;
     bottom: 0; left: 50%; width: 70px; height: 3px;
-    background: linear-gradient(90deg, var(--premium-gold), var(--qatar-maroon));
+    background: linear-gradient(90deg, var(--theme-purple), var(--qatar-maroon));
     border-radius: 2px;
     transform: translateX(-50%);
 }
@@ -431,7 +431,7 @@ body {
     content: '';
     position: absolute;
     bottom: 0; left: 0; width: 70px; height: 3px;
-    background: linear-gradient(90deg, var(--premium-gold), var(--qatar-maroon));
+    background: linear-gradient(90deg, var(--theme-purple), var(--qatar-maroon));
     border-radius: 2px;
 }
 
@@ -475,7 +475,7 @@ body {
 @media (max-width: 768px) {
     .brand-navbar {
         padding: 0.5rem 1rem !important;
-        background: rgba(11, 4, 6, 0.95) !important;
+        background: rgba(255, 255, 255, 0.95) !important;
         border-bottom: 1px solid rgba(212, 175, 55, 0.1);
     }
     .carousel-custom-item {
@@ -513,14 +513,14 @@ body {
 
 .table-premium th {
     background-color: var(--bg-card);
-    color: var(--premium-gold);
+    color: var(--theme-purple);
     font-weight: 600;
     border-bottom: 2px solid rgba(212, 175, 55, 0.25);
     padding: 1rem 1.5rem;
 }
 
 .table-premium td {
-    background-color: rgba(22, 7, 11, 0.4);
+    background-color: rgba(255, 255, 255, 0.6);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     padding: 1rem 1.5rem;
     transition: var(--transition-fast);
@@ -532,22 +532,22 @@ body {
 
 .table-premium tr:hover td {
     background-color: rgba(141, 27, 61, 0.08);
-    color: var(--text-white);
+    color: var(--text-dark);
 }
 
 /* Glass Floating Input Fields (Contact Page) */
 .form-glass-input {
-    background: rgba(22, 7, 11, 0.5) !important;
+    background: rgba(255, 255, 255, 0.8) !important;
     border: 1px solid rgba(212, 175, 55, 0.15) !important;
-    color: var(--text-white) !important;
+    color: var(--text-dark) !important;
     border-radius: 0.75rem !important;
     padding: 0.75rem 1rem !important;
     transition: var(--transition-smooth) !important;
 }
 
 .form-glass-input:focus {
-    background: rgba(22, 7, 11, 0.8) !important;
-    border-color: var(--premium-gold) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-color: var(--theme-purple) !important;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.2) !important;
     outline: none !important;
 }
@@ -559,5 +559,5 @@ body {
 
 .form-glass-input:focus ~ .form-glass-label,
 .form-glass-input:not(:placeholder-shown) ~ .form-glass-label {
-    color: var(--premium-gold) !important;
+    color: var(--theme-purple) !important;
 }
