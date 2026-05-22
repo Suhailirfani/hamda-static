@@ -18,6 +18,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="static/css/style.css">
     
@@ -30,15 +33,32 @@
                         midnight: '#0B0406',
                         velvet: '#E9ECEF',
                         accent: '#291016',
-                        purple: '#6f42c1',
+                        purple: '#8D1B3D',
                         maroon: '#8D1B3D',
+                        'maroon-glow': '#A1234A',
+                        'maroon-dark': '#581025',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-[#0B0406]">
+<body class="bg-white">
+
+    <!-- Preloader Screen -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="static/favicon.png" alt="Hamda Logo" class="preloader-logo">
+            <div class="preloader-progress-bar">
+                <div class="preloader-progress-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Ambient Glow Blobs -->
+    <div class="ambient-blob blob-maroon" style="top: 12%; left: -100px;"></div>
+    <div class="ambient-blob blob-purple" style="top: 38%; right: -150px;"></div>
+    <div class="ambient-blob blob-maroon" style="bottom: 22%; left: 10%;"></div>
 
     <!-- Fixed Premium Header/Navbar -->
     <nav class="brand-navbar">
@@ -49,37 +69,66 @@
             </a>
         </div>
         
-        <!-- Navigation Links -->
-        <div class="flex items-center gap-1 md:gap-4">
+        <!-- Navigation Links (Desktop) -->
+        <div class="hidden md:flex items-center gap-1 md:gap-4">
             <a href="index.html" class="nav-link-custom">Home</a>
             <a href="about.html" class="nav-link-custom">About Us</a>
             <a href="courses.html" class="nav-link-custom active">Courses</a>
             <a href="contact.html" class="nav-link-custom">Contact</a>
             <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
         </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menuToggle" class="mobile-menu-toggle md:hidden" aria-label="Toggle Menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
     </nav>
 
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-nav-drawer">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
+                <span class="font-serif fw-bold text-purple text-lg uppercase tracking-wide">Hamda</span>
+            </a>
+            <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="courses.html" class="mobile-nav-link">Courses</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="contact.html" class="btn btn-purple py-3 rounded-full text-sm mt-6 w-full text-center">Admissions Open</a>
+        </div>
+    </div>
+    <!-- Backdrop for Mobile Drawer -->
+    <div id="menuBackdrop" class="mobile-nav-backdrop"></div>
+
     <!-- Page Banner Section -->
-    <section class="relative pt-36 pb-20 px-4 bg-gradient-to-b from-[#E9ECEF] to-[#0B0406] overflow-hidden border-b border-purple/10">
+    <section class="relative pt-36 pb-20 px-4 bg-gradient-to-b from-[#F8F4F5] to-white overflow-hidden border-b border-[#8D1B3D]/10">
         <div class="absolute inset-0 bg-radial-gradient(circle at 50% 50%, rgba(141, 27, 61, 0.15) 0%, transparent 80%) pointer-events-none"></div>
         <div class="container max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-block bg-[#8D1B3D]/30 border border-[#6f42c1]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Our Core Programs</span>
+            <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Our Core Programs</span>
             <h1 class="display-3 font-serif fw-bold text-dark mb-3">Integrated <span class="text-purple">Curriculum</span></h1>
             <p class="fs-5 text-slate-700 max-w-2xl mx-auto">Meticulously structured courses designed to bridge senior secondary education with premier professional medical & engineering targets.</p>
         </div>
     </section>
 
     <!-- Main Course Details -->
-    <section class="py-24 px-4 bg-[#0B0406] overflow-hidden">
+    <section class="py-24 px-4 bg-white overflow-hidden">
         <div class="container max-w-6xl mx-auto space-y-24">
             
             <!-- Course 1 -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-element">
-                <div class="lg:col-span-6">
+                <div class="lg:col-span-6" data-aos="fade-right">
                     <div class="w-16 h-16 bg-[#8D1B3D]/35 rounded-2xl flex items-center justify-center mb-6 border border-purple/20 shadow-lg shadow-[#8D1B3D]/25">
                         <i class="fas fa-microscope text-purple text-2xl"></i>
                     </div>
-                    <span class="inline-block bg-[#8D1B3D]/20 text-[#6f42c1] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Core Academic Board</span>
+                    <span class="inline-block bg-[#8D1B3D]/20 text-[#8D1B3D] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Core Academic Board</span>
                     <h2 class="display-5 font-serif fw-bold text-dark mb-4">Plus Two Science Stream</h2>
                     <p class="text-slate-700 text-sm md:text-base mb-4">
                         Our standard Plus Two Science program delivers deep conceptual clarity in physical and life sciences. We strictly cover NCERT and board syllabi to ensure students achieve high-tier board scores.
@@ -88,14 +137,14 @@
                         Under our program, theoretical learning is thoroughly supported by detailed laboratory experiments in custom-built labs. We emphasize critical analysis, experimental accuracy, and structured writing to prepare students for all board prerequisites.
                     </p>
                     <div class="flex flex-wrap gap-3">
-                        <span class="bg-[#E9ECEF] text-slate-700 px-4 py-2 rounded-xl border border-purple/10 text-xs font-semibold">Physics</span>
-                        <span class="bg-[#E9ECEF] text-slate-700 px-4 py-2 rounded-xl border border-purple/10 text-xs font-semibold">Chemistry</span>
-                        <span class="bg-[#E9ECEF] text-slate-700 px-4 py-2 rounded-xl border border-purple/10 text-xs font-semibold">Biology</span>
-                        <span class="bg-[#E9ECEF] text-slate-700 px-4 py-2 rounded-xl border border-purple/10 text-xs font-semibold">Mathematics</span>
+                        <span class="bg-[#8D1B3D]/10 text-[#8D1B3D] px-4 py-2 rounded-xl border border-[#8D1B3D]/20 text-xs font-semibold">Physics</span>
+                        <span class="bg-[#8D1B3D]/10 text-[#8D1B3D] px-4 py-2 rounded-xl border border-[#8D1B3D]/20 text-xs font-semibold">Chemistry</span>
+                        <span class="bg-[#8D1B3D]/10 text-[#8D1B3D] px-4 py-2 rounded-xl border border-[#8D1B3D]/20 text-xs font-semibold">Biology</span>
+                        <span class="bg-[#8D1B3D]/10 text-[#8D1B3D] px-4 py-2 rounded-xl border border-[#8D1B3D]/20 text-xs font-semibold">Mathematics</span>
                     </div>
                 </div>
-                <div class="lg:col-span-6">
-                    <div class="relative image-zoom-container shadow-2xl rounded-3xl" style="height: 380px;">
+                <div class="lg:col-span-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative image-zoom-container shadow-2xl rounded-3xl h-[280px] md:h-[380px]">
                         <img src="static/images/classroom.png" class="w-full h-full object-cover" alt="Plus two classroom">
                         <div class="image-zoom-overlay"></div>
                     </div>
@@ -104,11 +153,11 @@
 
             <!-- Course 2 -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-element">
-                <div class="lg:col-span-6 lg:order-last">
+                <div class="lg:col-span-6 lg:order-last" data-aos="fade-left">
                     <div class="w-16 h-16 bg-[#8D1B3D]/35 rounded-2xl flex items-center justify-center mb-6 border border-purple/20 shadow-lg shadow-[#8D1B3D]/25">
                         <i class="fas fa-stethoscope text-purple text-2xl"></i>
                     </div>
-                    <span class="inline-block bg-[#8D1B3D]/20 text-[#6f42c1] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Competitive Medical Focus</span>
+                    <span class="inline-block bg-[#8D1B3D]/20 text-[#8D1B3D] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Competitive Medical Focus</span>
                     <h2 class="display-5 font-serif fw-bold text-dark mb-4">NEET Integrated Program</h2>
                     <p class="text-slate-700 text-sm md:text-base mb-4">
                         Engineered specifically for girls aspiring to secure admission in prestigious medical colleges. This course seamlessly integrates competitive NEET prep with the secondary science curriculum.
@@ -123,8 +172,8 @@
                         <div class="flex items-center gap-2"><i class="fas fa-check text-purple"></i> Custom NEET Prep Materials</div>
                     </div>
                 </div>
-                <div class="lg:col-span-6">
-                    <div class="relative image-zoom-container shadow-2xl rounded-3xl" style="height: 380px;">
+                <div class="lg:col-span-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="relative image-zoom-container shadow-2xl rounded-3xl h-[280px] md:h-[380px]">
                         <img src="static/images/hero2.png" class="w-full h-full object-cover" alt="Science Laboratory NEET Prep">
                         <div class="image-zoom-overlay"></div>
                     </div>
@@ -133,11 +182,11 @@
 
             <!-- Course 3 -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal-element">
-                <div class="lg:col-span-6">
+                <div class="lg:col-span-6" data-aos="fade-right">
                     <div class="w-16 h-16 bg-[#8D1B3D]/35 rounded-2xl flex items-center justify-center mb-6 border border-purple/20 shadow-lg shadow-[#8D1B3D]/25">
                         <i class="fas fa-microchip text-purple text-2xl"></i>
                     </div>
-                    <span class="inline-block bg-[#8D1B3D]/20 text-[#6f42c1] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Competitive Engineering Focus</span>
+                    <span class="inline-block bg-[#8D1B3D]/20 text-[#8D1B3D] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-3">Competitive Engineering Focus</span>
                     <h2 class="display-5 font-serif fw-bold text-dark mb-4">JEE Integrated Program</h2>
                     <p class="text-slate-700 text-sm md:text-base mb-4">
                         Tailored for female students targeting national institutions like IITs, NITs, and premier state engineering colleges. The course focuses on conceptual mathematical application.
@@ -152,8 +201,8 @@
                         <div class="flex items-center gap-2"><i class="fas fa-check text-purple"></i> Advanced Physics Seminars</div>
                     </div>
                 </div>
-                <div class="lg:col-span-6">
-                    <div class="relative image-zoom-container shadow-2xl rounded-3xl" style="height: 380px;">
+                <div class="lg:col-span-6" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative image-zoom-container shadow-2xl rounded-3xl h-[280px] md:h-[380px]">
                         <img src="static/images/campus.png" class="w-full h-full object-cover" alt="JEE Study campus view">
                         <div class="image-zoom-overlay"></div>
                     </div>
@@ -164,13 +213,13 @@
     </section>
 
     <!-- Subject Combination Matrix Section -->
-    <section class="py-24 px-4 bg-[#E9ECEF] overflow-x-auto">
+    <section class="py-24 px-4 bg-[#F8F4F5]">
         <div class="container max-w-5xl mx-auto text-center reveal-element">
-            <span class="inline-block text-purple text-sm font-bold tracking-widest uppercase mb-2">Academics</span>
+            <div class="block text-purple text-sm font-bold tracking-widest uppercase mb-2">Academics</div>
             <h2 class="display-5 font-serif fw-bold text-dark mb-12 section-title">Stream & Combination Matrix</h2>
             
-            <div class="min-w-full overflow-hidden align-middle inline-block shadow-2xl rounded-2xl border border-purple/15">
-                <table class="table-premium">
+            <div class="w-full overflow-x-auto shadow-2xl rounded-2xl border border-purple/15">
+                <table class="table-premium min-w-[600px]">
                     <thead>
                         <tr>
                             <th>Stream Code</th>
@@ -199,10 +248,10 @@
     </section>
 
     <!-- FAQs Accordion Section -->
-    <section class="py-24 px-4 bg-[#0B0406]">
+    <section class="py-24 px-4 bg-[#F8F4F5]">
         <div class="container max-w-4xl mx-auto reveal-element">
             <div class="text-center mb-16">
-                <span class="inline-block text-[#8D1B3D] text-sm font-bold tracking-widest uppercase mb-2">Queries</span>
+                <div class="block text-[#8D1B3D] text-sm font-bold tracking-widest uppercase mb-2">Queries</div>
                 <h2 class="display-5 font-serif fw-bold text-dark section-title">Academic Frequently Asked Questions</h2>
             </div>
             
@@ -270,55 +319,55 @@
     </section>
 
     <!-- Footer Area -->
-    <footer class="bg-[#120508] border-t border-[#8D1B3D]/20 text-dark pt-16 pb-8 px-4" id="contact-credentials">
+    <footer class="bg-[#120508] border-t border-[#8D1B3D]/30 text-slate-300 pt-16 pb-8 px-4" id="contact-credentials">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
                 <!-- Info Column -->
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6">
                         <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                        <span class="font-serif fw-bold text-purple text-lg uppercase tracking-wide">Hamda Science Academy</span>
+                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda Science Academy</span>
                     </div>
-                    <p class="text-slate-600 text-sm mb-6">
+                    <p class="text-slate-300 text-sm mb-6">
                         A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering outstanding female science students with highly disciplined moral training and integrated coaching modules.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://www.facebook.com" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/919562844006" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919562844006" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <!-- Quick Navigation Links -->
                 <div class="md:col-span-3">
-                    <h4 class="font-serif fw-bold text-dark text-lg mb-6 tracking-wide">Quick Navigation</h4>
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Quick Navigation</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="index.html" class="text-slate-600 hover:text-purple transition-colors">Home</a></li>
-                        <li><a href="about.html" class="text-slate-600 hover:text-purple transition-colors">About Us</a></li>
-                        <li><a href="courses.html" class="text-slate-600 hover:text-purple transition-colors">Academic Courses</a></li>
-                        <li><a href="contact.html" class="text-slate-600 hover:text-purple transition-colors">Contact Academy</a></li>
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Courses</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Academy</a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Credentials -->
                 <div class="md:col-span-4">
-                    <h4 class="font-serif fw-bold text-dark text-lg mb-6 tracking-wide">Contact Credentials</h4>
-                    <ul class="space-y-4 text-sm text-slate-600">
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Contact Credentials</h4>
+                    <ul class="space-y-4 text-sm text-slate-300">
                         <li class="flex items-start gap-3">
-                            <i class="fas fa-location-dot text-purple mt-1"></i>
+                            <i class="fas fa-location-dot text-[#C4566E] mt-1"></i>
                             <span>Vettikkattiri PO, Thrissur,<br>Kerala 679531</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-purple"></i>
-                            <a href="tel:+919562744006" class="hover:text-purple transition-colors">+91 9562 744 006</a>
+                            <i class="fas fa-phone text-[#C4566E]"></i>
+                            <a href="tel:+919562744006" class="hover:text-white transition-colors">+91 9562 744 006</a>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-purple"></i>
-                            <a href="tel:+919562844006" class="hover:text-purple transition-colors">+91 9562 844 006</a>
+                            <i class="fas fa-phone text-[#C4566E]"></i>
+                            <a href="tel:+919562844006" class="hover:text-white transition-colors">+91 9562 844 006</a>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-purple"></i>
-                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:text-purple transition-colors">hamdascienceacademy@gmail.com</a>
+                            <i class="fas fa-envelope text-[#C4566E]"></i>
+                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:text-white transition-colors">hamdascienceacademy@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -345,6 +394,9 @@
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     
     <!-- Custom Scroll Reveal & Counter Logic -->
     <script src="static/js/main.js"></script>

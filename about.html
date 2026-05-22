@@ -18,6 +18,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="static/css/style.css">
     
@@ -30,15 +33,32 @@
                         midnight: '#0B0406',
                         velvet: '#E9ECEF',
                         accent: '#291016',
-                        purple: '#6f42c1',
+                        purple: '#8D1B3D',
                         maroon: '#8D1B3D',
+                        'maroon-glow': '#A1234A',
+                        'maroon-dark': '#581025',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-[#0B0406]">
+<body class="bg-white">
+
+    <!-- Preloader Screen -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="static/favicon.png" alt="Hamda Logo" class="preloader-logo">
+            <div class="preloader-progress-bar">
+                <div class="preloader-progress-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Ambient Glow Blobs -->
+    <div class="ambient-blob blob-maroon" style="top: 10%; left: -100px;"></div>
+    <div class="ambient-blob blob-purple" style="top: 40%; right: -150px;"></div>
+    <div class="ambient-blob blob-maroon" style="bottom: 20%; left: 10%;"></div>
 
     <!-- Fixed Premium Header/Navbar -->
     <nav class="brand-navbar">
@@ -49,28 +69,57 @@
             </a>
         </div>
         
-        <!-- Navigation Links -->
-        <div class="flex items-center gap-1 md:gap-4">
+        <!-- Navigation Links (Desktop) -->
+        <div class="hidden md:flex items-center gap-1 md:gap-4">
             <a href="index.html" class="nav-link-custom">Home</a>
             <a href="about.html" class="nav-link-custom active">About Us</a>
             <a href="courses.html" class="nav-link-custom">Courses</a>
             <a href="contact.html" class="nav-link-custom">Contact</a>
             <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
         </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menuToggle" class="mobile-menu-toggle md:hidden" aria-label="Toggle Menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
     </nav>
 
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-nav-drawer">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
+                <span class="font-serif fw-bold text-purple text-lg uppercase tracking-wide">Hamda</span>
+            </a>
+            <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="courses.html" class="mobile-nav-link">Courses</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="contact.html" class="btn btn-purple py-3 rounded-full text-sm mt-6 w-full text-center">Admissions Open</a>
+        </div>
+    </div>
+    <!-- Backdrop for Mobile Drawer -->
+    <div id="menuBackdrop" class="mobile-nav-backdrop"></div>
+
     <!-- Page Banner Section -->
-    <section class="relative pt-36 pb-20 px-4 bg-gradient-to-b from-[#E9ECEF] to-[#0B0406] overflow-hidden border-b border-purple/10">
+    <section class="relative pt-36 pb-20 px-4 bg-gradient-to-b from-[#F8F4F5] to-white overflow-hidden border-b border-[#8D1B3D]/10">
         <div class="absolute inset-0 bg-radial-gradient(circle at 50% 50%, rgba(141, 27, 61, 0.15) 0%, transparent 80%) pointer-events-none"></div>
         <div class="container max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-block bg-[#8D1B3D]/30 border border-[#6f42c1]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Learn Who We Are</span>
+            <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Learn Who We Are</span>
             <h1 class="display-3 font-serif fw-bold text-dark mb-3">Our Heritage & <span class="text-purple">Vision</span></h1>
             <p class="fs-5 text-slate-700 max-w-2xl mx-auto">Empowering outstanding female science students through a synthesis of top-tier academic training and strong moral ethics.</p>
         </div>
     </section>
 
     <!-- Detailed Identity Section -->
-    <section class="py-24 px-4 bg-[#0B0406]">
+    <section class="py-24 px-4 bg-white">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                 <!-- Content Column -->
@@ -87,7 +136,7 @@
                     </p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-                        <div class="glass-panel p-4 flex items-start gap-3">
+                        <div class="glass-panel p-4 flex items-start gap-3 tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="100">
                             <div class="w-10 h-10 rounded-full bg-[#8D1B3D]/30 flex items-center justify-center flex-shrink-0 border border-purple/15">
                                 <i class="fas fa-eye text-purple"></i>
                             </div>
@@ -96,7 +145,7 @@
                                 <p class="text-slate-600 text-xs">To be the national benchmark in female-only senior secondary science and competitive career empowerment.</p>
                             </div>
                         </div>
-                        <div class="glass-panel p-4 flex items-start gap-3">
+                        <div class="glass-panel p-4 flex items-start gap-3 tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
                             <div class="w-10 h-10 rounded-full bg-[#8D1B3D]/30 flex items-center justify-center flex-shrink-0 border border-purple/15">
                                 <i class="fas fa-bullseye text-purple"></i>
                             </div>
@@ -119,24 +168,24 @@
     </section>
 
     <!-- Core Culture & Safe Hostel Section -->
-    <section class="py-24 px-4 bg-[#E9ECEF]">
+    <section class="py-24 px-4 bg-[#F8F4F5]">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
                 <!-- Image Column -->
                 <div class="lg:col-span-5 order-last lg:order-first reveal-element">
-                    <div class="relative image-zoom-container shadow-2xl rounded-3xl" style="height: 450px;">
+                    <div class="relative image-zoom-container shadow-2xl rounded-3xl h-[280px] sm:h-[350px] md:h-[450px]">
                         <img src="static/images/hamda_building.jpg" class="w-full h-full object-cover" alt="Residential Girls Hostel Building">
                         <div class="image-zoom-overlay"></div>
-                        <div class="absolute bottom-6 left-6 right-6 bg-[#0B0406]/95 backdrop-blur-md p-4 rounded-xl border border-purple/20 text-center">
-                            <span class="text-purple font-bold text-lg font-serif block">Residential Sanctuary</span>
-                            <span class="text-slate-600 text-xs">Nestled in serene green surroundings of Thrissur</span>
+                        <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-xl border border-[#8D1B3D]/20 text-center">
+                            <div class="text-[#8D1B3D] font-bold text-lg font-serif block">Residential Sanctuary</div>
+                            <span class="text-slate-700 text-xs">Nestled in serene green surroundings of Thrissur</span>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Content Column -->
                 <div class="lg:col-span-7 reveal-element">
-                    <span class="inline-block text-[#8D1B3D] text-sm font-bold tracking-widest uppercase mb-2">Hostel & Living</span>
+                    <div class="block text-[#8D1B3D] text-sm font-bold tracking-widest uppercase mb-2">Hostel & Living</div>
                     <h2 class="display-5 font-serif fw-bold text-dark mb-6 section-title-left">A Secure Residential Oasis</h2>
                     <p class="text-slate-700 text-base mb-4">
                         We understand that academic productivity is profoundly impacted by a student's living environment. Our campus provides a premium, fully residential **Girls-Only Hostel** designed to be a comfortable "home away from home."
@@ -174,44 +223,44 @@
     </section>
 
     <!-- Dynamic Slideshow of Campus Life -->
-    <section class="py-24 px-4 bg-gradient-to-b from-[#E9ECEF] to-[#0B0406]">
+    <section class="py-24 px-4 bg-gradient-to-b from-[#F8F4F5] to-white">
         <div class="container max-w-5xl mx-auto text-center reveal-element">
-            <span class="inline-block text-purple text-sm font-bold tracking-widest uppercase mb-2">Our Facilities</span>
+            <div class="block text-purple text-sm font-bold tracking-widest uppercase mb-2">Our Facilities</div>
             <h2 class="display-5 font-serif fw-bold text-dark mb-12 section-title">Infrastructure Tour</h2>
             
             <div id="facilitiesCarousel" class="carousel slide glass-panel p-6 shadow-2xl" data-bs-ride="carousel" data-bs-interval="4000">
-                <div class="carousel-inner rounded-2xl overflow-hidden" style="height: 400px;">
+                <div class="carousel-inner rounded-2xl overflow-hidden h-[250px] sm:h-[320px] md:h-[400px]">
                     <!-- Slide 1 -->
                     <div class="carousel-item active h-full relative">
                         <img src="static/images/classroom.png" class="w-full h-full object-cover" alt="Classroom Study Area">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/90 to-transparent p-6 text-center">
-                            <h3 class="font-serif fw-bold text-purple fs-3">Modern Classrooms</h3>
-                            <p class="text-slate-700 text-sm">Well-ventilated, spacious seating arrangements equipped with audio-visual learning tools.</p>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
+                            <h3 class="font-serif fw-bold text-white fs-3">Modern Classrooms</h3>
+                            <p class="text-slate-200 text-sm">Well-ventilated, spacious seating arrangements equipped with audio-visual learning tools.</p>
                         </div>
                     </div>
                     <!-- Slide 2 -->
                     <div class="carousel-item h-full relative">
                         <img src="static/images/hero2.png" class="w-full h-full object-cover" alt="Science Laboratory Room">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/90 to-transparent p-6 text-center">
-                            <h3 class="font-serif fw-bold text-purple fs-3">Advanced Scientific Labs</h3>
-                            <p class="text-slate-700 text-sm">Highly equipped individual experiment workbenches for Physics, Chemistry, and Biology practicals.</p>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
+                            <h3 class="font-serif fw-bold text-white fs-3">Advanced Scientific Labs</h3>
+                            <p class="text-slate-200 text-sm">Highly equipped individual experiment workbenches for Physics, Chemistry, and Biology practicals.</p>
                         </div>
                     </div>
                     <!-- Slide 3 -->
                     <div class="carousel-item h-full relative">
                         <img src="static/images/campus.png" class="w-full h-full object-cover" alt="Hamda Academy Green Courtyard">
-                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-midnight/90 to-transparent p-6 text-center">
-                            <h3 class="font-serif fw-bold text-purple fs-3">Green Serene Campus</h3>
-                            <p class="text-slate-700 text-sm">Serene foliage and spacious pathways helping students relax and mentally recharge between study hours.</p>
+                        <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
+                            <h3 class="font-serif fw-bold text-white fs-3">Green Serene Campus</h3>
+                            <p class="text-slate-200 text-sm">Serene foliage and spacious pathways helping students relax and mentally recharge between study hours.</p>
                         </div>
                     </div>
                 </div>
                 
                 <button class="carousel-control-prev" type="button" data-bs-target="#facilitiesCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon bg-[#0B0406]/70 rounded-full p-2.5"></span>
+                    <span class="carousel-control-prev-icon bg-[#8D1B3D]/70 rounded-full p-2.5"></span>
                 </button>
                 <button class="carousel-control-next" type="button" data-bs-target="#facilitiesCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon bg-[#0B0406]/70 rounded-full p-2.5"></span>
+                    <span class="carousel-control-next-icon bg-[#8D1B3D]/70 rounded-full p-2.5"></span>
                 </button>
             </div>
         </div>
@@ -232,55 +281,55 @@
     </section>
 
     <!-- Footer Area -->
-    <footer class="bg-[#120508] border-t border-[#8D1B3D]/20 text-dark pt-16 pb-8 px-4" id="contact-credentials">
+    <footer class="bg-[#120508] border-t border-[#8D1B3D]/30 text-slate-300 pt-16 pb-8 px-4" id="contact-credentials">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
                 <!-- Info Column -->
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6">
                         <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                        <span class="font-serif fw-bold text-purple text-lg uppercase tracking-wide">Hamda Science Academy</span>
+                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda Science Academy</span>
                     </div>
-                    <p class="text-slate-600 text-sm mb-6">
+                    <p class="text-slate-300 text-sm mb-6">
                         A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering outstanding female science students with highly disciplined moral training and integrated coaching modules.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://www.facebook.com" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/919562844006" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919562844006" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <!-- Quick Navigation Links -->
                 <div class="md:col-span-3">
-                    <h4 class="font-serif fw-bold text-dark text-lg mb-6 tracking-wide">Quick Navigation</h4>
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Quick Navigation</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="index.html" class="text-slate-600 hover:text-purple transition-colors">Home</a></li>
-                        <li><a href="about.html" class="text-slate-600 hover:text-purple transition-colors">About Us</a></li>
-                        <li><a href="courses.html" class="text-slate-600 hover:text-purple transition-colors">Academic Courses</a></li>
-                        <li><a href="contact.html" class="text-slate-600 hover:text-purple transition-colors">Contact Academy</a></li>
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Courses</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Academy</a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Credentials -->
                 <div class="md:col-span-4">
-                    <h4 class="font-serif fw-bold text-dark text-lg mb-6 tracking-wide">Contact Credentials</h4>
-                    <ul class="space-y-4 text-sm text-slate-600">
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Contact Credentials</h4>
+                    <ul class="space-y-4 text-sm text-slate-300">
                         <li class="flex items-start gap-3">
-                            <i class="fas fa-location-dot text-purple mt-1"></i>
+                            <i class="fas fa-location-dot text-[#C4566E] mt-1"></i>
                             <span>Vettikkattiri PO, Thrissur,<br>Kerala 679531</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-purple"></i>
-                            <a href="tel:+919562744006" class="hover:text-purple transition-colors">+91 9562 744 006</a>
+                            <i class="fas fa-phone text-[#C4566E]"></i>
+                            <a href="tel:+919562744006" class="hover:text-white transition-colors">+91 9562 744 006</a>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-purple"></i>
-                            <a href="tel:+919562844006" class="hover:text-purple transition-colors">+91 9562 844 006</a>
+                            <i class="fas fa-phone text-[#C4566E]"></i>
+                            <a href="tel:+919562844006" class="hover:text-white transition-colors">+91 9562 844 006</a>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-purple"></i>
-                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:text-purple transition-colors">hamdascienceacademy@gmail.com</a>
+                            <i class="fas fa-envelope text-[#C4566E]"></i>
+                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:text-white transition-colors">hamdascienceacademy@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -307,6 +356,9 @@
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     
     <!-- Custom Scroll Reveal & Counter Logic -->
     <script src="static/js/main.js"></script>

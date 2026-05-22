@@ -18,6 +18,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="static/css/style.css">
     
@@ -30,15 +33,32 @@
                         midnight: '#0B0406',
                         velvet: '#E9ECEF',
                         accent: '#291016',
-                        purple: '#6f42c1',
+                        purple: '#8D1B3D',
                         maroon: '#8D1B3D',
+                        'maroon-glow': '#A1234A',
+                        'maroon-dark': '#581025',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-[#0B0406]">
+<body class="bg-white">
+
+    <!-- Preloader Screen -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <img src="static/favicon.png" alt="Hamda Logo" class="preloader-logo">
+            <div class="preloader-progress-bar">
+                <div class="preloader-progress-line"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Ambient Glow Blobs -->
+    <div class="ambient-blob blob-maroon" style="top: 15%; left: -100px;"></div>
+    <div class="ambient-blob blob-purple" style="top: 50%; right: -150px;"></div>
+    <div class="ambient-blob blob-maroon" style="bottom: 25%; left: 10%;"></div>
 
     <!-- Fixed Premium Header/Navbar -->
     <nav class="brand-navbar">
@@ -49,35 +69,64 @@
             </a>
         </div>
         
-        <!-- Navigation Links -->
-        <div class="flex items-center gap-1 md:gap-4">
+        <!-- Navigation Links (Desktop) -->
+        <div class="hidden md:flex items-center gap-1 md:gap-4">
             <a href="index.html" class="nav-link-custom">Home</a>
             <a href="about.html" class="nav-link-custom">About Us</a>
             <a href="courses.html" class="nav-link-custom">Courses</a>
             <a href="contact.html" class="nav-link-custom active">Contact</a>
             <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
         </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menuToggle" class="mobile-menu-toggle md:hidden" aria-label="Toggle Menu">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+        </button>
     </nav>
 
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-nav-drawer">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
+                <span class="font-serif fw-bold text-purple text-lg uppercase tracking-wide">Hamda</span>
+            </a>
+            <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="courses.html" class="mobile-nav-link">Courses</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="contact.html" class="btn btn-purple py-3 rounded-full text-sm mt-6 w-full text-center">Admissions Open</a>
+        </div>
+    </div>
+    <!-- Backdrop for Mobile Drawer -->
+    <div id="menuBackdrop" class="mobile-nav-backdrop"></div>
+
     <!-- Page Banner Section -->
-    <section class="relative pt-36 pb-20 px-4 bg-gradient-to-b from-[#E9ECEF] to-[#0B0406] overflow-hidden border-b border-purple/10">
+    <section class="relative pt-36 pb-20 px-4 bg-gradient-to-b from-[#F8F4F5] to-white overflow-hidden border-b border-[#8D1B3D]/10">
         <div class="absolute inset-0 bg-radial-gradient(circle at 50% 50%, rgba(141, 27, 61, 0.15) 0%, transparent 80%) pointer-events-none"></div>
         <div class="container max-w-4xl mx-auto text-center relative z-10">
-            <span class="inline-block bg-[#8D1B3D]/30 border border-[#6f42c1]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Reach Out To Us</span>
+            <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Reach Out To Us</span>
             <h1 class="display-3 font-serif fw-bold text-dark mb-3">Contact <span class="text-purple">Our Academy</span></h1>
             <p class="fs-5 text-slate-700 max-w-2xl mx-auto">Get detailed consultation regarding streams, boarding logistics, eligibility scores, and campus enrollment schedules.</p>
         </div>
     </section>
 
     <!-- Contact & Map Section -->
-    <section class="py-24 px-4 bg-[#0B0406] overflow-hidden">
+    <section class="py-24 px-4 bg-white overflow-hidden">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
                 
                 <!-- Form Column -->
-                <div class="lg:col-span-7 reveal-element">
-                    <div class="card-premium shadow-2xl">
-                        <span class="inline-block text-purple text-xs font-bold uppercase tracking-wider mb-2">Admission Enquiry</span>
+                <div class="lg:col-span-7 reveal-element" data-aos="fade-right">
+                    <div class="card-premium shadow-2xl tilt-card shine-sweep">
+                        <div class="block text-purple text-xs font-bold uppercase tracking-wider mb-2">Admission Enquiry</div>
                         <h2 class="font-serif fw-bold text-dark fs-2 mb-6">Send An Enquiry</h2>
                         
                         <form id="enquiryForm" class="space-y-4">
@@ -126,7 +175,7 @@
                 <!-- Info Column -->
                 <div class="lg:col-span-5 space-y-8 reveal-element">
                     <!-- Contact Cards -->
-                    <div class="glass-panel p-6 space-y-6">
+                    <div class="glass-panel p-6 space-y-6 tilt-card shine-sweep" data-aos="fade-left">
                         <h3 class="font-serif fw-bold text-dark fs-4 mb-4 border-b border-purple/15 pb-3">Office Credentials</h3>
                         
                         <div class="flex items-start gap-4">
@@ -175,12 +224,11 @@
                         </div>
                     </div>
 
-                    <!-- Custom Dark Styled Google Maps Embed -->
-                    <div class="image-zoom-container shadow-2xl h-64 border border-purple/15">
-                        <!-- Custom dark styling applied using Tailwind filter classes to invert and blend the map with midnight theme -->
+                    <!-- Google Maps Embed -->
+                    <div class="image-zoom-container shadow-2xl h-64 border border-[#8D1B3D]/15 rounded-3xl overflow-hidden">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.657502422709!2d76.2831847153341!3d10.74100989234582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7d48dc9e5f9db%3A0xe5a133df19a3b508!2sCheruthuruthy%2C%20Kerala!5e0!3m2!1sen!2sin!4v1655490289123!5m2!1sen!2sin" 
-                            class="w-full h-full border-0 grayscale invert contrast-125 opacity-75 hover:opacity-90 transition-opacity" 
+                            class="w-full h-full border-0 opacity-90 hover:opacity-100 transition-opacity" 
                             allowfullscreen="" 
                             loading="lazy" 
                             referrerpolicy="no-referrer-when-downgrade">
@@ -193,55 +241,55 @@
     </section>
 
     <!-- Footer Area -->
-    <footer class="bg-[#120508] border-t border-[#8D1B3D]/20 text-dark pt-16 pb-8 px-4" id="contact-credentials">
+    <footer class="bg-[#120508] border-t border-[#8D1B3D]/30 text-slate-300 pt-16 pb-8 px-4" id="contact-credentials">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
                 <!-- Info Column -->
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6">
                         <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                        <span class="font-serif fw-bold text-purple text-lg uppercase tracking-wide">Hamda Science Academy</span>
+                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda Science Academy</span>
                     </div>
-                    <p class="text-slate-600 text-sm mb-6">
+                    <p class="text-slate-300 text-sm mb-6">
                         A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering outstanding female science students with highly disciplined moral training and integrated coaching modules.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://www.facebook.com" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/919562844006" target="_blank" class="text-slate-600 hover:text-purple text-lg transition-colors"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.facebook.com" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/919562844006" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
                 <!-- Quick Navigation Links -->
                 <div class="md:col-span-3">
-                    <h4 class="font-serif fw-bold text-dark text-lg mb-6 tracking-wide">Quick Navigation</h4>
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Quick Navigation</h4>
                     <ul class="space-y-3 text-sm">
-                        <li><a href="index.html" class="text-slate-600 hover:text-purple transition-colors">Home</a></li>
-                        <li><a href="about.html" class="text-slate-600 hover:text-purple transition-colors">About Us</a></li>
-                        <li><a href="courses.html" class="text-slate-600 hover:text-purple transition-colors">Academic Courses</a></li>
-                        <li><a href="contact.html" class="text-slate-600 hover:text-purple transition-colors">Contact Academy</a></li>
+                        <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Courses</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Academy</a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Credentials -->
                 <div class="md:col-span-4">
-                    <h4 class="font-serif fw-bold text-dark text-lg mb-6 tracking-wide">Contact Credentials</h4>
-                    <ul class="space-y-4 text-sm text-slate-600">
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Contact Credentials</h4>
+                    <ul class="space-y-4 text-sm text-slate-300">
                         <li class="flex items-start gap-3">
-                            <i class="fas fa-location-dot text-purple mt-1"></i>
+                            <i class="fas fa-location-dot text-[#C4566E] mt-1"></i>
                             <span>Vettikkattiri PO, Thrissur,<br>Kerala 679531</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-purple"></i>
-                            <a href="tel:+919562744006" class="hover:text-purple transition-colors">+91 9562 744 006</a>
+                            <i class="fas fa-phone text-[#C4566E]"></i>
+                            <a href="tel:+919562744006" class="hover:text-white transition-colors">+91 9562 744 006</a>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-phone text-purple"></i>
-                            <a href="tel:+919562844006" class="hover:text-purple transition-colors">+91 9562 844 006</a>
+                            <i class="fas fa-phone text-[#C4566E]"></i>
+                            <a href="tel:+919562844006" class="hover:text-white transition-colors">+91 9562 844 006</a>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-purple"></i>
-                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:text-purple transition-colors">hamdascienceacademy@gmail.com</a>
+                            <i class="fas fa-envelope text-[#C4566E]"></i>
+                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:text-white transition-colors">hamdascienceacademy@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -268,6 +316,9 @@
 
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     
     <!-- Custom Scroll Reveal & Counter Logic -->
     <script src="static/js/main.js"></script>
