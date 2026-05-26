@@ -63,8 +63,9 @@
     <!-- Fixed Premium Header/Navbar -->
     <nav class="brand-navbar">
         <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 48px;">
+            <a href="index.html" class="flex items-center gap-2 md:gap-3">
+                <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
+                <span class="font-serif fw-bold text-purple text-base uppercase tracking-wider md:hidden">Hamda</span>
                 <img src="static/images/hamda_letter.png" alt="Hamda Science Academy" class="brand-letter d-none d-md-block" style="height: 52px; width: auto; filter: drop-shadow(0 4px 15px rgba(212,175,55,0.25));">
             </a>
         </div>
@@ -78,12 +79,17 @@
             <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="menuToggle" class="mobile-menu-toggle md:hidden" aria-label="Toggle Menu">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-        </button>
+        <!-- Mobile Quick Actions & Menu Toggle -->
+        <div class="flex items-center gap-4 md:hidden">
+            <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+            <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- Mobile Navigation Drawer Overlay -->
@@ -109,7 +115,7 @@
     <div id="menuBackdrop" class="mobile-nav-backdrop"></div>
 
     <!-- Page Banner Section -->
-    <section class="relative pt-36 pb-20 px-4 bg-gradient-to-b from-[#F8F4F5] to-white overflow-hidden border-b border-[#8D1B3D]/10">
+    <section class="relative pt-24 pb-12 md:pt-36 md:pb-20 px-4 bg-gradient-to-b from-[#F8F4F5] to-white overflow-hidden border-b border-[#8D1B3D]/10">
         <div class="absolute inset-0 bg-radial-gradient(circle at 50% 50%, rgba(141, 27, 61, 0.15) 0%, transparent 80%) pointer-events-none"></div>
         <div class="container max-w-4xl mx-auto text-center relative z-10">
             <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Learn Who We Are</span>
@@ -119,9 +125,9 @@
     </section>
 
     <!-- Detailed Identity Section -->
-    <section class="py-24 px-4 bg-white">
+    <section class="py-12 md:py-24 px-4 bg-white">
         <div class="container max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 <!-- Content Column -->
                 <div class="lg:col-span-7 reveal-element">
                     <h2 class="display-5 font-serif fw-bold text-dark mb-6 section-title-left">Markazuda'wa Thil Islamiyya Thazhapra</h2>
@@ -168,9 +174,9 @@
     </section>
 
     <!-- Core Culture & Safe Hostel Section -->
-    <section class="py-24 px-4 bg-[#F8F4F5]">
+    <section class="py-12 md:py-24 px-4 bg-[#F8F4F5]">
         <div class="container max-w-6xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
                 <!-- Image Column -->
                 <div class="lg:col-span-5 order-last lg:order-first reveal-element">
                     <div class="relative image-zoom-container shadow-2xl rounded-3xl h-[280px] sm:h-[350px] md:h-[450px]">
@@ -223,7 +229,7 @@
     </section>
 
     <!-- Dynamic Slideshow of Campus Life -->
-    <section class="py-24 px-4 bg-gradient-to-b from-[#F8F4F5] to-white">
+    <section class="py-12 md:py-24 px-4 bg-gradient-to-b from-[#F8F4F5] to-white">
         <div class="container max-w-5xl mx-auto text-center reveal-element">
             <div class="block text-purple text-sm font-bold tracking-widest uppercase mb-2">Our Facilities</div>
             <h2 class="display-5 font-serif fw-bold text-dark mb-12 section-title">Infrastructure Tour</h2>
@@ -267,7 +273,7 @@
     </section>
 
     <!-- Admission CTA Section -->
-    <section class="py-24 px-4 bg-cta-glossy text-center overflow-hidden border-y border-purple/10">
+    <section class="py-12 md:py-24 px-4 bg-cta-glossy text-center overflow-hidden border-y border-purple/10">
         <div class="container max-w-4xl mx-auto relative z-10 reveal-element">
             <h2 class="display-3 font-serif fw-bold text-dark mb-3">Empower Your Academic Potential</h2>
             <p class="fs-5 text-slate-700 mb-8 max-w-2xl mx-auto">Secure a seat in our highly coveted batch. Direct admissions counseling and entrance screening applications are ongoing.</p>
@@ -352,6 +358,30 @@
         <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="social-btn instagram" title="Follow us on Instagram">
             <i class="fab fa-instagram"></i>
         </a>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="mobile-bottom-nav md:hidden">
+        <a href="index.html" class="mobile-bottom-nav-item" id="bottomNavHome">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="about.html" class="mobile-bottom-nav-item" id="bottomNavAbout">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+        <a href="courses.html" class="mobile-bottom-nav-item" id="bottomNavCourses">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Courses</span>
+        </a>
+        <a href="contact.html" class="mobile-bottom-nav-item" id="bottomNavContact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+        <button class="mobile-bottom-nav-item" id="bottomNavMenu">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
     </div>
 
     <!-- Bootstrap Bundle JS -->

@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentPath = window.location.pathname;
     const pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     
-    const navLinks = document.querySelectorAll('.nav-link-custom, .mobile-nav-link');
+    const navLinks = document.querySelectorAll('.nav-link-custom, .mobile-nav-link, .mobile-bottom-nav-item');
     navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href === pageName || (pageName === '' && href === 'index.html')) {
@@ -60,11 +60,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobileMenu');
     const menuBackdrop = document.getElementById('menuBackdrop');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    const bottomNavMenu = document.getElementById('bottomNavMenu');
 
     function openMenu() {
         if (mobileMenu) mobileMenu.classList.add('open');
         if (menuBackdrop) menuBackdrop.classList.add('open');
         if (menuToggle) menuToggle.classList.add('open');
+        if (bottomNavMenu) bottomNavMenu.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
 
@@ -72,11 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
         if (mobileMenu) mobileMenu.classList.remove('open');
         if (menuBackdrop) menuBackdrop.classList.remove('open');
         if (menuToggle) menuToggle.classList.remove('open');
+        if (bottomNavMenu) bottomNavMenu.classList.remove('active');
         document.body.style.overflow = '';
     }
 
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
+            if (mobileMenu && mobileMenu.classList.contains('open')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+    }
+    if (bottomNavMenu) {
+        bottomNavMenu.addEventListener('click', (e) => {
+            e.preventDefault();
             if (mobileMenu && mobileMenu.classList.contains('open')) {
                 closeMenu();
             } else {

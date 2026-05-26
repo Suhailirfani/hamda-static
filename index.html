@@ -63,8 +63,9 @@
     <!-- Fixed Premium Header/Navbar -->
     <nav class="brand-navbar">
         <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 48px;">
+            <a href="index.html" class="flex items-center gap-2 md:gap-3">
+                <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
+                <span class="font-serif fw-bold text-purple text-base uppercase tracking-wider md:hidden">Hamda</span>
                 <img src="static/images/hamda_letter.png" alt="Hamda Science Academy" class="brand-letter d-none d-md-block" style="height: 52px; width: auto; filter: drop-shadow(0 4px 15px rgba(212,175,55,0.25));">
             </a>
         </div>
@@ -78,12 +79,17 @@
             <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="menuToggle" class="mobile-menu-toggle md:hidden" aria-label="Toggle Menu">
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-            <span class="hamburger-bar"></span>
-        </button>
+        <!-- Mobile Quick Actions & Menu Toggle -->
+        <div class="flex items-center gap-4 md:hidden">
+            <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+            <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
     </nav>
 
     <!-- Mobile Navigation Drawer Overlay -->
@@ -178,19 +184,19 @@
     <!-- Stats Section (Floating overlapping block) -->
     <section class="relative z-30 px-4 -mt-20 md:-mt-24">
         <div class="container max-w-5xl mx-auto">
-            <div class="glass-panel p-8 md:p-12 reveal-element">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div>
-                        <h3 class="display-4 fw-bold text-purple stats-counter mb-2" data-target="100" data-suffix="%">0%</h3>
-                        <p class="text-slate-700 text-sm md:text-base font-semibold tracking-wide uppercase">Result Oriented Coaching</p>
+            <div class="glass-panel p-4 md:p-12 reveal-element">
+                <div class="grid grid-cols-3 gap-2 md:gap-8 text-center divide-x divide-purple/15">
+                    <div class="px-1">
+                        <h3 class="text-xl md:text-5xl font-bold text-purple stats-counter mb-1" data-target="100" data-suffix="%">0%</h3>
+                        <p class="text-slate-700 text-[9px] md:text-base font-semibold tracking-wide uppercase leading-tight">Result Coaching</p>
                     </div>
-                    <div class="border-y md:border-y-0 md:border-x border-[#8D1B3D]/20 py-6 md:py-0">
-                        <h3 class="display-4 fw-bold text-purple mb-2">NEET/JEE</h3>
-                        <p class="text-slate-700 text-sm md:text-base font-semibold tracking-wide uppercase">Integrated Curriculum</p>
+                    <div class="px-1">
+                        <h3 class="text-base md:text-4xl font-bold text-purple mb-1 mt-1 md:mt-0 leading-none">NEET/JEE</h3>
+                        <p class="text-slate-700 text-[9px] md:text-base font-semibold tracking-wide uppercase leading-tight">Integrated Prep</p>
                     </div>
-                    <div>
-                        <h3 class="display-4 fw-bold text-purple stats-counter mb-2" data-target="100" data-suffix="%">0%</h3>
-                        <p class="text-slate-700 text-sm md:text-base font-semibold tracking-wide uppercase">Female Residential Hostel</p>
+                    <div class="px-1">
+                        <h3 class="text-xl md:text-5xl font-bold text-purple stats-counter mb-1" data-target="100" data-suffix="%">0%</h3>
+                        <p class="text-slate-700 text-[9px] md:text-base font-semibold tracking-wide uppercase leading-tight">Girls Boarding</p>
                     </div>
                 </div>
             </div>
@@ -198,7 +204,7 @@
     </section>
 
     <!-- About Sneak Peak Section -->
-    <section class="py-24 px-4 bg-gradient-to-b from-white to-[#F8F4F5] overflow-hidden">
+    <section class="py-12 md:py-24 px-4 bg-gradient-to-b from-white to-[#F8F4F5] overflow-hidden">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <!-- Visual Panel -->
@@ -242,36 +248,36 @@
     </section>
 
     <!-- Key Unique Features Section -->
-    <section class="py-24 px-4 bg-[#F8F4F5]">
+    <section class="py-12 md:py-24 px-4 bg-[#F8F4F5]">
         <div class="container max-w-6xl mx-auto text-center">
             <div class="block text-purple text-sm font-bold tracking-widest uppercase mb-2">Our Highlights</div>
-            <h2 class="display-5 font-serif fw-bold text-dark mb-12 section-title">Engineered For Excellence</h2>
+            <h2 class="display-5 font-serif fw-bold text-dark mb-8 md:mb-12 section-title">Engineered For Excellence</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4 md:mx-0 md:px-0">
                 <!-- Feature 1 -->
-                <div class="card-premium reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="100">
                     <div class="w-16 h-16 bg-[#8D1B3D]/30 border border-[#8D1B3D]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-microscope text-purple text-2xl"></i>
                     </div>
-                    <h3 class="font-serif fw-bold text-dark fs-3 mb-3">Modern Laboratories</h3>
+                    <h3 class="font-serif fw-bold text-dark fs-4 md:fs-3 mb-3">Modern Laboratories</h3>
                     <p class="text-slate-600 text-sm">State-of-the-art laboratory facilities designed specifically for intensive practical experiments in Physics, Chemistry, and Biology.</p>
                 </div>
                 
                 <!-- Feature 2 -->
-                <div class="card-premium reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
                     <div class="w-16 h-16 bg-[#8D1B3D]/30 border border-[#8D1B3D]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-graduation-cap text-purple text-2xl"></i>
                     </div>
-                    <h3 class="font-serif fw-bold text-dark fs-3 mb-3">Integrated Coaching</h3>
+                    <h3 class="font-serif fw-bold text-dark fs-4 md:fs-3 mb-3">Integrated Coaching</h3>
                     <p class="text-slate-600 text-sm">Simultaneous advanced academic preparation bridging the gap between board level examinations and intensive national entrance tests (NEET/JEE).</p>
                 </div>
                 
                 <!-- Feature 3 -->
-                <div class="card-premium reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="300">
                     <div class="w-16 h-16 bg-[#8D1B3D]/30 border border-[#8D1B3D]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-shield-heart text-purple text-2xl"></i>
                     </div>
-                    <h3 class="font-serif fw-bold text-dark fs-3 mb-3">Premium Safe Campus</h3>
+                    <h3 class="font-serif fw-bold text-dark fs-4 md:fs-3 mb-3">Premium Safe Campus</h3>
                     <p class="text-slate-600 text-sm">Fully residential institution providing 24/7 round-the-clock secure supervision, high-quality hostels, and a peaceful green learning environment.</p>
                 </div>
             </div>
@@ -279,47 +285,47 @@
     </section>
 
     <!-- Dynamic Course Sneak-Peek Section -->
-    <section class="py-24 px-4 bg-gradient-to-b from-[#F8F4F5] to-white">
+    <section class="py-12 md:py-24 px-4 bg-gradient-to-b from-[#F8F4F5] to-white">
         <div class="container max-w-6xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-8 md:mb-16">
                 <h2 class="display-5 font-serif fw-bold text-dark section-title">Academic Programs & <span class="text-purple">Specialized Curriculum</span></h2>
-                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-sm md:text-base">Our academic structure offers robust, result-oriented courses tailored to lead our students straight to admission into prestigious medical and engineering campuses.</p>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-xs md:text-base">Our academic structure offers robust, result-oriented courses tailored to lead our students straight to admission into prestigious medical and engineering campuses.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+            <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4 md:mx-0 md:px-0 items-stretch">
                 <!-- Course 1 -->
-                <div class="glass-panel p-8 text-center flex flex-col justify-between reveal-element h-full tilt-card shine-sweep" data-aos="fade-right" data-aos-delay="100">
+                <div class="glass-panel flex-shrink-0 w-[290px] md:w-auto snap-center p-6 md:p-8 text-center flex flex-col justify-between reveal-element h-auto md:h-full tilt-card shine-sweep" data-aos="fade-right" data-aos-delay="100">
                     <div>
-                        <div class="w-20 h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
-                            <i class="fas fa-stethoscope text-white text-3xl"></i>
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
+                            <i class="fas fa-stethoscope text-white text-2xl md:text-3xl"></i>
                         </div>
-                        <h3 class="font-serif fw-bold text-purple fs-2 mb-3">NEET Integration</h3>
-                        <p class="text-slate-700 text-sm mb-6">Rigorous and intensive medical entrance coaching fully aligned with the senior secondary syllabus, prioritizing Biology, Chemistry, and Physics mastery.</p>
+                        <h3 class="font-serif fw-bold text-purple fs-3 md:fs-2 mb-3">NEET Integration</h3>
+                        <p class="text-slate-700 text-xs md:text-sm mb-6">Rigorous and intensive medical entrance coaching fully aligned with the senior secondary syllabus, prioritizing Biology, Chemistry, and Physics mastery.</p>
                     </div>
                     <a href="courses.html" class="btn btn-outline-purple px-4 py-2 rounded-full text-xs font-bold inline-block">Read Details</a>
                 </div>
                 
                 <!-- Course 2 (Featured) -->
-                <div class="card-premium p-8 text-center flex flex-col justify-between border-2 border-purple/40 relative z-10 scale-100 md:scale-105 shadow-2xl reveal-element h-full tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
-                    <span class="absolute top-4 right-4 bg-[#8D1B3D] text-white text-[10px] font-bold px-3 py-1 rounded-full border border-[#8D1B3D]/20">CORE COURSE</span>
+                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center p-6 md:p-8 text-center flex flex-col justify-between border-2 border-purple/40 relative z-10 shadow-2xl reveal-element h-auto md:h-full tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
+                    <span class="absolute top-4 right-4 bg-[#8D1B3D] text-white text-[9px] font-bold px-3 py-1 rounded-full border border-[#8D1B3D]/20">CORE COURSE</span>
                     <div>
-                        <div class="w-20 h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
-                            <i class="fas fa-atom text-white text-3xl"></i>
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
+                            <i class="fas fa-atom text-white text-2xl md:text-3xl"></i>
                         </div>
-                        <h3 class="font-serif fw-bold text-dark fs-2 mb-3">Plus Two Science</h3>
-                        <p class="text-slate-700 text-sm mb-6">Comprehensive curriculum detailing Physics, Chemistry, Biology, and Mathematics with top-rated laboratory training and standard board preparations.</p>
+                        <h3 class="font-serif fw-bold text-dark fs-3 md:fs-2 mb-3">Plus Two Science</h3>
+                        <p class="text-slate-700 text-xs md:text-sm mb-6">Comprehensive curriculum detailing Physics, Chemistry, Biology, and Mathematics with top-rated laboratory training and standard board preparations.</p>
                     </div>
                     <a href="courses.html" class="btn btn-purple px-4 py-2.5 rounded-full text-xs font-bold inline-block">Read Details</a>
                 </div>
                 
                 <!-- Course 3 -->
-                <div class="glass-panel p-8 text-center flex flex-col justify-between reveal-element h-full tilt-card shine-sweep" data-aos="fade-left" data-aos-delay="300">
+                <div class="glass-panel flex-shrink-0 w-[290px] md:w-auto snap-center p-6 md:p-8 text-center flex flex-col justify-between reveal-element h-auto md:h-full tilt-card shine-sweep" data-aos="fade-left" data-aos-delay="300">
                     <div>
-                        <div class="w-20 h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
-                            <i class="fas fa-microchip text-white text-3xl"></i>
+                        <div class="w-16 h-16 md:w-20 md:h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
+                            <i class="fas fa-microchip text-white text-2xl md:text-3xl"></i>
                         </div>
-                        <h3 class="font-serif fw-bold text-purple fs-2 mb-3">JEE Integration</h3>
-                        <p class="text-slate-700 text-sm mb-6">Conceptual clarity coupled with high-speed advanced mathematical and physical problem-solving skills for premier engineering examinations.</p>
+                        <h3 class="font-serif fw-bold text-purple fs-3 md:fs-2 mb-3">JEE Integration</h3>
+                        <p class="text-slate-700 text-xs md:text-sm mb-6">Conceptual clarity coupled with high-speed advanced mathematical and physical problem-solving skills for premier engineering examinations.</p>
                     </div>
                     <a href="courses.html" class="btn btn-outline-purple px-4 py-2 rounded-full text-xs font-bold inline-block">Read Details</a>
                 </div>
@@ -328,39 +334,39 @@
     </section>
 
     <!-- Campus Gallery (Showing local assets) -->
-    <section class="py-24 px-4 bg-white">
+    <section class="py-12 md:py-24 px-4 bg-white">
         <div class="container max-w-6xl mx-auto">
-            <div class="text-center mb-16">
+            <div class="text-center mb-8 md:mb-16">
                 <div class="block text-purple text-sm font-bold tracking-widest uppercase mb-2">Our Campus Life</div>
                 <h2 class="display-5 font-serif fw-bold text-dark section-title">Campus & Infrastructure</h2>
-                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-sm">Tour the advanced facilities designed to foster scientific creativity, academic focus, and secure living.</p>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-xs md:text-sm">Tour the advanced facilities designed to foster scientific creativity, academic focus, and secure living.</p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4 md:mx-0 md:px-0">
                 <!-- Image 1 -->
-                <div class="reveal-element">
-                    <div class="image-zoom-container shadow-lg h-80">
+                <div class="reveal-element flex-shrink-0 w-[290px] md:w-auto snap-center">
+                    <div class="image-zoom-container shadow-lg h-72 md:h-80">
                         <img src="static/images/hero2.png" alt="Science Laboratory Room">
                         <div class="image-zoom-overlay"></div>
-                        <h4 class="image-zoom-title font-serif fw-bold fs-4">Science Laboratory</h4>
+                        <h4 class="image-zoom-title font-serif fw-bold fs-5 md:fs-4">Science Laboratory</h4>
                     </div>
                 </div>
                 
                 <!-- Image 2 -->
-                <div class="reveal-element">
-                    <div class="image-zoom-container shadow-lg h-80">
+                <div class="reveal-element flex-shrink-0 w-[290px] md:w-auto snap-center">
+                    <div class="image-zoom-container shadow-lg h-72 md:h-80">
                         <img src="static/images/classroom.png" alt="Academic Classroom">
                         <div class="image-zoom-overlay"></div>
-                        <h4 class="image-zoom-title font-serif fw-bold fs-4">Smart Classroom</h4>
+                        <h4 class="image-zoom-title font-serif fw-bold fs-5 md:fs-4">Smart Classroom</h4>
                     </div>
                 </div>
                 
                 <!-- Image 3 -->
-                <div class="reveal-element">
-                    <div class="image-zoom-container shadow-lg h-80">
+                <div class="reveal-element flex-shrink-0 w-[290px] md:w-auto snap-center">
+                    <div class="image-zoom-container shadow-lg h-72 md:h-80">
                         <img src="static/images/hamda_building.jpg" alt="Hamda Academy Building Campus">
                         <div class="image-zoom-overlay"></div>
-                        <h4 class="image-zoom-title font-serif fw-bold fs-4">Residential Campus</h4>
+                        <h4 class="image-zoom-title font-serif fw-bold fs-5 md:fs-4">Residential Campus</h4>
                     </div>
                 </div>
             </div>
@@ -368,7 +374,7 @@
     </section>
 
     <!-- Call To Action Section -->
-    <section class="py-24 px-4 bg-cta-glossy text-center overflow-hidden border-y border-purple/10">
+    <section class="py-12 md:py-24 px-4 bg-cta-glossy text-center overflow-hidden border-y border-purple/10">
         <div class="container max-w-4xl mx-auto relative z-10 reveal-element">
             <h2 class="display-3 font-serif fw-bold text-dark mb-3">Begin Your Journey Towards Success</h2>
             <p class="fs-5 text-slate-700 mb-8 max-w-2xl mx-auto">Admissions are open for the upcoming academic session. Visit our campus at Thazhapra, Cheruthuruthy, for a personalized tour and counseling.</p>
@@ -453,6 +459,30 @@
         <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="social-btn instagram" title="Follow us on Instagram">
             <i class="fab fa-instagram"></i>
         </a>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="mobile-bottom-nav md:hidden">
+        <a href="index.html" class="mobile-bottom-nav-item" id="bottomNavHome">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="about.html" class="mobile-bottom-nav-item" id="bottomNavAbout">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+        <a href="courses.html" class="mobile-bottom-nav-item" id="bottomNavCourses">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Courses</span>
+        </a>
+        <a href="contact.html" class="mobile-bottom-nav-item" id="bottomNavContact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+        <button class="mobile-bottom-nav-item" id="bottomNavMenu">
+            <i class="fas fa-bars"></i>
+            <span>Menu</span>
+        </button>
     </div>
 
     <!-- Bootstrap Bundle JS -->
