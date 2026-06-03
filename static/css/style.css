@@ -638,7 +638,7 @@ section, footer {
         padding: 0.6rem 1.25rem !important;
         font-size: 0.8rem !important;
     }
-    .carousel-custom-caption span {
+    .carousel-custom-caption > span {
         font-size: 9px !important;
         padding: 0.25rem 0.75rem !important;
         margin-bottom: 0.5rem !important;
