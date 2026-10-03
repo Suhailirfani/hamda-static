@@ -230,15 +230,36 @@ section, footer {
     transition: var(--transition-smooth);
 }
 
+.brand-location-tag {
+    font-family: var(--font-body);
+    font-size: 0.52rem;
+    font-weight: 600;
+    color: #64748B;
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+    padding-left: 2px;
+    line-height: 1.1;
+    display: block;
+    white-space: nowrap;
+    max-width: 100%;
+    transition: var(--transition-fast);
+}
+
 @media (max-width: 768px) {
     .brand-navbar {
         padding: 0.5rem 1rem;
     }
     .brand-logo-img {
-        height: 44px;
-        max-height: 46px;
-        max-width: 240px;
+        height: 38px;
+        max-height: 42px;
+        max-width: 200px;
         width: auto;
+    }
+    .brand-location-tag {
+        font-size: 0.44rem;
+        letter-spacing: 0.01em;
+        margin-top: 1px;
+        padding-left: 1px;
     }
 }
 
