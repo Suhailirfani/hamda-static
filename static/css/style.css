@@ -221,6 +221,44 @@ section, footer {
 
 .nav-link-custom.active { color: var(--qatar-maroon); font-weight: 700; }
 
+/* Mobile Brand Header (3 Rows: HAMDA / INTERNATIONAL CAMPUS / THRISSUR) */
+.mobile-brand-wrap {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.mobile-brand-title {
+    font-family: var(--font-heading) !important;
+    font-weight: 800;
+    font-size: 1.3rem;
+    color: var(--qatar-maroon) !important;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.mobile-brand-sub {
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.65rem;
+    color: var(--text-dark);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-top: 1px;
+    line-height: 1.2;
+}
+
+.mobile-brand-loc {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.58rem;
+    color: #718096;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
 /* Mobile Menu Toggle (Hamburger) */
 .mobile-menu-toggle {
     display: flex;

@@ -109,9 +109,13 @@
         <!-- Main Brand Navbar -->
         <nav class="brand-navbar" style="position: relative;">
             <div class="flex items-center gap-3">
-                <a href="index.html" class="flex items-center gap-2 md:gap-3">
-                    <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
-                    <span class="font-serif fw-bold text-purple text-xs sm:text-sm uppercase tracking-wider md:hidden">Hamda International Campus</span>
+                <a href="index.html" class="flex items-center gap-2.5 md:gap-3">
+                    <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 42px; md:height: 48px;">
+                    <div class="mobile-brand-wrap md:hidden">
+                        <span class="mobile-brand-title">HAMDA</span>
+                        <span class="mobile-brand-sub">INTERNATIONAL CAMPUS</span>
+                        <span class="mobile-brand-loc">THRISSUR</span>
+                    </div>
                     <img src="static/images/hamda_letter.png" alt="Hamda International Campus" class="brand-letter d-none d-md-block" style="height: 48px; width: auto; filter: drop-shadow(0 4px 15px rgba(141,27,61,0.25));">
                 </a>
             </div>
@@ -143,8 +147,12 @@
     <div id="mobileMenu" class="mobile-nav-drawer">
         <div class="mobile-nav-header">
             <a href="index.html" class="flex items-center gap-3">
-                <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                <span class="font-serif fw-bold text-purple text-sm uppercase tracking-wide">Hamda International Campus</span>
+                <img src="static/favicon.png" alt="Hamda Logo" style="height: 42px;">
+                <div class="mobile-brand-wrap">
+                    <span class="mobile-brand-title">HAMDA</span>
+                    <span class="mobile-brand-sub">INTERNATIONAL CAMPUS</span>
+                    <span class="mobile-brand-loc">THRISSUR</span>
+                </div>
             </a>
             <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
                 <i class="fas fa-times"></i>
