@@ -225,38 +225,55 @@ section, footer {
 .mobile-brand-wrap {
     display: flex;
     flex-direction: column;
-    line-height: 1.15;
+    justify-content: center;
+    line-height: 1;
 }
 
 .mobile-brand-title {
     font-family: var(--font-heading) !important;
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 1.55rem;
     color: var(--qatar-maroon) !important;
-    letter-spacing: -0.01em;
+    letter-spacing: 0.075em;
     text-transform: uppercase;
     line-height: 1;
+    display: block;
 }
 
 .mobile-brand-sub {
     font-family: var(--font-body);
     font-weight: 700;
-    font-size: 0.65rem;
+    font-size: 0.63rem;
     color: var(--text-dark);
-    letter-spacing: 0.06em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-top: 1px;
+    margin-top: 2px;
     line-height: 1.2;
+    white-space: nowrap;
+    display: block;
 }
 
 .mobile-brand-loc {
     font-family: var(--font-body);
     font-weight: 600;
-    font-size: 0.58rem;
-    color: #718096;
-    letter-spacing: 0.16em;
+    font-size: 0.56rem;
+    color: #64748B;
+    letter-spacing: 0.30em;
     text-transform: uppercase;
+    margin-top: 1px;
     line-height: 1.2;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .brand-navbar {
+        padding: 0.55rem 1rem;
+    }
+    .brand-logo {
+        height: 54px !important;
+        width: auto;
+        flex-shrink: 0;
+    }
 }
 
 /* Mobile Menu Toggle (Hamburger) */
