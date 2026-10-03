@@ -237,9 +237,11 @@ section, footer {
     color: #64748B;
     letter-spacing: 0.02em;
     margin-top: 2px;
-    padding-left: 2px;
+    padding-left: 0;
     line-height: 1.1;
     display: block;
+    width: 100%;
+    text-align: center;
     white-space: nowrap;
     max-width: 100%;
     transition: var(--transition-fast);
@@ -259,7 +261,8 @@ section, footer {
         font-size: 0.44rem;
         letter-spacing: 0.01em;
         margin-top: 1px;
-        padding-left: 1px;
+        padding-left: 0;
+        text-align: center;
     }
 }
 
