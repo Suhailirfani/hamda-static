@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Hamda Science Academy | Cheruthuruthy, Thrissur</title>
-    <meta name="description" content="Contact Hamda Science Academy for admissions, campus tours, and general academic enquiries. Located at Vettikkattiri PO, Cheruthuruthy, Thrissur, Kerala.">
-    <meta name="keywords" content="Contact Hamda Academy, Thrissur science institute contact, girls residential school phone number, admission enquiry form Kerala">
+    <title>Contact Us | Hamda International Campus | Cheruthuruthy, Thrissur</title>
+    <meta name="description" content="Contact Hamda International Campus for admissions, campus tours, and academic enquiries across Science (NEET/JEE), Commerce, and Humanities. Located at Thazhapra, Cheruthuruthy, Thrissur, Kerala.">
+    <meta name="keywords" content="Contact Hamda International Campus, Thrissur higher secondary admissions, girls residential campus contact, Plus One Science Commerce Humanities Kerala">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="static/favicon.png">
     
+    <!-- Google Fonts: Sora & Montserrat (Zaithoon Typography Stack) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
@@ -29,6 +34,12 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                        serif: ['Sora', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
                     colors: {
                         midnight: '#0B0406',
                         velvet: '#E9ECEF',
@@ -60,44 +71,80 @@
     <div class="ambient-blob blob-purple" style="top: 50%; right: -150px;"></div>
     <div class="ambient-blob blob-maroon" style="bottom: 25%; left: 10%;"></div>
 
-    <!-- Fixed Premium Header/Navbar -->
-    <nav class="brand-navbar">
-        <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-2 md:gap-3">
-                <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
-                <span class="font-serif fw-bold text-purple text-xs sm:text-sm uppercase tracking-wider md:hidden">Hamda Science Academy</span>
-                <img src="static/images/hamda_letter.png" alt="Hamda Science Academy" class="brand-letter d-none d-md-block" style="height: 52px; width: auto; filter: drop-shadow(0 4px 15px rgba(212,175,55,0.25));">
-            </a>
-        </div>
-        
-        <!-- Navigation Links (Desktop) -->
-        <div class="hidden md:flex items-center gap-1 md:gap-4">
-            <a href="index.html" class="nav-link-custom">Home</a>
-            <a href="about.html" class="nav-link-custom">About Us</a>
-            <a href="courses.html" class="nav-link-custom">Courses</a>
-            <a href="contact.html" class="nav-link-custom active">Contact</a>
-            <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+    <!-- Header Wrapper (Top Contact Bar + Main Navigation) -->
+    <header class="position-sticky top-0 z-[2000] w-full shadow-sm">
+        <!-- Top Contact Info Bar -->
+        <div class="nav-bar-top-section d-none d-md-flex py-2">
+            <div class="container mx-auto px-4">
+                <div class="row align-items-center justify-content-between text-xs">
+                    <div class="col-lg-3 col-md-4 border-end-desktop">
+                        <p class="mb-0 text-white d-flex align-items-center gap-2">
+                            <i class="fas fa-phone-alt text-[#FFD0DA]"></i>
+                            <a href="tel:+919562744006" class="hover:underline">+91 9562 744 006</a> / 
+                            <a href="tel:+919562844006" class="hover:underline">844 006</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 border-end-desktop text-center">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-center gap-2">
+                            <i class="fas fa-envelope text-[#FFD0DA]"></i>
+                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:underline">hamdascienceacademy@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 border-end-desktop text-center d-none d-lg-block">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-center gap-2">
+                            <i class="fas fa-map-marker-alt text-[#FFD0DA]"></i>
+                            <span>Thazhapra, Cheruthuruthy, Thrissur</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-12 text-end d-none d-lg-block">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-end gap-2">
+                            <i class="fas fa-award text-[#FFD0DA]"></i>
+                            <span>Excellence in Science, Commerce & Humanities</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Mobile Quick Actions & Menu Toggle -->
-        <div class="flex items-center gap-4 md:hidden">
-            <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
-                <i class="fas fa-phone-alt"></i>
-            </a>
-            <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-            </button>
-        </div>
-    </nav>
+        <!-- Main Brand Navbar -->
+        <nav class="brand-navbar" style="position: relative;">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3">
+                    <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
+                    <span class="font-serif fw-bold text-purple text-xs sm:text-sm uppercase tracking-wider md:hidden">Hamda International Campus</span>
+                    <img src="static/images/hamda_letter.png" alt="Hamda International Campus" class="brand-letter d-none d-md-block" style="height: 48px; width: auto; filter: drop-shadow(0 4px 15px rgba(141,27,61,0.25));">
+                </a>
+            </div>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-1 md:gap-4">
+                <a href="index.html" class="nav-link-custom">Home</a>
+                <a href="about.html" class="nav-link-custom">About Us</a>
+                <a href="courses.html" class="nav-link-custom">Courses</a>
+                <a href="contact.html" class="nav-link-custom active">Contact</a>
+                <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+            </div>
+
+            <!-- Mobile Quick Actions & Menu Toggle -->
+            <div class="flex items-center gap-4 md:hidden">
+                <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <!-- Mobile Navigation Drawer Overlay -->
     <div id="mobileMenu" class="mobile-nav-drawer">
         <div class="mobile-nav-header">
             <a href="index.html" class="flex items-center gap-3">
                 <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                <span class="font-serif fw-bold text-purple text-sm uppercase tracking-wide">Hamda Science Academy</span>
+                <span class="font-serif fw-bold text-purple text-sm uppercase tracking-wide">Hamda International Campus</span>
             </a>
             <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
                 <i class="fas fa-times"></i>
@@ -119,8 +166,8 @@
         <div class="absolute inset-0 bg-radial-gradient(circle at 50% 50%, rgba(141, 27, 61, 0.15) 0%, transparent 80%) pointer-events-none"></div>
         <div class="container max-w-4xl mx-auto text-center relative z-10">
             <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Reach Out To Us</span>
-            <h1 class="display-3 font-serif fw-bold text-dark mb-3">Contact <span class="text-purple">Our Academy</span></h1>
-            <p class="fs-5 text-slate-700 max-w-2xl mx-auto">Get detailed consultation regarding streams, boarding logistics, eligibility scores, and campus enrollment schedules.</p>
+            <h1 class="display-3 font-serif fw-bold text-dark mb-3">Contact <span class="text-purple">Hamda Campus</span></h1>
+            <p class="fs-5 text-slate-700 max-w-2xl mx-auto">Get detailed consultation regarding Plus One / Plus Two streams (Science, Commerce, Humanities), residential campus facilities, and admission procedures.</p>
         </div>
     </section>
 
@@ -132,25 +179,25 @@
                 <!-- Form Column -->
                 <div class="lg:col-span-7 reveal-element" data-aos="fade-right">
                     <div class="card-premium shadow-2xl tilt-card shine-sweep">
-                        <div class="block text-purple text-xs font-bold uppercase tracking-wider mb-2">Admission Enquiry</div>
-                        <h2 class="font-serif fw-bold text-dark fs-2 mb-6">Send An Enquiry</h2>
+                        <div class="block text-purple text-xs font-bold uppercase tracking-wider mb-2">Admission Enquiry 2026-27</div>
+                        <h2 class="font-serif fw-bold text-dark fs-2 mb-6">Send An Admission Enquiry</h2>
                         
                         <form id="enquiryForm" class="space-y-4">
                             <!-- Name Field -->
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-glass-input" id="enquiryName" placeholder="Full Name" required>
+                                <input type="text" class="form-control form-glass-input" id="enquiryName" name="student_name" placeholder="Full Name" required>
                                 <label for="enquiryName" class="form-glass-label">Student Name</label>
                             </div>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <!-- Phone Field -->
                                 <div class="form-floating mb-3">
-                                    <input type="tel" class="form-control form-glass-input" id="enquiryPhone" placeholder="Contact Number" required>
+                                    <input type="tel" class="form-control form-glass-input" id="enquiryPhone" name="phone_number" placeholder="Contact Number" required>
                                     <label for="enquiryPhone" class="form-glass-label">Contact Phone Number</label>
                                 </div>
                                 <!-- Email Field -->
                                 <div class="form-floating mb-3">
-                                    <input type="email" class="form-control form-glass-input" id="enquiryEmail" placeholder="Email Address">
+                                    <input type="email" class="form-control form-glass-input" id="enquiryEmail" name="email" placeholder="Email Address">
                                     <label for="enquiryEmail" class="form-glass-label">Email Address (Optional)</label>
                                 </div>
                             </div>
@@ -158,22 +205,30 @@
                             <!-- Course Field -->
                             <div class="mb-3">
                                 <label for="enquiryCourse" class="text-slate-600 text-xs font-medium block mb-2">Select Preferred Academic Stream</label>
-                                <select class="form-select form-glass-input w-full" id="enquiryCourse" required>
-                                    <option value="" disabled selected>Select combination stream...</option>
-                                    <option value="PCBM + NEET">CBSE Plus Two (PCBM) + NEET Integrated Coaching</option>
-                                    <option value="PCBM + JEE">CBSE Plus Two (PCBM) + JEE Integrated Coaching</option>
-                                    <option value="PCBC + NEET">State Board (PCBC) + NEET Integrated Coaching</option>
-                                    <option value="General Science">General Science Stream Overview</option>
+                                <select class="form-select form-glass-input w-full" id="enquiryCourse" name="preferred_stream" required>
+                                    <option value="" disabled selected>Select stream & combination...</option>
+                                    <optgroup label="Plus One Streams">
+                                        <option value="Plus One Science - PCBM (NEET/JEE)">Plus One Science: PCBM (Physics, Chem, Bio, Maths + NEET/JEE)</option>
+                                        <option value="Plus One Science - PCBC (NEET)">Plus One Science: PCBC (Physics, Chem, Bio, Computer + NEET)</option>
+                                        <option value="Plus One Commerce (CA/CMA Foundation)">Plus One Commerce (Accountancy, Business, Economics, CA/CMA)</option>
+                                        <option value="Plus One Humanities (Civil Services/CUET)">Plus One Humanities (History, Pol Sci, Sociology, Civil Services)</option>
+                                    </optgroup>
+                                    <optgroup label="Plus Two Streams & General">
+                                        <option value="Plus Two Science (Medical/Engineering)">Plus Two Science (NEET / JEE Integrated)</option>
+                                        <option value="Plus Two Commerce">Plus Two Commerce (CA / CMA Foundation)</option>
+                                        <option value="Plus Two Humanities">Plus Two Humanities (UPSC / CUET Orientation)</option>
+                                        <option value="General Hostel & Campus Tour">Campus Visit & Residential Hostel Enquiry</option>
+                                    </optgroup>
                                 </select>
                             </div>
                             
                             <!-- Message Field -->
                             <div class="form-floating mb-4">
-                                <textarea class="form-control form-glass-input" id="enquiryMessage" placeholder="Your Message" style="height: 120px;"></textarea>
+                                <textarea class="form-control form-glass-input" id="enquiryMessage" name="message" placeholder="Your Message" style="height: 120px;"></textarea>
                                 <label for="enquiryMessage" class="form-glass-label">Questions or Custom Queries</label>
                             </div>
                             
-                            <button type="submit" class="btn btn-purple w-full py-3 rounded-xl font-bold text-sm uppercase tracking-wider"><i class="fas fa-paper-plane me-2"></i> Submit Academic Enquiry</button>
+                            <button type="submit" id="enquirySubmitBtn" class="btn btn-purple w-full py-3 rounded-xl font-bold text-sm uppercase tracking-wider"><i class="fas fa-paper-plane me-2"></i> Submit Admission Enquiry</button>
                         </form>
                     </div>
                 </div>
@@ -182,7 +237,7 @@
                 <div class="lg:col-span-5 space-y-8 reveal-element">
                     <!-- Contact Cards -->
                     <div class="glass-panel p-6 space-y-6 tilt-card shine-sweep" data-aos="fade-left">
-                        <h3 class="font-serif fw-bold text-dark fs-4 mb-4 border-b border-purple/15 pb-3">Office Credentials</h3>
+                        <h3 class="font-serif fw-bold text-dark fs-4 mb-4 border-b border-purple/15 pb-3">Campus Office Credentials</h3>
                         
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 rounded-full bg-[#8D1B3D]/30 border border-purple/15 flex items-center justify-center flex-shrink-0">
@@ -190,7 +245,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-dark text-sm mb-1">Campus Location</h4>
-                                <p class="text-slate-600 text-xs leading-relaxed">Vettikkattiri PO, Cheruthuruthy, Thrissur District, Kerala, India 679531</p>
+                                <p class="text-slate-600 text-xs leading-relaxed">Thazhapra, Cheruthuruthy PO, Thrissur District, Kerala, India 679531</p>
                             </div>
                         </div>
 
@@ -254,10 +309,10 @@
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6">
                         <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda Science Academy</span>
+                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda International Campus</span>
                     </div>
                     <p class="text-slate-300 text-sm mb-6">
-                        A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering outstanding female science students with highly disciplined moral training and integrated coaching modules.
+                        An esteemed residential campus for girls managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Providing empowering education across Plus One and Plus Two <b>Science</b>, <b>Commerce</b>, and <b>Humanities</b> with integrated career coaching and moral leadership.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://www.facebook.com" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
@@ -273,7 +328,7 @@
                         <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Courses</a></li>
-                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Academy</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Campus</a></li>
                     </ul>
                 </div>
                 
@@ -283,7 +338,7 @@
                     <ul class="space-y-4 text-sm text-slate-300">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-location-dot text-[#C4566E] mt-1"></i>
-                            <span>Vettikkattiri PO, Thrissur,<br>Kerala 679531</span>
+                            <span>Thazhapra, Cheruthuruthy PO,<br>Thrissur, Kerala 679531</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-[#C4566E]"></i>
@@ -304,7 +359,7 @@
             <hr class="my-12 border-slate-800/80">
             
             <div class="flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs gap-4 text-center">
-                <p>&copy; 2026 Hamda Science Academy. All rights reserved.</p>
+                <p>&copy; 2026 Hamda International Campus. All rights reserved.</p>
                 <p>Managed by Markazuda'wa Thil Islamiyya Thazhapra</p>
             </div>
         </div>

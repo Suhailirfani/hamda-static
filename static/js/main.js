@@ -1,6 +1,6 @@
 /* ==========================================================================
    INTERACTIVITY AND ANIMATIONS
-   Hamda Science Academy Static Website Core JS
+   Hamda International Campus Static Website Core JS
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -260,10 +260,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Contact / Enquiry Form Interactive Response
+    // 9. Contact / Enquiry Form Interactive Response & Google Sheet Integration
+    // Replace the URL below with your deployed Google Apps Script Web App URL
+    const GOOGLE_SHEET_WEBAPP_URL = ''; 
+
     const enquiryForm = document.getElementById('enquiryForm');
     if (enquiryForm) {
-        enquiryForm.addEventListener('submit', (e) => {
+        enquiryForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             // Client-side validation
@@ -272,6 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const emailInput = document.getElementById('enquiryEmail');
             const courseSelect = document.getElementById('enquiryCourse');
             const messageInput = document.getElementById('enquiryMessage');
+            const submitBtn = document.getElementById('enquirySubmitBtn');
             
             let isValid = true;
             
@@ -296,22 +300,55 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             if (isValid) {
+                // Show submitting loading state on button
+                const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = `<i class="fas fa-circle-notch fa-spin me-2"></i> Submitting to Google Sheet...`;
+                }
+
+                // Prepare FormData for Google Sheet Web App
+                const formData = new FormData();
+                formData.append('student_name', nameInput.value.trim());
+                formData.append('phone_number', phoneInput.value.trim());
+                formData.append('email', emailInput ? emailInput.value.trim() : '');
+                formData.append('preferred_stream', courseSelect.value);
+                formData.append('message', messageInput ? messageInput.value.trim() : '');
+                formData.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+
+                // Submit to Google Sheet if WebApp URL is configured
+                if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL.trim() !== '') {
+                    try {
+                        await fetch(GOOGLE_SHEET_WEBAPP_URL, {
+                            method: 'POST',
+                            body: formData,
+                            mode: 'no-cors'
+                        });
+                    } catch (err) {
+                        console.warn('Google Sheet submission fetch warning:', err);
+                    }
+                }
+
                 // Show a stunning glassmorphic success modal overlay
                 const formCard = enquiryForm.closest('.card-premium');
                 const originalContent = formCard.innerHTML;
                 
                 formCard.style.opacity = '0';
                 setTimeout(() => {
+                    const waMessage = `*Hamda International Campus - Admission Enquiry*\n\n*Name:* ${nameInput.value.trim()}\n*Phone:* ${phoneInput.value.trim()}\n*Stream:* ${courseSelect.value}\n*Email:* ${emailInput.value.trim() || 'N/A'}\n*Message:* ${messageInput.value.trim() || 'N/A'}`;
+                    
                     formCard.innerHTML = `
                         <div class="text-center py-5 reveal-element active">
                             <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6" style="background: linear-gradient(135deg, var(--qatar-maroon-glow) 0%, var(--theme-purple) 100%);">
                                 <i class="fas fa-check text-white text-4xl"></i>
                             </div>
-                            <h3 class="font-serif fw-bold text-purple fs-2 mb-3">Enquiry Submitted!</h3>
-                            <p class="text-slate-700 mb-6 px-3">Thank you, <b>${nameInput.value}</b>. Your interest in Hamda Science Academy is received. Our academic coordinator will contact you shortly on <b>${phoneInput.value}</b>.</p>
-                            <div class="inline-flex gap-3 justify-center">
-                                <a href="https://wa.me/919562844006?text=Hi,%20I%20have%20submitted%20my%20enquiry.%20Name:%20${encodeURIComponent(nameInput.value)}" target="_blank" class="btn btn-maroon px-4 py-2 rounded-pill"><i class="fab fa-whatsapp me-2"></i> WhatsApp Connect</a>
-                                <button id="resetFormBtn" class="btn btn-outline-purple px-4 py-2 rounded-pill">Submit Another</button>
+                            <h3 class="font-serif fw-bold text-purple fs-2 mb-3">Enquiry Recorded!</h3>
+                            <p class="text-slate-700 mb-2 px-3">Thank you, <b>${nameInput.value}</b>. Your admission enquiry for <b>${courseSelect.value}</b> has been received and saved.</p>
+                            <p class="text-slate-500 text-xs mb-6">Our academic admissions counselor will contact you shortly on <b>${phoneInput.value}</b>.</p>
+                            
+                            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                                <a href="https://wa.me/919562844006?text=${encodeURIComponent(waMessage)}" target="_blank" class="btn btn-maroon px-5 py-2.5 rounded-full text-xs font-bold"><i class="fab fa-whatsapp me-2"></i> Message On WhatsApp</a>
+                                <button id="resetFormBtn" class="btn btn-outline-purple px-5 py-2.5 rounded-full text-xs font-bold">Submit Another Enquiry</button>
                             </div>
                         </div>
                     `;
@@ -322,7 +359,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         setTimeout(() => {
                             formCard.innerHTML = originalContent;
                             formCard.style.opacity = '1';
-                            // rebind the form submission logic recursively by reloading or redirecting cleanly
                             document.location.reload();
                         }, 400);
                     });

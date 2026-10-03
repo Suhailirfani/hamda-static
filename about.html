@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Hamda Science Academy | Premium Girls Residential Campus</title>
-    <meta name="description" content="Discover Hamda Science Academy's mission, values, and history. Managed by Markazuda'wa Thil Islamiyya Thazhapra, providing a secure residential academic oasis for female science students.">
-    <meta name="keywords" content="About Hamda Science Academy, Markazuda'wa Thil Islamiyya, girls hostel Cheruthuruthy, safe academic campus, moral science education Kerala">
+    <title>About Us | Hamda International Campus | Premium Girls Residential Campus</title>
+    <meta name="description" content="Discover Hamda International Campus mission, values, and history. Managed by Markazuda'wa Thil Islamiyya Thazhapra, providing a secure residential academic oasis for female students in Science, Commerce, and Humanities.">
+    <meta name="keywords" content="About Hamda International Campus, Markazuda'wa Thil Islamiyya, girls hostel Cheruthuruthy, safe academic campus, Plus one commerce humanities Kerala">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="static/favicon.png">
     
+    <!-- Google Fonts: Sora & Montserrat (Zaithoon Typography Stack) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
@@ -29,6 +34,12 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                        serif: ['Sora', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
                     colors: {
                         midnight: '#0B0406',
                         velvet: '#E9ECEF',
@@ -60,44 +71,80 @@
     <div class="ambient-blob blob-purple" style="top: 40%; right: -150px;"></div>
     <div class="ambient-blob blob-maroon" style="bottom: 20%; left: 10%;"></div>
 
-    <!-- Fixed Premium Header/Navbar -->
-    <nav class="brand-navbar">
-        <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-2 md:gap-3">
-                <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
-                <span class="font-serif fw-bold text-purple text-xs sm:text-sm uppercase tracking-wider md:hidden">Hamda Science Academy</span>
-                <img src="static/images/hamda_letter.png" alt="Hamda Science Academy" class="brand-letter d-none d-md-block" style="height: 52px; width: auto; filter: drop-shadow(0 4px 15px rgba(212,175,55,0.25));">
-            </a>
-        </div>
-        
-        <!-- Navigation Links (Desktop) -->
-        <div class="hidden md:flex items-center gap-1 md:gap-4">
-            <a href="index.html" class="nav-link-custom">Home</a>
-            <a href="about.html" class="nav-link-custom active">About Us</a>
-            <a href="courses.html" class="nav-link-custom">Courses</a>
-            <a href="contact.html" class="nav-link-custom">Contact</a>
-            <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+    <!-- Header Wrapper (Top Contact Bar + Main Navigation) -->
+    <header class="position-sticky top-0 z-[2000] w-full shadow-sm">
+        <!-- Top Contact Info Bar -->
+        <div class="nav-bar-top-section d-none d-md-flex py-2">
+            <div class="container mx-auto px-4">
+                <div class="row align-items-center justify-content-between text-xs">
+                    <div class="col-lg-3 col-md-4 border-end-desktop">
+                        <p class="mb-0 text-white d-flex align-items-center gap-2">
+                            <i class="fas fa-phone-alt text-[#FFD0DA]"></i>
+                            <a href="tel:+919562744006" class="hover:underline">+91 9562 744 006</a> / 
+                            <a href="tel:+919562844006" class="hover:underline">844 006</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 border-end-desktop text-center">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-center gap-2">
+                            <i class="fas fa-envelope text-[#FFD0DA]"></i>
+                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:underline">hamdascienceacademy@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 border-end-desktop text-center d-none d-lg-block">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-center gap-2">
+                            <i class="fas fa-map-marker-alt text-[#FFD0DA]"></i>
+                            <span>Thazhapra, Cheruthuruthy, Thrissur</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-12 text-end d-none d-lg-block">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-end gap-2">
+                            <i class="fas fa-award text-[#FFD0DA]"></i>
+                            <span>Science • Commerce • Humanities</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Mobile Quick Actions & Menu Toggle -->
-        <div class="flex items-center gap-4 md:hidden">
-            <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
-                <i class="fas fa-phone-alt"></i>
-            </a>
-            <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-            </button>
-        </div>
-    </nav>
+        <!-- Main Brand Navbar -->
+        <nav class="brand-navbar" style="position: relative;">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3">
+                    <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
+                    <span class="font-serif fw-bold text-purple text-xs sm:text-sm uppercase tracking-wider md:hidden">Hamda International Campus</span>
+                    <img src="static/images/hamda_letter.png" alt="Hamda International Campus" class="brand-letter d-none d-md-block" style="height: 48px; width: auto; filter: drop-shadow(0 4px 15px rgba(141,27,61,0.25));">
+                </a>
+            </div>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-1 md:gap-4">
+                <a href="index.html" class="nav-link-custom">Home</a>
+                <a href="about.html" class="nav-link-custom active">About Us</a>
+                <a href="courses.html" class="nav-link-custom">Courses</a>
+                <a href="contact.html" class="nav-link-custom">Contact</a>
+                <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+            </div>
+
+            <!-- Mobile Quick Actions & Menu Toggle -->
+            <div class="flex items-center gap-4 md:hidden">
+                <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <!-- Mobile Navigation Drawer Overlay -->
     <div id="mobileMenu" class="mobile-nav-drawer">
         <div class="mobile-nav-header">
             <a href="index.html" class="flex items-center gap-3">
                 <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                <span class="font-serif fw-bold text-purple text-sm uppercase tracking-wide">Hamda Science Academy</span>
+                <span class="font-serif fw-bold text-purple text-sm uppercase tracking-wide">Hamda International Campus</span>
             </a>
             <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
                 <i class="fas fa-times"></i>
@@ -120,7 +167,7 @@
         <div class="container max-w-4xl mx-auto text-center relative z-10">
             <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/35 px-3 py-1 rounded-full text-[10px] md:text-xs text-purple uppercase tracking-wider mb-3">Learn Who We Are</span>
             <h1 class="display-3 font-serif fw-bold text-dark mb-3">Our Heritage & <span class="text-purple">Vision</span></h1>
-            <p class="fs-5 text-slate-700 max-w-2xl mx-auto">Empowering outstanding female science students through a synthesis of top-tier academic training and strong moral ethics.</p>
+            <p class="fs-5 text-slate-700 max-w-2xl mx-auto">Empowering outstanding female students across Science, Commerce, and Humanities through a synthesis of top-tier academic training and strong moral ethics.</p>
         </div>
     </section>
 
@@ -132,13 +179,13 @@
                 <div class="lg:col-span-7 reveal-element">
                     <h2 class="display-5 font-serif fw-bold text-dark mb-6 section-title-left">Markazuda'wa Thil Islamiyya Thazhapra</h2>
                     <p class="text-slate-700 text-base mb-4">
-                        Hamda Science Academy was established and is managed directly by the renowned charitable educational trust, <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Our organization is dedicated to bridging the educational disparity and introducing premium scientific academies with strong moral standards.
+                        <b>Hamda International Campus</b> was established and is managed directly by the renowned charitable educational trust, <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Our organization is dedicated to bridging educational disparity and introducing world-class academic standards infused with strong moral ethics.
                     </p>
                     <p class="text-slate-600 text-sm mb-6">
-                        Recognizing the immense potential of female students in regional districts, the management envisioned an oasis where girls could prepare for highly taxing engineering and medical tests under a secure, fully protective and moral residential setting.
+                        Recognizing the immense potential of female students, the management envisioned an oasis where girls could excel in <b>Plus One & Plus Two Science (with integrated NEET & JEE coaching)</b>, <b>Commerce (with CA/CMA orientation)</b>, and <b>Humanities (with Civil Services & CUET orientation)</b> under a safe, fully protective, and morally uplifting residential setting.
                     </p>
                     <p class="text-slate-600 text-sm mb-6">
-                        At Hamda, we eliminate external distractions. Our teaching methodology involves meticulous scheduling, expert daily analysis, conceptual clearing lectures, and regular mockup test exercises, preparing students to take their exams with supreme confidence.
+                        At Hamda International Campus, we eliminate external distractions. Our teaching methodology combines structured scheduling, daily conceptual lectures, continuous testing, and personal mentoring, preparing students to achieve national competitive success with supreme confidence.
                     </p>
                     
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
@@ -148,7 +195,7 @@
                             </div>
                             <div>
                                 <h4 class="font-serif fw-bold text-dark mb-1">Our Vision</h4>
-                                <p class="text-slate-600 text-xs">To be the national benchmark in female-only senior secondary science and competitive career empowerment.</p>
+                                <p class="text-slate-600 text-xs">To be a premier national benchmark in female-only residential education across Science, Commerce, and Humanities.</p>
                             </div>
                         </div>
                         <div class="glass-panel p-4 flex items-start gap-3 tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
@@ -157,7 +204,7 @@
                             </div>
                             <div>
                                 <h4 class="font-serif fw-bold text-dark mb-1">Our Mission</h4>
-                                <p class="text-slate-600 text-xs">Delivering expert integrated curricula, nurturing moral integrity, and offering a peaceful learning sanctuary.</p>
+                                <p class="text-slate-600 text-xs">Delivering expert integrated curricula, nurturing moral integrity, and offering a secure, peaceful learning sanctuary.</p>
                             </div>
                         </div>
                     </div>
@@ -166,7 +213,7 @@
                 <!-- Graphic Emblem/Board Image Column -->
                 <div class="lg:col-span-5 reveal-element">
                     <div class="shadow-2xl rounded-3xl overflow-hidden border border-purple/15 bg-velvet p-3">
-                        <img src="static/images/hamda_detail_board.jpeg" class="w-full h-auto rounded-2xl" alt="Hamda Academy Detail Board">
+                        <img src="static/images/hamda_detail_board.jpeg" class="w-full h-auto rounded-2xl" alt="Hamda International Campus Detail Board">
                     </div>
                 </div>
             </div>
@@ -254,7 +301,7 @@
                     </div>
                     <!-- Slide 3 -->
                     <div class="carousel-item h-full relative">
-                        <img src="static/images/campus.png" class="w-full h-full object-cover" alt="Hamda Academy Green Courtyard">
+                        <img src="static/images/campus.png" class="w-full h-full object-cover" alt="Hamda Campus Green Courtyard">
                         <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-6 text-center">
                             <h3 class="font-serif fw-bold text-white fs-3">Green Serene Campus</h3>
                             <p class="text-slate-200 text-sm">Serene foliage and spacious pathways helping students relax and mentally recharge between study hours.</p>
@@ -276,7 +323,7 @@
     <section class="py-12 md:py-24 px-4 bg-cta-glossy text-center overflow-hidden border-y border-purple/10">
         <div class="container max-w-4xl mx-auto relative z-10 reveal-element">
             <h2 class="display-3 font-serif fw-bold text-dark mb-3">Empower Your Academic Potential</h2>
-            <p class="fs-5 text-slate-700 mb-8 max-w-2xl mx-auto">Secure a seat in our highly coveted batch. Direct admissions counseling and entrance screening applications are ongoing.</p>
+            <p class="fs-5 text-slate-700 mb-8 max-w-2xl mx-auto">Secure a seat in our Plus One Science, Commerce, or Humanities batch. Direct admissions counseling is ongoing.</p>
             
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="contact.html" class="btn btn-purple px-6 py-3 rounded-full font-bold text-sm"><i class="fas fa-file-signature me-2"></i> Register Online</a>
@@ -294,10 +341,10 @@
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6">
                         <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda Science Academy</span>
+                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda International Campus</span>
                     </div>
-                    <p class="text-slate-300 text-sm mb-6">
-                        A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering outstanding female science students with highly disciplined moral training and integrated coaching modules.
+                    <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                        A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering female students with academic excellence in Science, Commerce, and Humanities alongside moral training.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://www.facebook.com" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
@@ -313,17 +360,17 @@
                         <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Courses</a></li>
-                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Academy</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Campus</a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Credentials -->
                 <div class="md:col-span-4">
-                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Contact Credentials</h4>
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Campus Address & Contact</h4>
                     <ul class="space-y-4 text-sm text-slate-300">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-location-dot text-[#C4566E] mt-1"></i>
-                            <span>Vettikkattiri PO, Thrissur,<br>Kerala 679531</span>
+                            <span>Thazhapra, Cheruthuruthy PO,<br>Thrissur, Kerala 679531</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-[#C4566E]"></i>
@@ -344,7 +391,7 @@
             <hr class="my-12 border-slate-800/80">
             
             <div class="flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs gap-4 text-center">
-                <p>&copy; 2026 Hamda Science Academy. All rights reserved.</p>
+                <p>&copy; 2026 Hamda International Campus. All rights reserved.</p>
                 <p>Managed by Markazuda'wa Thil Islamiyya Thazhapra</p>
             </div>
         </div>
@@ -355,8 +402,8 @@
         <a href="https://wa.me/919562844006" target="_blank" class="social-btn whatsapp" title="WhatsApp Enquiry">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="social-btn instagram" title="Follow us on Instagram">
-            <i class="fab fa-instagram"></i>
+        <a href="tel:+919562744006" class="social-btn" style="background: var(--qatar-maroon);" title="Call Us Directly">
+            <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
@@ -392,5 +439,14 @@
     
     <!-- Custom Scroll Reveal & Counter Logic -->
     <script src="static/js/main.js"></script>
+    <script>
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+        }
+    </script>
 </body>
 </html>

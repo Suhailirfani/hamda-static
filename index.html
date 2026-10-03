@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamda Science Academy | Premium Girls Institute | Cheruthuruthy, Thrissur</title>
-    <meta name="description" content="Hamda Science Academy is a premium girls-only science institute in Thazhapra, Cheruthuruthy, Thrissur, Kerala. Managed by Markazuda'wa Thil Islamiyya Thazhapra, offering Plus Two Science and integrated NEET/JEE coaching.">
-    <meta name="keywords" content="Hamda Science Academy, girls science institute, NEET coaching Thrissur, JEE coaching Kerala, plus two science, girls residential school Cheruthuruthy, Markazuda'wa Thil Islamiyya">
+    <title>Hamda International Campus | Premium Girls Residential Campus | Science, Commerce & Humanities | Cheruthuruthy, Thrissur</title>
+    <meta name="description" content="Hamda International Campus is a premier girls-only residential institution in Thazhapra, Cheruthuruthy, Thrissur, Kerala. Offering Plus One & Plus Two in Science, Commerce, and Humanities with integrated NEET/JEE coaching, moral education, and safe residential facilities. Managed by Markazuda'wa Thil Islamiyya.">
+    <meta name="keywords" content="Hamda International Campus, girls residential school Cheruthuruthy, plus one science, plus one commerce, plus one humanities, NEET coaching Thrissur, JEE coaching Kerala, Markazuda'wa Thil Islamiyya">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="static/favicon.png">
     
+    <!-- Google Fonts: Sora & Montserrat (Zaithoon Typography Stack) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
@@ -29,6 +34,12 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                        serif: ['Sora', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
                     colors: {
                         midnight: '#0B0406',
                         velvet: '#E9ECEF',
@@ -60,44 +71,80 @@
     <div class="ambient-blob blob-purple" style="top: 45%; right: -150px;"></div>
     <div class="ambient-blob blob-maroon" style="bottom: 25%; left: 10%;"></div>
 
-    <!-- Fixed Premium Header/Navbar -->
-    <nav class="brand-navbar">
-        <div class="flex items-center gap-3">
-            <a href="index.html" class="flex items-center gap-2 md:gap-3">
-                <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
-                <span class="font-serif fw-bold text-purple text-xs sm:text-sm uppercase tracking-wider md:hidden">Hamda Science Academy</span>
-                <img src="static/images/hamda_letter.png" alt="Hamda Science Academy" class="brand-letter d-none d-md-block" style="height: 52px; width: auto; filter: drop-shadow(0 4px 15px rgba(212,175,55,0.25));">
-            </a>
-        </div>
-        
-        <!-- Navigation Links (Desktop) -->
-        <div class="hidden md:flex items-center gap-1 md:gap-4">
-            <a href="index.html" class="nav-link-custom active">Home</a>
-            <a href="about.html" class="nav-link-custom">About Us</a>
-            <a href="courses.html" class="nav-link-custom">Courses</a>
-            <a href="contact.html" class="nav-link-custom">Contact</a>
-            <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+    <!-- Header Wrapper (Top Contact Bar + Main Navigation) -->
+    <header class="position-sticky top-0 z-[2000] w-full shadow-sm">
+        <!-- Top Contact Info Bar -->
+        <div class="nav-bar-top-section d-none d-md-flex py-2">
+            <div class="container mx-auto px-4">
+                <div class="row align-items-center justify-content-between text-xs">
+                    <div class="col-lg-3 col-md-4 border-end-desktop">
+                        <p class="mb-0 text-white d-flex align-items-center gap-2">
+                            <i class="fas fa-phone-alt text-[#FFD0DA]"></i>
+                            <a href="tel:+919562744006" class="hover:underline">+91 9562 744 006</a> / 
+                            <a href="tel:+919562844006" class="hover:underline">844 006</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 border-end-desktop text-center">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-center gap-2">
+                            <i class="fas fa-envelope text-[#FFD0DA]"></i>
+                            <a href="mailto:hamdascienceacademy@gmail.com" class="hover:underline">hamdascienceacademy@gmail.com</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-4 border-end-desktop text-center d-none d-lg-block">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-center gap-2">
+                            <i class="fas fa-map-marker-alt text-[#FFD0DA]"></i>
+                            <span>Thazhapra, Cheruthuruthy, Thrissur</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-12 text-end d-none d-lg-block">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-end gap-2">
+                            <i class="fas fa-award text-[#FFD0DA]"></i>
+                            <span>Science • Commerce • Humanities</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Mobile Quick Actions & Menu Toggle -->
-        <div class="flex items-center gap-4 md:hidden">
-            <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
-                <i class="fas fa-phone-alt"></i>
-            </a>
-            <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-            </button>
-        </div>
-    </nav>
+        <!-- Main Brand Navbar -->
+        <nav class="brand-navbar" style="position: relative;">
+            <div class="flex items-center gap-3">
+                <a href="index.html" class="flex items-center gap-2 md:gap-3">
+                    <img src="static/favicon.png" alt="Hamda Logo" class="brand-logo" style="height: 40px; md:height: 48px;">
+                    <span class="font-serif fw-bold text-purple text-xs sm:text-sm uppercase tracking-wider md:hidden">Hamda International Campus</span>
+                    <img src="static/images/hamda_letter.png" alt="Hamda International Campus" class="brand-letter d-none d-md-block" style="height: 48px; width: auto; filter: drop-shadow(0 4px 15px rgba(141,27,61,0.25));">
+                </a>
+            </div>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-1 md:gap-4">
+                <a href="index.html" class="nav-link-custom active">Home</a>
+                <a href="about.html" class="nav-link-custom">About Us</a>
+                <a href="courses.html" class="nav-link-custom">Courses</a>
+                <a href="contact.html" class="nav-link-custom">Contact</a>
+                <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+            </div>
+
+            <!-- Mobile Quick Actions & Menu Toggle -->
+            <div class="flex items-center gap-4 md:hidden">
+                <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <!-- Mobile Navigation Drawer Overlay -->
     <div id="mobileMenu" class="mobile-nav-drawer">
         <div class="mobile-nav-header">
             <a href="index.html" class="flex items-center gap-3">
                 <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                <span class="font-serif fw-bold text-purple text-sm uppercase tracking-wide">Hamda Science Academy</span>
+                <span class="font-serif fw-bold text-purple text-sm uppercase tracking-wide">Hamda International Campus</span>
             </a>
             <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
                 <i class="fas fa-times"></i>
@@ -116,7 +163,7 @@
 
     <!-- Hero Carousel Section -->
     <section id="hero" class="relative overflow-hidden w-full">
-        <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
+        <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
             <!-- Carousel Indicators -->
             <div class="carousel-indicators z-20">
                 <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
@@ -128,14 +175,14 @@
                 <!-- Slide 1 -->
                 <div class="carousel-item carousel-custom-item active">
                     <div class="carousel-overlay"></div>
-                    <img src="static/images/campus.png" class="absolute inset-0 w-full h-full object-cover" alt="Hamda Science Academy Campus">
+                    <img src="static/images/campus.png" class="absolute inset-0 w-full h-full object-cover" alt="Hamda International Campus">
                     <div class="carousel-custom-caption">
-                        <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/40 px-3 py-1 rounded-full text-xs text-purple uppercase tracking-wider mb-3">PREMIUM GIRLS RESIDENTIAL CAMPUS</span>
-                        <h1 class="display-3 font-serif fw-bold text-dark mb-3">Developing <span class="text-purple">Scientific Minds</span></h1>
-                        <p class="fs-5 text-slate-700 mb-4 max-w-2xl mx-auto">Excellence, Ethics, and Empowerment. Nurturing the next generation of women scientists, doctors, and engineers.</p>
+                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">PREMIUM GIRLS RESIDENTIAL CAMPUS</span>
+                        <h1 class="display-3 font-serif fw-bold text-white mb-3">Hamda <span class="text-purple">International Campus</span></h1>
+                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Excellence, Ethics, and Empowerment. Kerala's dedicated residential campus offering Plus One & Plus Two in Science, Commerce, and Humanities with integrated entrance coaching.</p>
                         <div class="flex gap-3 justify-center">
-                            <a href="contact.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">Apply Now</a>
-                            <a href="about.html" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold">Discover More</a>
+                            <a href="contact.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">Secure Your Seat</a>
+                            <a href="about.html" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold">Discover Campus</a>
                         </div>
                     </div>
                 </div>
@@ -143,11 +190,11 @@
                 <!-- Slide 2 -->
                 <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
-                    <img src="static/images/hero2.png" class="absolute inset-0 w-full h-full object-cover" alt="Science Lab Class">
+                    <img src="static/images/hero2.png" class="absolute inset-0 w-full h-full object-cover" alt="Science, Commerce & Humanities Streams">
                     <div class="carousel-custom-caption">
-                        <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/40 px-3 py-1 rounded-full text-xs text-purple uppercase tracking-wider mb-3">INTEGRATED COACHING</span>
-                        <h2 class="display-4 font-serif fw-bold text-dark mb-3">Integrated <span class="text-purple">NEET & JEE</span> Success</h2>
-                        <p class="fs-5 text-slate-700 mb-4 max-w-2xl mx-auto">Simultaneous board examination coaching and intense national entrance test preparation under top-tier educators.</p>
+                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">COMPREHENSIVE STREAMS</span>
+                        <h2 class="display-4 font-serif fw-bold text-white mb-3">Science • <span class="text-purple">Commerce</span> • Humanities</h2>
+                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Senior secondary board coaching with integrated NEET, JEE, CA Foundation, and Civil Services orientation under premier educators.</p>
                         <div class="flex gap-3 justify-center">
                             <a href="courses.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">Our Programs</a>
                             <a href="contact.html" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold">Enquire Today</a>
@@ -158,11 +205,11 @@
                 <!-- Slide 3 -->
                 <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
-                    <img src="static/images/hamda_building.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Hamda Academy Building">
+                    <img src="static/images/hamda_building.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Hamda International Campus Building">
                     <div class="carousel-custom-caption">
-                        <span class="inline-block bg-[#8D1B3D]/30 border border-[#8D1B3D]/40 px-3 py-1 rounded-full text-xs text-purple uppercase tracking-wider mb-3">SAFE ENVIRONMENT</span>
-                        <h2 class="display-4 font-serif fw-bold text-dark mb-3">A Safe & Secure <span class="text-purple">Campus</span></h2>
-                        <p class="fs-5 text-slate-700 mb-4 max-w-2xl mx-auto">Providing a peaceful, fully secure and strictly monitored learning atmosphere located at Thazhapra, Cheruthuruthy, Thrissur.</p>
+                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">SAFE & SECURE HOSTEL</span>
+                        <h2 class="display-4 font-serif fw-bold text-white mb-3">A Safe & Inspiring <span class="text-purple">Oasis</span></h2>
+                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Providing a peaceful, strictly monitored, and value-rich residential atmosphere located at Thazhapra, Cheruthuruthy, Thrissur.</p>
                         <div class="flex gap-3 justify-center">
                             <a href="about.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">About Campus</a>
                             <a href="tel:+919562744006" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold"><i class="fas fa-phone me-2"></i> Call Us</a>
@@ -181,192 +228,464 @@
         </div>
     </section>
 
-    <!-- Stats Section (Floating overlapping block) -->
-    <section class="relative z-30 px-4 -mt-20 md:-mt-24">
-        <div class="container max-w-5xl mx-auto">
-            <div class="glass-panel p-4 md:p-12 reveal-element">
-                <div class="grid grid-cols-3 gap-2 md:gap-8 text-center divide-x divide-purple/15">
-                    <div class="px-1">
-                        <h3 class="text-xl md:text-5xl font-bold text-purple stats-counter mb-1" data-target="100" data-suffix="%">0%</h3>
-                        <p class="text-slate-700 text-[9px] md:text-base font-semibold tracking-wide uppercase leading-tight">Result Coaching</p>
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-base md:text-4xl font-bold text-purple mb-1 mt-1 md:mt-0 leading-none">NEET/JEE</h3>
-                        <p class="text-slate-700 text-[9px] md:text-base font-semibold tracking-wide uppercase leading-tight">Integrated Prep</p>
-                    </div>
-                    <div class="px-1">
-                        <h3 class="text-xl md:text-5xl font-bold text-purple stats-counter mb-1" data-target="100" data-suffix="%">0%</h3>
-                        <p class="text-slate-700 text-[9px] md:text-base font-semibold tracking-wide uppercase leading-tight">Girls Boarding</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Marquee Continuous Ticker (Zaitoon-Style Banner) -->
+    <div class="marquee-ticker">
+        <div class="marquee-ticker-track">
+            <!-- Item 1 -->
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-graduation-cap"></i></span>
+                <span>Admissions Open for 2026–27 | Plus One Science, Commerce & Humanities</span>
+            </span>
+            <!-- Item 2 -->
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-book-open"></i></span>
+                <span>Integrated NEET & JEE Coaching with Plus One / Plus Two Science</span>
+            </span>
+            <!-- Item 3 -->
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-briefcase"></i></span>
+                <span>Plus One Commerce & Humanities with Career Excellence Mentoring</span>
+            </span>
+            <!-- Item 4 -->
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-shield-alt"></i></span>
+                <span>100% Safe & Disciplined Residential Campus for Girls | Cheruthuruthy, Thrissur</span>
+            </span>
+            <!-- Item 5 -->
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-star"></i></span>
+                <span>Managed by Markazuda'wa Thil Islamiyya Thazhapra</span>
+            </span>
 
-    <!-- About Sneak Peak Section -->
-    <section class="py-12 md:py-24 px-4 bg-gradient-to-b from-white to-[#F8F4F5] overflow-hidden">
+            <!-- Duplicate items for seamless continuous looping -->
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-graduation-cap"></i></span>
+                <span>Admissions Open for 2026–27 | Plus One Science, Commerce & Humanities</span>
+            </span>
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-book-open"></i></span>
+                <span>Integrated NEET & JEE Coaching with Plus One / Plus Two Science</span>
+            </span>
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-briefcase"></i></span>
+                <span>Plus One Commerce & Humanities with Career Excellence Mentoring</span>
+            </span>
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-shield-alt"></i></span>
+                <span>100% Safe & Disciplined Residential Campus for Girls | Cheruthuruthy, Thrissur</span>
+            </span>
+            <span class="marquee-item">
+                <span class="marquee-icon"><i class="fas fa-star"></i></span>
+                <span>Managed by Markazuda'wa Thil Islamiyya Thazhapra</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- What Defines Us Section (Zaitoon-style Asymmetric Layout) -->
+    <section class="py-16 md:py-24 px-4 bg-white overflow-hidden">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <!-- Visual Panel -->
-                <div class="lg:col-span-6 reveal-element">
-                    <div class="relative image-zoom-container shadow-2xl rounded-3xl h-[280px] sm:h-[350px] md:h-[480px]">
-                        <img src="static/images/classroom.png" class="w-full h-full object-cover" alt="Hamda Classroom">
-                        <div class="image-zoom-overlay"></div>
-                        <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-2xl border border-[#8D1B3D]/20 flex items-center justify-between">
-                            <div>
-                                <span class="d-block text-purple text-2xl font-bold font-serif">100%</span>
-                                <span class="text-xs text-slate-700 tracking-wider uppercase">Girls Learning Environment</span>
-                            </div>
-                            <div class="w-12 h-12 rounded-full bg-[#8D1B3D] flex items-center justify-center">
-                                <i class="fas fa-venus text-white text-xl"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Content Panel -->
-                <div class="lg:col-span-6 reveal-element">
-                    <div class="block text-[#8D1B3D] text-sm font-bold tracking-widest uppercase mb-2">Who We Are</div>
-                    <h2 class="display-5 font-serif fw-bold text-dark mb-4 section-title-left">Empowering the Future Women Scientists</h2>
-                    <p class="text-slate-700 text-base mb-4">
-                        Hamda Science Academy, managed by the esteemed <b>Markazuda'wa Thil Islamiyya Thazhapra</b>, provides a comprehensive, highly focused residential environment specifically designed for female students to excel in Plus Two Science studies and highly competitive medical and engineering entrances.
+                <!-- Text Content Column -->
+                <div class="lg:col-span-6 reveal-element" data-aos="fade-right">
+                    <h2 class="display-5 font-serif fw-bold text-dark mb-4 section-title-left">What Defines Us</h2>
+                    <p class="text-slate-700 text-base leading-relaxed mb-4">
+                        The epitome of excellence and a premier girls residential institution in Kerala. <b>Hamda International Campus</b> is committed to academic brilliance, moral values, and women empowerment—bridging high-caliber academic education with ethical upbringing.
                     </p>
-                    <p class="text-slate-600 text-sm mb-6">
-                        We believe that modern science combined with moral integrity creates an unbeatable foundation. Our secure campus allows girls to study with full freedom, focus, and state-of-the-art facilities.
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                        We offer a dynamic academic spectrum spanning <b>Science (with integrated NEET & JEE coaching)</b>, <b>Commerce</b>, and <b>Humanities</b>, alongside a rock-solid foundation in Islamic studies and life values. Join us at Hamda International Campus, where we cultivate visionary minds, ethical leaders, and empowered women.
                     </p>
-                    
-                    <ul class="space-y-4 mb-8">
-                        <li class="flex items-center text-slate-700"><i class="fas fa-check-circle text-purple me-3 text-lg"></i> Expert Faculty from premier national institutions</li>
-                        <li class="flex items-center text-slate-700"><i class="fas fa-check-circle text-purple me-3 text-lg"></i> Individualized mentorship and round-the-clock guidance</li>
-                        <li class="flex items-center text-slate-700"><i class="fas fa-check-circle text-purple me-3 text-lg"></i> Complete secure female residential and learning setup</li>
-                    </ul>
-                    
-                    <a href="about.html" class="btn btn-purple px-6 py-3 rounded-full text-sm font-bold">Discover More About Us</a>
+                    <div class="flex gap-4">
+                        <a href="about.html" class="btn btn-purple px-6 py-3 rounded-full text-sm font-bold">View More</a>
+                        <a href="contact.html" class="btn btn-outline-purple px-6 py-3 rounded-full text-sm font-bold">Enquire Online</a>
+                    </div>
+                </div>
+
+                <!-- Asymmetric Image Grid Column -->
+                <div class="lg:col-span-6 reveal-element" data-aos="fade-left">
+                    <div class="what-defines-grid">
+                        <div class="what-defines-left">
+                            <img src="static/images/hamda_building.jpg" alt="Hamda International Campus Building">
+                        </div>
+                        <div class="what-defines-right">
+                            <div class="what-defines-thumb">
+                                <img src="static/images/classroom.png" alt="Smart Classrooms Assembly">
+                            </div>
+                            <div class="what-defines-thumb">
+                                <img src="static/images/hero2.png" alt="Advanced Science Laboratory">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Key Unique Features Section -->
-    <section class="py-12 md:py-24 px-4 bg-[#F8F4F5] overflow-hidden">
-        <div class="container max-w-6xl mx-auto text-center">
-            <div class="block text-purple text-sm font-bold tracking-widest uppercase mb-2">Our Highlights</div>
-            <h2 class="display-5 font-serif fw-bold text-dark mb-8 md:mb-12 section-title">Engineered For Excellence</h2>
-            
-            <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4 md:mx-0 md:px-0">
-                <!-- Feature 1 -->
-                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-16 h-16 bg-[#8D1B3D]/30 border border-[#8D1B3D]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-microscope text-purple text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif fw-bold text-dark fs-4 md:fs-3 mb-3">Modern Laboratories</h3>
-                    <p class="text-slate-600 text-sm">State-of-the-art laboratory facilities designed specifically for intensive practical experiments in Physics, Chemistry, and Biology.</p>
-                </div>
-                
-                <!-- Feature 2 -->
-                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-16 h-16 bg-[#8D1B3D]/30 border border-[#8D1B3D]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-graduation-cap text-purple text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif fw-bold text-dark fs-4 md:fs-3 mb-3">Integrated Coaching</h3>
-                    <p class="text-slate-600 text-sm">Simultaneous advanced academic preparation bridging the gap between board level examinations and intensive national entrance tests (NEET/JEE).</p>
-                </div>
-                
-                <!-- Feature 3 -->
-                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center reveal-element tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-16 h-16 bg-[#8D1B3D]/30 border border-[#8D1B3D]/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                        <i class="fas fa-shield-heart text-purple text-2xl"></i>
-                    </div>
-                    <h3 class="font-serif fw-bold text-dark fs-4 md:fs-3 mb-3">Premium Safe Campus</h3>
-                    <p class="text-slate-600 text-sm">Fully residential institution providing 24/7 round-the-clock secure supervision, high-quality hostels, and a peaceful green learning environment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dynamic Course Sneak-Peek Section -->
-    <section class="py-12 md:py-24 px-4 bg-gradient-to-b from-[#F8F4F5] to-white overflow-hidden">
+    <!-- Stats Bar Section (Zaitoon-Style Floating Stats) -->
+    <section class="relative z-30 px-4 -my-8 md:-my-12">
         <div class="container max-w-6xl mx-auto">
-            <div class="text-center mb-8 md:mb-16">
-                <h2 class="display-5 font-serif fw-bold text-dark section-title">Academic Programs & <span class="text-purple">Specialized Curriculum</span></h2>
-                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-xs md:text-base">Our academic structure offers robust, result-oriented courses tailored to lead our students straight to admission into prestigious medical and engineering campuses.</p>
-            </div>
-            
-            <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4 md:mx-0 md:px-0 items-stretch">
-                <!-- Course 1 -->
-                <div class="glass-panel flex-shrink-0 w-[290px] md:w-auto snap-center p-6 md:p-8 text-center flex flex-col justify-between reveal-element h-auto md:h-full tilt-card shine-sweep" data-aos="fade-right" data-aos-delay="100">
-                    <div>
-                        <div class="w-16 h-16 md:w-20 md:h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
-                            <i class="fas fa-stethoscope text-white text-2xl md:text-3xl"></i>
+            <div class="stats-bar-card reveal-element" data-aos="zoom-in">
+                <div class="stats-grid">
+                    <!-- Stat 1 -->
+                    <div class="stat-box">
+                        <div class="stat-icon-wrap">
+                            <i class="fas fa-bullseye"></i>
                         </div>
-                        <h3 class="font-serif fw-bold text-purple fs-3 md:fs-2 mb-3">NEET Integration</h3>
-                        <p class="text-slate-700 text-xs md:text-sm mb-6">Rigorous and intensive medical entrance coaching fully aligned with the senior secondary syllabus, prioritizing Biology, Chemistry, and Physics mastery.</p>
-                    </div>
-                    <a href="courses.html" class="btn btn-outline-purple px-4 py-2 rounded-full text-xs font-bold inline-block">Read Details</a>
-                </div>
-                
-                <!-- Course 2 (Featured) -->
-                <div class="card-premium flex-shrink-0 w-[290px] md:w-auto snap-center p-6 md:p-8 text-center flex flex-col justify-between border-2 border-purple/40 relative z-10 shadow-2xl reveal-element h-auto md:h-full tilt-card shine-sweep" data-aos="fade-up" data-aos-delay="200">
-                    <span class="absolute top-4 right-4 bg-[#8D1B3D] text-white text-[9px] font-bold px-3 py-1 rounded-full border border-[#8D1B3D]/20">CORE COURSE</span>
-                    <div>
-                        <div class="w-16 h-16 md:w-20 md:h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
-                            <i class="fas fa-atom text-white text-2xl md:text-3xl"></i>
+                        <div>
+                            <h3 class="stat-number-val stats-counter" data-target="100" data-suffix="%">0%</h3>
+                            <p class="stat-label-text">Result-Oriented Coaching</p>
                         </div>
-                        <h3 class="font-serif fw-bold text-dark fs-3 md:fs-2 mb-3">Plus Two Science</h3>
-                        <p class="text-slate-700 text-xs md:text-sm mb-6">Comprehensive curriculum detailing Physics, Chemistry, Biology, and Mathematics with top-rated laboratory training and standard board preparations.</p>
                     </div>
-                    <a href="courses.html" class="btn btn-purple px-4 py-2.5 rounded-full text-xs font-bold inline-block">Read Details</a>
-                </div>
-                
-                <!-- Course 3 -->
-                <div class="glass-panel flex-shrink-0 w-[290px] md:w-auto snap-center p-6 md:p-8 text-center flex flex-col justify-between reveal-element h-auto md:h-full tilt-card shine-sweep" data-aos="fade-left" data-aos-delay="300">
-                    <div>
-                        <div class="w-16 h-16 md:w-20 md:h-20 bg-[#8D1B3D] rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-[#8D1B3D]/20">
-                            <i class="fas fa-microchip text-white text-2xl md:text-3xl"></i>
+
+                    <!-- Stat 2 -->
+                    <div class="stat-box">
+                        <div class="stat-icon-wrap">
+                            <i class="fas fa-layer-group"></i>
                         </div>
-                        <h3 class="font-serif fw-bold text-purple fs-3 md:fs-2 mb-3">JEE Integration</h3>
-                        <p class="text-slate-700 text-xs md:text-sm mb-6">Conceptual clarity coupled with high-speed advanced mathematical and physical problem-solving skills for premier engineering examinations.</p>
+                        <div>
+                            <h3 class="stat-number-val" style="font-size: 1.85rem; line-height: 1.2;">3 Streams</h3>
+                            <p class="stat-label-text">Science, Commerce, Humanities</p>
+                        </div>
                     </div>
-                    <a href="courses.html" class="btn btn-outline-purple px-4 py-2 rounded-full text-xs font-bold inline-block">Read Details</a>
+
+                    <!-- Stat 3 -->
+                    <div class="stat-box">
+                        <div class="stat-icon-wrap">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div>
+                            <h3 class="stat-number-val stats-counter" data-target="20" data-suffix="+">0+</h3>
+                            <p class="stat-label-text">Expert Faculty</p>
+                        </div>
+                    </div>
+
+                    <!-- Stat 4 -->
+                    <div class="stat-box">
+                        <div class="stat-icon-wrap">
+                            <i class="fas fa-shield-heart"></i>
+                        </div>
+                        <div>
+                            <h3 class="stat-number-val stats-counter" data-target="100" data-suffix="%">0%</h3>
+                            <p class="stat-label-text">Safe Girls Campus</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Campus Gallery (Showing local assets) -->
-    <section class="py-12 md:py-24 px-4 bg-white overflow-hidden">
+    <!-- Admission Open For Section (Courses Cards Grid) -->
+    <section class="py-16 md:py-24 px-4 bg-[#F8F4F5] overflow-hidden pt-20 md:pt-28">
         <div class="container max-w-6xl mx-auto">
-            <div class="text-center mb-8 md:mb-16">
-                <div class="block text-purple text-sm font-bold tracking-widest uppercase mb-2">Our Campus Life</div>
-                <h2 class="display-5 font-serif fw-bold text-dark section-title">Campus & Infrastructure</h2>
-                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-xs md:text-sm">Tour the advanced facilities designed to foster scientific creativity, academic focus, and secure living.</p>
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="display-5 font-serif fw-bold text-dark section-title">Admission Open For</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-sm md:text-base">
+                    Choose your pathway — whether in Science, Commerce, or Humanities, every stream is tailored to balance academic brilliance with strong moral and spiritual growth.
+                </p>
             </div>
-            
-            <div class="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory scrollbar-none pb-4 -mx-4 px-4 md:mx-0 md:px-0">
-                <!-- Image 1 -->
-                <div class="reveal-element flex-shrink-0 w-[290px] md:w-auto snap-center">
-                    <div class="image-zoom-container shadow-lg h-72 md:h-80">
-                        <img src="static/images/hero2.png" alt="Science Laboratory Room">
-                        <div class="image-zoom-overlay"></div>
-                        <h4 class="image-zoom-title font-serif fw-bold fs-5 md:fs-4">Science Laboratory</h4>
+
+            <div class="admission-card-grid">
+                <!-- Course Card 1: Plus One & Plus Two Science -->
+                <div class="admission-card-item reveal-element" data-aos="fade-up" data-aos-delay="100">
+                    <div class="admission-card-img">
+                        <img src="static/images/classroom.png" alt="Plus One & Plus Two Science">
+                    </div>
+                    <div class="admission-card-body">
+                        <div>
+                            <h3 class="admission-card-title">Plus One & Plus Two Science</h3>
+                            <p class="admission-card-desc">
+                                Physical & life sciences (PCBM & PCBC) with advanced laboratory experiments, board mastery, and simultaneous integrated coaching for NEET & JEE.
+                            </p>
+                        </div>
+                        <a href="courses.html#science" class="admission-card-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Image 2 -->
-                <div class="reveal-element flex-shrink-0 w-[290px] md:w-auto snap-center">
-                    <div class="image-zoom-container shadow-lg h-72 md:h-80">
-                        <img src="static/images/classroom.png" alt="Academic Classroom">
-                        <div class="image-zoom-overlay"></div>
-                        <h4 class="image-zoom-title font-serif fw-bold fs-5 md:fs-4">Smart Classroom</h4>
+
+                <!-- Course Card 2: Plus One & Plus Two Commerce -->
+                <div class="admission-card-item reveal-element" data-aos="fade-up" data-aos-delay="200">
+                    <div class="admission-card-img">
+                        <img src="static/images/hero3.png" alt="Plus One & Plus Two Commerce">
+                    </div>
+                    <div class="admission-card-body">
+                        <div>
+                            <h3 class="admission-card-title">Plus One & Plus Two Commerce</h3>
+                            <p class="admission-card-desc">
+                                Comprehensive business education in Accountancy, Business Studies, Economics, and Computer Application/Maths with CA/CMA/CS foundation guidance.
+                            </p>
+                        </div>
+                        <a href="courses.html#commerce" class="admission-card-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Image 3 -->
-                <div class="reveal-element flex-shrink-0 w-[290px] md:w-auto snap-center">
-                    <div class="image-zoom-container shadow-lg h-72 md:h-80">
-                        <img src="static/images/hamda_building.jpg" alt="Hamda Academy Building Campus">
-                        <div class="image-zoom-overlay"></div>
-                        <h4 class="image-zoom-title font-serif fw-bold fs-5 md:fs-4">Residential Campus</h4>
+
+                <!-- Course Card 3: Plus One & Plus Two Humanities -->
+                <div class="admission-card-item reveal-element" data-aos="fade-up" data-aos-delay="300">
+                    <div class="admission-card-img">
+                        <img src="static/images/hero1.png" alt="Plus One & Plus Two Humanities">
+                    </div>
+                    <div class="admission-card-body">
+                        <div>
+                            <h3 class="admission-card-title">Plus One & Plus Two Humanities</h3>
+                            <p class="admission-card-desc">
+                                Dynamic social science curriculum covering History, Political Science, Sociology, and Economics with Civil Services, CUET, and Law entrance orientation.
+                            </p>
+                        </div>
+                        <a href="courses.html#humanities" class="admission-card-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course Card 4: Integrated NEET & JEE Batch -->
+                <div class="admission-card-item reveal-element" data-aos="fade-up" data-aos-delay="400">
+                    <div class="admission-card-img">
+                        <img src="static/images/hero2.png" alt="Integrated NEET & JEE Batch">
+                    </div>
+                    <div class="admission-card-body">
+                        <div>
+                            <h3 class="admission-card-title">Integrated NEET & JEE Batch</h3>
+                            <p class="admission-card-desc">
+                                High-intensity medical & engineering entrance preparation with daily practice problem sheets, mock tests, and personalized doubt clearance.
+                            </p>
+                        </div>
+                        <a href="courses.html#entrance" class="admission-card-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Course Card 5: Moral & Value Education -->
+                <div class="admission-card-item reveal-element" data-aos="fade-up" data-aos-delay="500">
+                    <div class="admission-card-img">
+                        <img src="static/images/hamda_building.jpg" alt="Moral & Islamic Value Studies">
+                    </div>
+                    <div class="admission-card-body">
+                        <div>
+                            <h3 class="admission-card-title">Moral & Value Education</h3>
+                            <p class="admission-card-desc">
+                                Dedicated character-building curriculum nurturing ethics, Islamic discipline, Quranic literacy, and spiritual grounding alongside all academic streams.
+                            </p>
+                        </div>
+                        <a href="courses.html#moral" class="admission-card-btn">
+                            <span>Apply Now</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities That Inspire Learning Section (Zaitoon-Style Grid) -->
+    <section class="py-16 md:py-24 px-4 bg-white overflow-hidden">
+        <div class="container max-w-6xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="display-5 font-serif fw-bold text-dark section-title">Facilities That Inspire Learning</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-sm md:text-base">
+                    Modern classrooms, well-equipped science laboratories, computer labs, library, and secure residential hostels fostering academic excellence and personal growth.
+                </p>
+            </div>
+
+            <div class="facility-card-grid">
+                <!-- Facility 1 -->
+                <div class="facility-card-box reveal-element" data-aos="fade-up" data-aos-delay="100">
+                    <div class="facility-card-img-wrap">
+                        <img src="static/images/hero2.png" alt="Advanced Science Laboratories">
+                    </div>
+                    <div class="facility-card-caption">
+                        <h6>Advanced Science Labs</h6>
+                    </div>
+                </div>
+
+                <!-- Facility 2 -->
+                <div class="facility-card-box reveal-element" data-aos="fade-up" data-aos-delay="200">
+                    <div class="facility-card-img-wrap">
+                        <img src="static/images/classroom.png" alt="Smart Classrooms">
+                    </div>
+                    <div class="facility-card-caption">
+                        <h6>Smart Classrooms</h6>
+                    </div>
+                </div>
+
+                <!-- Facility 3 -->
+                <div class="facility-card-box reveal-element" data-aos="fade-up" data-aos-delay="300">
+                    <div class="facility-card-img-wrap">
+                        <img src="static/images/hero1.png" alt="Library & Reading Zones">
+                    </div>
+                    <div class="facility-card-caption">
+                        <h6>Library & Study Hub</h6>
+                    </div>
+                </div>
+
+                <!-- Facility 4 -->
+                <div class="facility-card-box reveal-element" data-aos="fade-up" data-aos-delay="400">
+                    <div class="facility-card-img-wrap">
+                        <img src="static/images/hamda_building.jpg" alt="Safe Residential Hostel">
+                    </div>
+                    <div class="facility-card-caption">
+                        <h6>Safe Girls Hostel</h6>
+                    </div>
+                </div>
+
+                <!-- Facility 5 -->
+                <div class="facility-card-box reveal-element" data-aos="fade-up" data-aos-delay="500">
+                    <div class="facility-card-img-wrap">
+                        <img src="static/images/hero3.png" alt="Hygienic Dining & Cafeteria">
+                    </div>
+                    <div class="facility-card-caption">
+                        <h6>Hygienic Dining</h6>
+                    </div>
+                </div>
+
+                <!-- Facility 6 -->
+                <div class="facility-card-box reveal-element" data-aos="fade-up" data-aos-delay="600">
+                    <div class="facility-card-img-wrap">
+                        <img src="static/images/campus.png" alt="Green Campus & Well-being">
+                    </div>
+                    <div class="facility-card-caption">
+                        <h6>Peaceful Green Campus</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Hamda International Campus Stands Out (3 Pillars Layout) -->
+    <section class="py-16 md:py-24 px-4 bg-[#F8F4F5] overflow-hidden">
+        <div class="container max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Visual Left Column -->
+                <div class="lg:col-span-6 order-2 lg:order-1 reveal-element" data-aos="fade-right">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="rounded-3xl overflow-hidden shadow-lg h-72">
+                            <img src="static/images/campus.png" class="w-full h-full object-cover" alt="Hamda Campus">
+                        </div>
+                        <div class="flex flex-col gap-4">
+                            <div class="rounded-2xl overflow-hidden shadow-md h-34 flex-1">
+                                <img src="static/images/classroom.png" class="w-full h-full object-cover" alt="Classroom Life">
+                            </div>
+                            <div class="rounded-2xl overflow-hidden shadow-md h-34 flex-1">
+                                <img src="static/images/hero2.png" class="w-full h-full object-cover" alt="Lab Experiments">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Right Column (3 Pillars) -->
+                <div class="lg:col-span-6 order-1 lg:order-2 reveal-element" data-aos="fade-left">
+                    <h2 class="display-5 font-serif fw-bold text-dark mb-4 section-title-left">Why Hamda International Campus Stands Out</h2>
+                    <p class="text-slate-700 text-sm md:text-base mb-6">
+                        It is a premier residential institution in Kerala that brings together a powerful and unmatched three-pillar educational foundation:
+                    </p>
+
+                    <div class="flex flex-col gap-4 mb-6">
+                        <!-- Pillar 1 -->
+                        <div class="why-pillar-item">
+                            <div class="why-pillar-circle">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="why-pillar-text">
+                                <h5>Multi-Stream Academic Brilliance</h5>
+                                <p>Structured teaching in Science, Commerce, and Humanities designed to maximize board scores and entrance readiness (NEET/JEE/CA/CUET).</p>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 2 -->
+                        <div class="why-pillar-item">
+                            <div class="why-pillar-circle">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="why-pillar-text">
+                                <h5>Value Education & Moral Ethos</h5>
+                                <p>Building character, self-discipline, Islamic values, and life ethics alongside high-caliber academic curriculum under guided mentorship.</p>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 3 -->
+                        <div class="why-pillar-item">
+                            <div class="why-pillar-circle">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="why-pillar-text">
+                                <h5>100% Secure & Supervised Girls Campus</h5>
+                                <p>Dedicated 24/7 residential care, round-the-clock female wardens, clean green environment, and peace of mind for parents.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-600 text-xs font-semibold uppercase tracking-wider">
+                        <i class="fas fa-star text-purple me-2"></i> Managed by Markazuda'wa Thil Islamiyya Thazhapra
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section (What Our Families Say) -->
+    <section class="py-16 md:py-24 px-4 bg-white overflow-hidden">
+        <div class="container max-w-6xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="display-5 font-serif fw-bold text-dark section-title">What Our Families Say</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-sm md:text-base">
+                    Stories from our parents and students highlight how we nurture academic confidence, moral integrity, and lifelong success.
+                </p>
+            </div>
+
+            <div class="testimonial-card-grid">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card-item reveal-element" data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-card-quote">
+                            "Hamda International Campus provided the focused guidance and disciplined environment my daughter needed. The multi-stream curriculum combined with a safe hostel made all the difference."
+                        </p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <div class="testimonial-author-avatar">MR</div>
+                        <div class="testimonial-author-info">
+                            <h4>Muhammed Rafeeq</h4>
+                            <p>Parent of Science Student</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card-item reveal-element" data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-card-quote">
+                            "We credit our daughter's high academic marks and moral grounding to the dedicated teachers at Hamda. The secure atmosphere gives parents complete peace of mind."
+                        </p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <div class="testimonial-author-avatar">SK</div>
+                        <div class="testimonial-author-info">
+                            <h4>Saidalavi K.</h4>
+                            <p>Parent of Commerce Aspirant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card-item reveal-element" data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <div class="testimonial-quote-icon"><i class="fas fa-quote-left"></i></div>
+                        <p class="testimonial-card-quote">
+                            "The faculty members are always accessible for doubt clearance. The daily routine balances study hours, moral education, and personal mentoring exceptionally well."
+                        </p>
+                    </div>
+                    <div class="testimonial-author-box">
+                        <div class="testimonial-author-avatar">FN</div>
+                        <div class="testimonial-author-info">
+                            <h4>Fathima N.</h4>
+                            <p>Humanities Student Alumni</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -374,20 +693,22 @@
     </section>
 
     <!-- Call To Action Section -->
-    <section class="py-12 md:py-24 px-4 bg-cta-glossy text-center overflow-hidden border-y border-purple/10">
-        <div class="container max-w-4xl mx-auto relative z-10 reveal-element">
-            <h2 class="display-3 font-serif fw-bold text-dark mb-3">Begin Your Journey Towards Success</h2>
-            <p class="fs-5 text-slate-700 mb-8 max-w-2xl mx-auto">Admissions are open for the upcoming academic session. Visit our campus at Thazhapra, Cheruthuruthy, for a personalized tour and counseling.</p>
+    <section class="py-16 md:py-24 px-4 bg-cta-glossy text-center overflow-hidden border-y border-purple/10">
+        <div class="container max-w-4xl mx-auto relative z-10 reveal-element" data-aos="zoom-in">
+            <h2 class="display-4 font-serif fw-bold text-dark mb-3">Begin Your Journey Towards Success</h2>
+            <p class="fs-5 text-slate-700 mb-8 max-w-2xl mx-auto">
+                Admissions are open for Plus One in Science, Commerce, and Humanities. Visit our residential campus at Thazhapra, Cheruthuruthy, for personalized counseling and campus tour.
+            </p>
             
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="contact.html" class="btn btn-purple px-6 py-3 rounded-full font-bold text-sm"><i class="fas fa-file-signature me-2"></i> Apply/Enquire Online</a>
+                <a href="contact.html" class="btn btn-purple px-6 py-3 rounded-full font-bold text-sm"><i class="fas fa-file-signature me-2"></i> Apply / Enquire Online</a>
                 <a href="tel:+919562744006" class="btn btn-maroon px-6 py-3 rounded-full font-bold text-sm"><i class="fas fa-phone me-2"></i> Call Coordinator</a>
                 <a href="https://wa.me/919562844006" target="_blank" class="btn btn-outline-purple px-6 py-3 rounded-full font-bold text-sm"><i class="fab fa-whatsapp me-2"></i> WhatsApp Connect</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer Area -->
+    <!-- Footer Area (Rich Multi-column) -->
     <footer class="bg-[#120508] border-t border-[#8D1B3D]/30 text-slate-300 pt-16 pb-8 px-4" id="contact-credentials">
         <div class="container max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-12">
@@ -395,10 +716,10 @@
                 <div class="md:col-span-5">
                     <div class="flex items-center gap-3 mb-6">
                         <img src="static/favicon.png" alt="Hamda Logo" style="height: 40px;">
-                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda Science Academy</span>
+                        <span class="font-serif fw-bold text-white text-lg uppercase tracking-wide">Hamda International Campus</span>
                     </div>
-                    <p class="text-slate-300 text-sm mb-6">
-                        A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering outstanding female science students with highly disciplined moral training and integrated coaching modules.
+                    <p class="text-slate-300 text-sm mb-6 leading-relaxed">
+                        A flagship educational endeavor managed by <b>Markazuda'wa Thil Islamiyya Thazhapra</b>. Dedicated to empowering female students with high academic standards in Science, Commerce, and Humanities alongside moral integrity.
                     </p>
                     <div class="flex gap-4">
                         <a href="https://www.facebook.com" target="_blank" class="text-slate-400 hover:text-white text-lg transition-colors"><i class="fab fa-facebook-f"></i></a>
@@ -409,22 +730,22 @@
                 
                 <!-- Quick Navigation Links -->
                 <div class="md:col-span-3">
-                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Quick Navigation</h4>
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Quick Links</h4>
                     <ul class="space-y-3 text-sm">
                         <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Courses</a></li>
-                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Contact Academy</a></li>
+                        <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Programs</a></li>
+                        <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Admissions & Contact</a></li>
                     </ul>
                 </div>
                 
                 <!-- Contact Credentials -->
                 <div class="md:col-span-4">
-                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Contact Credentials</h4>
+                    <h4 class="font-serif fw-bold text-white text-lg mb-6 tracking-wide">Campus Address & Contact</h4>
                     <ul class="space-y-4 text-sm text-slate-300">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-location-dot text-[#C4566E] mt-1"></i>
-                            <span>Vettikkattiri PO, Thrissur,<br>Kerala 679531</span>
+                            <span>Thazhapra, Cheruthuruthy PO,<br>Thrissur, Kerala 679531</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone text-[#C4566E]"></i>
@@ -445,19 +766,19 @@
             <hr class="my-12 border-slate-800/80">
             
             <div class="flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs gap-4 text-center">
-                <p>&copy; 2026 Hamda Science Academy. All rights reserved.</p>
+                <p>&copy; 2026 Hamda International Campus. All rights reserved.</p>
                 <p>Managed by Markazuda'wa Thil Islamiyya Thazhapra</p>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Social Links (WhatsApp and Instagram) -->
+    <!-- Floating Social Links (WhatsApp and Call) -->
     <div class="floating-social">
         <a href="https://wa.me/919562844006" target="_blank" class="social-btn whatsapp" title="WhatsApp Enquiry">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://www.instagram.com/hamdascienceacademy/" target="_blank" class="social-btn instagram" title="Follow us on Instagram">
-            <i class="fab fa-instagram"></i>
+        <a href="tel:+919562744006" class="social-btn" style="background: var(--qatar-maroon);" title="Call Us Directly">
+            <i class="fas fa-phone-alt"></i>
         </a>
     </div>
 
@@ -493,5 +814,14 @@
     
     <!-- Custom Scroll Reveal & Counter Logic -->
     <script src="static/js/main.js"></script>
+    <script>
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+        }
+    </script>
 </body>
 </html>

@@ -1,9 +1,10 @@
 /* ==========================================================================
    DESIGN SYSTEM - SHARP & BOLD
-   Hamda Science Academy — Qatar Maroon · White
+   Hamda International Campus — Qatar Maroon · White
+   Typography: Sora (Headings/Branding) & Montserrat (Body/UI)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap');
 
 :root {
     /* Color Palette */
@@ -32,9 +33,9 @@
     --border-light: rgba(141, 27, 61, 0.15);
     --border-maroon: rgba(141, 27, 61, 0.25);
 
-    /* Fonts */
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Outfit', sans-serif;
+    /* Fonts (Zaithoon Typography Stack) */
+    --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* Standard Transitions */
     --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
@@ -60,10 +61,24 @@ body {
     color: var(--text-body);
     font-family: var(--font-body);
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
     width: 100%;
     position: relative;
+}
+
+/* Headings & Display Typography */
+h1, h2, h3, h4, h5, h6,
+.font-serif,
+.display-1, .display-2, .display-3, .display-4, .display-5, .display-6 {
+    font-family: var(--font-heading) !important;
+    letter-spacing: -0.02em;
+}
+
+p, span, li, a, input, select, textarea, button, .btn {
+    font-family: var(--font-body);
 }
 
 section, footer {
@@ -78,8 +93,6 @@ section, footer {
 ::-webkit-scrollbar-thumb:hover { background: var(--qatar-maroon-dark); }
 
 /* Typography Extensions */
-.font-serif { font-family: var(--font-heading); }
-
 .text-purple {
     color: var(--qatar-maroon) !important;
     background: none !important;
@@ -1077,12 +1090,550 @@ section, footer {
     transform: scale(0.9);
 }
 
-/* Hide scrollbar for swiping containers */
-.scrollbar-none::-webkit-scrollbar {
-    display: none;
+/* ==========================================================================
+   NEW REFERENCE SECTIONS & ADAPTED COMPONENTS
+   (Top Bar, Marquee, Badge Pills, Image Grid, Stats Bar, Admission Cards,
+    Facilities, Why Hamda 3 Pillars, Testimonials)
+   ========================================================================== */
+
+/* Top Contact Bar */
+.nav-bar-top-section {
+    background: var(--qatar-maroon-dark);
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+    z-index: 2005;
 }
-.scrollbar-none {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+
+.nav-bar-top-section a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
+
+.nav-bar-top-section a:hover {
+    color: #FFD0DA;
+}
+
+.border-end-desktop {
+    border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 767px) {
+    .border-end-desktop {
+        border-right: none;
+    }
+}
+
+/* Marquee Ticker */
+.marquee-ticker {
+    background: linear-gradient(90deg, var(--qatar-maroon-dark) 0%, var(--qatar-maroon) 50%, var(--qatar-maroon-dark) 100%);
+    color: #FFFFFF;
+    padding: 0.75rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    z-index: 20;
+    box-shadow: 0 4px 15px rgba(141, 27, 61, 0.25);
+}
+
+.marquee-ticker-track {
+    display: inline-flex;
+    align-items: center;
+    gap: 2.5rem;
+    animation: marqueeScroll 28s linear infinite;
+    will-change: transform;
+}
+
+.marquee-ticker-track:hover {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.02rem;
+}
+
+.marquee-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 0.8rem;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Badge Pill (Zaitoon-style Pill Header) */
+.badge-pill-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--qatar-maroon-pale);
+    border: 1px solid rgba(141, 27, 61, 0.25);
+    padding: 0.35rem 0.95rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+.badge-pill-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--qatar-maroon);
+    border-radius: 50%;
+    color: #FFFFFF;
+    font-size: 0.65rem;
+}
+
+.badge-pill-text {
+    color: var(--qatar-maroon);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06rem;
+}
+
+/* What Defines Us Image Grid */
+.what-defines-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 1.25rem;
+    align-items: stretch;
+}
+
+.what-defines-left {
+    position: relative;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    height: 440px;
+    box-shadow: 0 16px 40px rgba(141, 27, 61, 0.15);
+    border: 2px solid rgba(141, 27, 61, 0.12);
+}
+
+.what-defines-left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.what-defines-left:hover img {
+    transform: scale(1.05);
+}
+
+.what-defines-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    height: 440px;
+}
+
+.what-defines-thumb {
+    position: relative;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    flex: 1;
+    box-shadow: 0 10px 30px rgba(141, 27, 61, 0.12);
+    border: 1.5px solid rgba(141, 27, 61, 0.1);
+}
+
+.what-defines-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.what-defines-thumb:hover img {
+    transform: scale(1.06);
+}
+
+@media (max-width: 767px) {
+    .what-defines-grid {
+        grid-template-columns: 1fr;
+    }
+    .what-defines-left {
+        height: 280px;
+    }
+    .what-defines-right {
+        display: none;
+    }
+}
+
+/* Stats Bar */
+.stats-bar-card {
+    background: linear-gradient(135deg, #1A050B 0%, var(--qatar-maroon-dark) 60%, #1A050B 100%);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 20px 50px rgba(141, 27, 61, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.stat-box {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 0.5rem 1rem;
+    position: relative;
+}
+
+.stat-box:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -0.75rem;
+    top: 15%;
+    height: 70%;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.stat-icon-wrap {
+    width: 54px;
+    height: 54px;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-number-val {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+    font-family: var(--font-heading);
+}
+
+.stat-label-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.03rem;
+    margin: 0;
+}
+
+@media (max-width: 991px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    .stat-box:nth-child(2)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .stat-box:not(:last-child)::after {
+        display: none;
+    }
+    .stats-bar-card {
+        padding: 1.75rem 1.25rem;
+    }
+}
+
+/* Admission Course Cards (Zaitoon-Style) */
+.admission-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1.75rem;
+}
+
+.admission-card-item {
+    background: #FFFFFF;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    border: 1.5px solid rgba(141, 27, 61, 0.12);
+    box-shadow: 0 10px 30px rgba(141, 27, 61, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition-smooth);
+}
+
+.admission-card-item:hover {
+    transform: translateY(-8px);
+    border-color: var(--qatar-maroon);
+    box-shadow: 0 20px 45px rgba(141, 27, 61, 0.16);
+}
+
+.admission-card-img {
+    height: 220px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.admission-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.admission-card-item:hover .admission-card-img img {
+    transform: scale(1.08);
+}
+
+.admission-card-body {
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+
+.admission-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.75rem;
+}
+
+.admission-card-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.admission-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.75rem 1.25rem;
+    background: var(--bg-light);
+    color: var(--qatar-maroon);
+    border: 1px solid rgba(141, 27, 61, 0.18);
+    border-radius: 0.75rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.admission-card-btn:hover {
+    background: var(--qatar-maroon);
+    color: #FFFFFF;
+    border-color: var(--qatar-maroon);
+}
+
+.admission-card-btn i {
+    transition: transform 0.2s ease;
+}
+
+.admission-card-btn:hover i {
+    transform: translateX(4px);
+}
+
+/* Facilities Section */
+.facility-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.facility-card-box {
+    background: #FFFFFF;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    border: 1px solid rgba(141, 27, 61, 0.1);
+    box-shadow: 0 8px 24px rgba(141, 27, 61, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.facility-card-box:hover {
+    transform: translateY(-6px);
+    border-color: var(--qatar-maroon);
+    box-shadow: 0 16px 36px rgba(141, 27, 61, 0.14);
+}
+
+.facility-card-img-wrap {
+    height: 190px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.facility-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.facility-card-box:hover .facility-card-img-wrap img {
+    transform: scale(1.08);
+}
+
+.facility-card-caption {
+    padding: 1.25rem 1.25rem;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+.facility-card-caption h6 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* Why Hamda Stands Out (3 Pillars) */
+.why-pillar-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: #FFFFFF;
+    border: 1px solid rgba(141, 27, 61, 0.12);
+    border-radius: 1.25rem;
+    padding: 1.25rem;
+    box-shadow: 0 6px 20px rgba(141, 27, 61, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.why-pillar-item:hover {
+    border-color: var(--qatar-maroon);
+    transform: translateX(6px);
+    box-shadow: 0 10px 28px rgba(141, 27, 61, 0.12);
+}
+
+.why-pillar-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--qatar-maroon-pale);
+    color: var(--qatar-maroon);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    border: 1px solid rgba(141, 27, 61, 0.2);
+}
+
+.why-pillar-text h5 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.25rem;
+}
+
+.why-pillar-text p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Testimonials Carousel / Cards */
+.testimonial-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.75rem;
+}
+
+.testimonial-card-item {
+    background: #FFFFFF;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    border: 1.5px solid rgba(141, 27, 61, 0.12);
+    box-shadow: 0 10px 30px rgba(141, 27, 61, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-smooth);
+    position: relative;
+}
+
+.testimonial-card-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--qatar-maroon);
+    box-shadow: 0 18px 40px rgba(141, 27, 61, 0.15);
+}
+
+.testimonial-quote-icon {
+    font-size: 2.2rem;
+    color: var(--qatar-maroon-pale);
+    margin-bottom: 1rem;
+}
+
+.testimonial-card-quote {
+    font-size: 0.95rem;
+    color: var(--text-body);
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-author-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid rgba(141, 27, 61, 0.08);
+    padding-top: 1.25rem;
+}
+
+.testimonial-author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--qatar-maroon);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.testimonial-author-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.15rem;
+}
+
+.testimonial-author-info p {
+    font-size: 0.8rem;
+    color: var(--qatar-maroon);
+    font-weight: 600;
+    margin: 0;
+}
+
 
