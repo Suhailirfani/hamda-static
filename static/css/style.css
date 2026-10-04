@@ -931,6 +931,56 @@ section, footer {
     to { transform: translateY(0); opacity: 1; }
 }
 
+/* 7. Animated Moving Dots Pattern for Page Banners */
+.page-banner-animated {
+    position: relative;
+    background: linear-gradient(135deg, #581025 0%, #8D1B3D 50%, #420C1C 100%) !important;
+    color: #FFFFFF !important;
+    overflow: hidden;
+}
+
+.moving-dots-layer {
+    position: absolute;
+    inset: -60px;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.30) 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+    opacity: 0.65;
+    animation: moveDotsAnim 20s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+    will-change: transform;
+}
+
+.moving-dots-layer-secondary {
+    position: absolute;
+    inset: -60px;
+    background-image: radial-gradient(rgba(255, 218, 226, 0.22) 2px, transparent 2px);
+    background-size: 48px 48px;
+    opacity: 0.55;
+    animation: moveDotsReverseAnim 30s linear infinite;
+    pointer-events: none;
+    z-index: 2;
+    will-change: transform;
+}
+
+@keyframes moveDotsAnim {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(48px, 48px, 0);
+    }
+}
+
+@keyframes moveDotsReverseAnim {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-96px, 96px, 0);
+    }
+}
+
 /* Disable animations for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
     * {
