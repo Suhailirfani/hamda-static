@@ -4,7 +4,7 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 0. Preloader Handler
+    // 0. Preloader Handler (Instant & Smooth)
     const preloader = document.getElementById('preloader');
     
     function fadeOutPreloader() {
@@ -16,10 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (preloader) {
-        // Fade out on window load
+        // Fast dismissal on DOM ready
+        setTimeout(fadeOutPreloader, 350);
         window.addEventListener('load', fadeOutPreloader);
-        // Safety timeout fallback: load in 2.5 seconds max
-        setTimeout(fadeOutPreloader, 2500);
     } else {
         fadeOutPreloader();
     }

@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Gallery & Media | Hamda International Campus | Cheruthuruthy, Thrissur</title>
+    <meta name="description" content="Explore campus life, modern learning spaces, classrooms, hostel facilities, student activities, and video tours at Hamda International Campus, Cheruthuruthy, Thrissur.">
+    <meta name="keywords" content="Hamda campus photos, Hamda International Campus gallery, girls residential school photos Thrissur, campus tour video, student life Cheruthuruthy">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="static/favicon.png">
+    
+    <!-- Google Fonts: Sora & Montserrat (Zaithoon Typography Stack) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="static/css/style.css">
+    
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Sora', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif'],
+                        serif: ['Sora', 'sans-serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        midnight: '#0B0406',
+                        velvet: '#E9ECEF',
+                        accent: '#291016',
+                        purple: '#8D1B3D',
+                        maroon: '#8D1B3D',
+                        'maroon-glow': '#A1234A',
+                        'maroon-dark': '#581025',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gallery-filter-btn {
+            padding: 0.6rem 1.4rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: var(--transition-fast);
+            border: 1.5px solid rgba(141, 27, 61, 0.2);
+            background: #FFFFFF;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
+        .gallery-filter-btn.active, .gallery-filter-btn:hover {
+            background: var(--qatar-maroon);
+            color: #FFFFFF;
+            border-color: var(--qatar-maroon);
+            box-shadow: 0 4px 14px rgba(141, 27, 61, 0.25);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+        .gallery-item {
+            position: relative;
+            border-radius: 1.25rem;
+            overflow: hidden;
+            background: #FFFFFF;
+            border: 1.5px solid rgba(141, 27, 61, 0.12);
+            box-shadow: 0 8px 24px rgba(141, 27, 61, 0.06);
+            transition: var(--transition-smooth);
+        }
+        .gallery-item:hover {
+            transform: translateY(-6px);
+            border-color: var(--qatar-maroon);
+            box-shadow: 0 16px 36px rgba(141, 27, 61, 0.16);
+        }
+        .gallery-item-img-wrap {
+            height: 240px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: #1a050b;
+        }
+        .gallery-item-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-item:hover .gallery-item-img-wrap img {
+            transform: scale(1.08);
+        }
+        .gallery-item-caption {
+            padding: 1.25rem 1.25rem;
+            background: #FFFFFF;
+        }
+        .gallery-item-caption h5 {
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.35rem;
+        }
+        .gallery-item-caption p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+        }
+        .gallery-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(141, 27, 61, 0.85);
+            backdrop-filter: blur(8px);
+            color: #FFFFFF;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            z-index: 5;
+        }
+        .play-overlay-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(141, 27, 61, 0.9);
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: var(--transition-fast);
+            border: 2px solid #FFFFFF;
+            z-index: 6;
+            cursor: pointer;
+        }
+        .gallery-item:hover .play-overlay-btn {
+            transform: translate(-50%, -50%) scale(1.15);
+            background: var(--qatar-maroon);
+        }
+        /* Lightbox Modal */
+        .lightbox-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 3, 6, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+        .lightbox-modal.active {
+            display: flex;
+        }
+        .lightbox-content-box {
+            position: relative;
+            max-width: 960px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .lightbox-media-container {
+            width: 100%;
+            max-height: 78vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #000;
+        }
+        .lightbox-media-container img,
+        .lightbox-media-container video {
+            max-width: 100%;
+            max-height: 78vh;
+            object-fit: contain;
+        }
+        .lightbox-close-btn {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            background: transparent;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        .lightbox-close-btn:hover {
+            color: #FFBAC8;
+            transform: scale(1.15);
+        }
+        .lightbox-caption-text {
+            color: #FFFFFF;
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F4F5]">
+
+    <!-- Preloader Screen -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-spinner"></div>
+            <p class="preloader-text">Hamda International Campus</p>
+            <p class="text-xs text-white/70">Cheruthuruthy, Thrissur</p>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header with Dual Tone Aesthetic -->
+    <header class="position-sticky top-0 z-[2000] w-full shadow-sm">
+        <!-- Top Contact Info Bar -->
+        <div class="nav-bar-top-section d-none d-md-flex py-2">
+            <div class="container mx-auto px-4">
+                <div class="row align-items-center justify-content-between text-xs">
+                    <div class="col-lg-4 col-md-5 border-end-desktop">
+                        <p class="mb-0 text-white d-flex align-items-center gap-2">
+                            <i class="fas fa-phone-alt text-[#FFD0DA]"></i>
+                            <a href="tel:+919562744006" class="hover:underline">+91 9562 744 006</a> / 
+                            <a href="tel:+919562844006" class="hover:underline">844 006</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-md-7 border-end-desktop text-center">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-center gap-2">
+                            <i class="fas fa-envelope text-[#FFD0DA]"></i>
+                            <a href="mailto:office@hamdainternationalcampus.com" class="hover:underline">office@hamdainternationalcampus.com</a>
+                        </p>
+                    </div>
+                    <div class="col-lg-4 col-12 text-end d-none d-lg-block">
+                        <p class="mb-0 text-white d-flex align-items-center justify-content-end gap-2">
+                            <i class="fas fa-award text-[#FFD0DA]"></i>
+                            <span>Science • Commerce • Humanities</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Brand Navbar -->
+        <nav class="brand-navbar" style="position: relative;">
+            <div class="flex items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="static/images/hamda_logo_fin.png" alt="Hamda International Campus" class="brand-logo-img" style="filter: drop-shadow(0 2px 10px rgba(141,27,61,0.15));">
+                </a>
+            </div>
+            
+            <!-- Navigation Links (Desktop) -->
+            <div class="hidden md:flex items-center gap-1 md:gap-4">
+                <a href="index.html" class="nav-link-custom">Home</a>
+                <a href="about.html" class="nav-link-custom">About Us</a>
+                <a href="courses.html" class="nav-link-custom">Courses</a>
+                <a href="gallery.html" class="nav-link-custom active">Gallery</a>
+                <a href="contact.html" class="nav-link-custom">Contact</a>
+                <a href="contact.html#admission-enquiry" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+            </div>
+
+            <!-- Mobile Quick Actions & Menu Toggle -->
+            <div class="flex items-center gap-4 md:hidden">
+                <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                    <span class="hamburger-bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Drawer Overlay -->
+    <div id="mobileMenu" class="mobile-nav-drawer">
+        <div class="mobile-nav-header">
+            <a href="index.html" class="flex items-center">
+                <img src="static/images/hamda_logo_fin.png" alt="Hamda International Campus" style="height: 42px; width: auto; object-fit: contain;">
+            </a>
+            <button id="menuClose" class="mobile-menu-close text-purple text-2xl focus:outline-none" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-links">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="about.html" class="mobile-nav-link">About Us</a>
+            <a href="courses.html" class="mobile-nav-link">Courses</a>
+            <a href="gallery.html" class="mobile-nav-link active">Gallery</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="contact.html#admission-enquiry" class="btn btn-purple py-3 rounded-full text-sm mt-6 w-full text-center">Admissions Open</a>
+        </div>
+    </div>
+    <!-- Backdrop for Mobile Drawer -->
+    <div id="menuBackdrop" class="mobile-nav-backdrop"></div>
+
+    <!-- Page Banner Header -->
+    <section class="relative py-16 md:py-24 bg-gradient-to-r from-[#581025] via-[#8D1B3D] to-[#581025] text-white text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="container max-w-4xl mx-auto px-4 relative z-10">
+            <span class="inline-block bg-white/20 text-white border border-white/30 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                CAMPUS SHOWCASE
+            </span>
+            <h1 class="display-4 font-serif fw-bold mb-4">Campus Gallery & Media</h1>
+            <p class="fs-5 text-slate-200 max-w-2xl mx-auto">
+                Explore glimpses of academic life, modern facilities, student interactions, and video tours at Hamda International Campus, Cheruthuruthy, Thrissur.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Filter Bar & Showcase Grid -->
+    <section class="py-12 md:py-20 px-4">
+        <div class="container max-w-6xl mx-auto">
+            
+            <!-- Filter Categories -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10 md:mb-14">
+                <button class="gallery-filter-btn active" data-filter="all">All Media</button>
+                <button class="gallery-filter-btn" data-filter="students">Campus Life & Students</button>
+                <button class="gallery-filter-btn" data-filter="facilities">Campus & Facilities</button>
+                <button class="gallery-filter-btn" data-filter="videos">Video Tours & Highlights</button>
+            </div>
+
+            <!-- Gallery Cards Grid -->
+            <div class="gallery-grid" id="galleryContainer">
+
+                <!-- Item 1: Group Photo -->
+                <div class="gallery-item" data-category="students" data-aos="fade-up">
+                    <span class="gallery-badge"><i class="fas fa-users me-1"></i> Students</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/group photo.jpeg', 'Hamda Students Cohort - Group Photo', 'image')">
+                        <img src="static/images/group photo.jpeg" alt="Hamda Students Cohort" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Hamda Student Community</h5>
+                        <p>Inspiring, disciplined, and ambitious students pursuing Higher Secondary excellence.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2: Video 01 -->
+                <div class="gallery-item" data-category="videos" data-aos="fade-up" data-aos-delay="100">
+                    <span class="gallery-badge bg-red-700"><i class="fas fa-play me-1"></i> Video Tour 01</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/video_01.mp4', 'Hamda Campus Life & Activities Tour - Video 01', 'video')">
+                        <img src="static/images/video_01_poster.jpg" alt="Campus Video Tour 01" loading="lazy">
+                        <div class="play-overlay-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Campus Tour & Activities (Part 1)</h5>
+                        <p>A vibrant glimpse into the residential routine, classrooms, and daily activities.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3: Students with Book 01 -->
+                <div class="gallery-item" data-category="students" data-aos="fade-up" data-aos-delay="200">
+                    <span class="gallery-badge"><i class="fas fa-book-open me-1"></i> Academic Life</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/students with book 01.jpeg', 'Dedicated Study & Peer Collaboration', 'image')">
+                        <img src="static/images/students with book 01.jpeg" alt="Students Studying" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Dedicated Study & Collaboration</h5>
+                        <p>Empowering girls with focused peer learning and teacher mentorship.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4: Video 02 -->
+                <div class="gallery-item" data-category="videos" data-aos="fade-up" data-aos-delay="300">
+                    <span class="gallery-badge bg-red-700"><i class="fas fa-play me-1"></i> Video Tour 02</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/video_02.mp4', 'Hamda Campus Highlights - Video 02', 'video')">
+                        <img src="static/images/video_02_poster.jpg" alt="Campus Video Highlights 02" loading="lazy">
+                        <div class="play-overlay-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Campus Tour & Highlights (Part 2)</h5>
+                        <p>Exploring the peaceful surroundings and moral learning environment.</p>
+                    </div>
+                </div>
+
+                <!-- Item 5: Students Face to Face -->
+                <div class="gallery-item" data-category="students" data-aos="fade-up">
+                    <span class="gallery-badge"><i class="fas fa-comments me-1"></i> Interactive</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/students face to face.jpeg', 'Interactive Discussion & Mentoring', 'image')">
+                        <img src="static/images/students face to face.jpeg" alt="Interactive Student Sessions" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Interactive Discussion & Mentoring</h5>
+                        <p>Fostering leadership, communication skills, and personal confidence.</p>
+                    </div>
+                </div>
+
+                <!-- Item 6: Students with Book 02 -->
+                <div class="gallery-item" data-category="students" data-aos="fade-up" data-aos-delay="100">
+                    <span class="gallery-badge"><i class="fas fa-graduation-cap me-1"></i> Learning</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/students with book 02.jpeg', 'Academic Discipline & Focus', 'image')">
+                        <img src="static/images/students with book 02.jpeg" alt="Academic Discipline" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Academic Discipline & Focus</h5>
+                        <p>Structured daily study hours backed by specialized faculty support.</p>
+                    </div>
+                </div>
+
+                <!-- Item 7: Campus Building -->
+                <div class="gallery-item" data-category="facilities" data-aos="fade-up" data-aos-delay="200">
+                    <span class="gallery-badge"><i class="fas fa-building me-1"></i> Infrastructure</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/hamda_building.jpg', 'Hamda Main Campus Building & Safe Hostel', 'image')">
+                        <img src="static/images/hamda_building.jpg" alt="Hamda Main Campus Building" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Main Campus & Residential Hostel</h5>
+                        <p>Architectural elegance with modern amenities, security, and hygiene.</p>
+                    </div>
+                </div>
+
+                <!-- Item 8: Campus Overview -->
+                <div class="gallery-item" data-category="facilities" data-aos="fade-up" data-aos-delay="300">
+                    <span class="gallery-badge"><i class="fas fa-tree me-1"></i> Environment</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/campus.png', 'Hamda Green Campus Overview', 'image')">
+                        <img src="static/images/campus.png" alt="Green Campus Overview" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Serene & Green Campus</h5>
+                        <p>A tranquil environment designed for distraction-free learning at Thazhapra.</p>
+                    </div>
+                </div>
+
+                <!-- Item 9: Smart Classrooms -->
+                <div class="gallery-item" data-category="facilities" data-aos="fade-up">
+                    <span class="gallery-badge"><i class="fas fa-chalkboard-teacher me-1"></i> Classrooms</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/classroom.png', 'Modern Smart Classrooms', 'image')">
+                        <img src="static/images/classroom.png" alt="Smart Classrooms" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Modern Smart Classrooms</h5>
+                        <p>Audio-visual equipped learning spaces for interactive conceptual clarity.</p>
+                    </div>
+                </div>
+
+                <!-- Item 10: Science Labs & Experiments -->
+                <div class="gallery-item" data-category="facilities" data-aos="fade-up" data-aos-delay="100">
+                    <span class="gallery-badge"><i class="fas fa-flask me-1"></i> Science Labs</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/hero2.png', 'State-of-the-Art Science Laboratories', 'image')">
+                        <img src="static/images/hero2.png" alt="Science Labs" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>State-of-the-Art Science Labs</h5>
+                        <p>Fully equipped Physics, Chemistry, and Biology practical labs.</p>
+                    </div>
+                </div>
+
+                <!-- Item 11: Library & Learning Zones -->
+                <div class="gallery-item" data-category="facilities" data-aos="fade-up" data-aos-delay="200">
+                    <span class="gallery-badge"><i class="fas fa-book me-1"></i> Library</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/hero1.png', 'Rich Library & Reading Zones', 'image')">
+                        <img src="static/images/hero1.png" alt="Library" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Rich Library & Reading Resource</h5>
+                        <p>Comprehensive reference books, journals, and competitive exam guides.</p>
+                    </div>
+                </div>
+
+                <!-- Item 12: Dining & Well-being -->
+                <div class="gallery-item" data-category="facilities" data-aos="fade-up" data-aos-delay="300">
+                    <span class="gallery-badge"><i class="fas fa-utensils me-1"></i> Dining</span>
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/hero3.png', 'Hygienic Dining & Nutritious Meals', 'image')">
+                        <img src="static/images/hero3.png" alt="Dining Facilities" loading="lazy">
+                    </div>
+                    <div class="gallery-item-caption">
+                        <h5>Hygienic Dining & Healthy Nutrition</h5>
+                        <p>Wholesome, home-style balanced meals prepared in modern hygienic kitchens.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Lightbox Modal -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <div class="lightbox-content-box">
+            <button class="lightbox-close-btn" onclick="closeLightbox()" aria-label="Close Preview">
+                <i class="fas fa-times"></i>
+            </button>
+            <div id="lightboxMediaContainer" class="lightbox-media-container">
+                <!-- Media injected dynamically via JavaScript -->
+            </div>
+            <p id="lightboxCaption" class="lightbox-caption-text"></p>
+        </div>
+    </div>
+
+    <!-- Call to Action Banner -->
+    <section class="py-16 bg-gradient-to-r from-[#8D1B3D] to-[#581025] text-white text-center">
+        <div class="container max-w-4xl mx-auto px-4">
+            <h2 class="display-6 font-serif fw-bold mb-4">Experience Hamda International Campus</h2>
+            <p class="text-slate-200 mb-8 max-w-xl mx-auto">
+                Admissions are open for Plus One & Plus Two in Science, Commerce, and Humanities. Schedule a campus visit or enquire online.
+            </p>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <a href="contact.html#admission-enquiry" class="btn btn-purple bg-white text-[#8D1B3D] hover:bg-slate-100 font-bold px-6 py-3 rounded-full text-sm">
+                    Apply Online
+                </a>
+                <a href="tel:+919562744006" class="btn btn-outline-light font-bold px-6 py-3 rounded-full text-sm">
+                    <i class="fas fa-phone me-2"></i> Call: +91 9562 744 006
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0B0406] text-slate-300 pt-16 pb-12 border-t-4 border-[#8D1B3D]">
+        <div class="container max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Col 1: Brand Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <img src="static/images/hamda_logo_fin.png" alt="Hamda International Campus" style="height: 48px; filter: brightness(0) invert(1);">
+                    </div>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        A premier residential campus for girls, providing high-standard senior secondary education in Science, Commerce, and Humanities alongside integrated coaching and Islamic moral values.
+                    </p>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4 font-serif border-b border-slate-800 pb-2">Quick Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Campus</a></li>
+                        <li><a href="courses.html" class="hover:text-white transition-colors">Academic Streams</a></li>
+                        <li><a href="gallery.html" class="hover:text-white transition-colors font-bold text-[#FFBAC8]">Campus Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Academic Programs -->
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4 font-serif border-b border-slate-800 pb-2">Academic Programs</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="courses.html#science" class="hover:text-white transition-colors">Higher Secondary Science (NEET/JEE)</a></li>
+                        <li><a href="courses.html#commerce" class="hover:text-white transition-colors">Higher Secondary Commerce (CA/CMA)</a></li>
+                        <li><a href="courses.html#humanities" class="hover:text-white transition-colors">Higher Secondary Humanities (Civil Services)</a></li>
+                        <li><a href="courses.html#moral" class="hover:text-white transition-colors">Moral & Islamic Character Studies</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold text-base mb-4 font-serif border-b border-slate-800 pb-2">Campus Location</h4>
+                    <ul class="space-y-3 text-sm text-slate-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-[#C4566E] mt-1"></i>
+                            <span>Thazhapra, Cheruthuruthy, Thrissur, Kerala - 679531</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-[#C4566E]"></i>
+                            <a href="tel:+919562744006" class="hover:text-white transition-colors">+91 9562 744 006</a> / 
+                            <a href="tel:+919562844006" class="hover:text-white transition-colors">+91 9562 844 006</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-[#C4566E]"></i>
+                            <a href="mailto:office@hamdainternationalcampus.com" class="hover:text-white transition-colors">office@hamdainternationalcampus.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="my-12 border-slate-800/80">
+            
+            <div class="flex flex-col md:flex-row justify-between items-center text-slate-500 text-xs gap-4 text-center">
+                <p>&copy; 2026 Hamda International Campus. All rights reserved.</p>
+                <p>Managed by Markazuda'wa Thil Islamiyya Thazhapra</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Social Links (WhatsApp and Call) -->
+    <div class="floating-social">
+        <a href="https://wa.me/919562844006" target="_blank" class="social-btn whatsapp" title="WhatsApp Enquiry">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="tel:+919562744006" class="social-btn" style="background: var(--qatar-maroon);" title="Call Us Directly">
+            <i class="fas fa-phone-alt"></i>
+        </a>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <div class="mobile-bottom-nav md:hidden">
+        <a href="index.html" class="mobile-bottom-nav-item" id="bottomNavHome">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="about.html" class="mobile-bottom-nav-item" id="bottomNavAbout">
+            <i class="fas fa-info-circle"></i>
+            <span>About</span>
+        </a>
+        <a href="courses.html" class="mobile-bottom-nav-item" id="bottomNavCourses">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Courses</span>
+        </a>
+        <a href="gallery.html" class="mobile-bottom-nav-item active" id="bottomNavGallery">
+            <i class="fas fa-images"></i>
+            <span>Gallery</span>
+        </a>
+        <a href="contact.html" class="mobile-bottom-nav-item" id="bottomNavContact">
+            <i class="fas fa-envelope"></i>
+            <span>Contact</span>
+        </a>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Library JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="static/js/main.js"></script>
+    <script>
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 50
+            });
+        }
+
+        // Gallery Filtering Functionality
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Lightbox Functions
+        const modal = document.getElementById('lightboxModal');
+        const mediaContainer = document.getElementById('lightboxMediaContainer');
+        const caption = document.getElementById('lightboxCaption');
+
+        function openLightbox(src, captionText, type) {
+            mediaContainer.innerHTML = '';
+            caption.innerText = captionText;
+
+            if (type === 'video') {
+                const video = document.createElement('video');
+                video.src = src;
+                video.controls = true;
+                video.autoplay = true;
+                video.style.maxWidth = '100%';
+                video.style.maxHeight = '75vh';
+                mediaContainer.appendChild(video);
+            } else {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = captionText;
+                img.style.maxWidth = '100%';
+                img.style.maxHeight = '75vh';
+                mediaContainer.appendChild(img);
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            modal.classList.remove('active');
+            mediaContainer.innerHTML = '';
+            document.body.style.overflow = '';
+        }
+
+        // Close when clicking backdrop
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeLightbox();
+            }
+        });
+
+        // Close on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

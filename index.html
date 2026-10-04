@@ -113,8 +113,9 @@
                 <a href="index.html" class="nav-link-custom active">Home</a>
                 <a href="about.html" class="nav-link-custom">About Us</a>
                 <a href="courses.html" class="nav-link-custom">Courses</a>
+                <a href="gallery.html" class="nav-link-custom">Gallery</a>
                 <a href="contact.html" class="nav-link-custom">Contact</a>
-                <a href="contact.html" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
+                <a href="contact.html#admission-enquiry" class="btn btn-purple px-4 py-2 rounded-full text-xs md:text-sm d-none d-lg-inline-block">Admissions Open</a>
             </div>
 
             <!-- Mobile Quick Actions & Menu Toggle -->
@@ -142,11 +143,12 @@
             </button>
         </div>
         <div class="mobile-nav-links">
-            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="index.html" class="mobile-nav-link active">Home</a>
             <a href="about.html" class="mobile-nav-link">About Us</a>
             <a href="courses.html" class="mobile-nav-link">Courses</a>
+            <a href="gallery.html" class="mobile-nav-link">Gallery</a>
             <a href="contact.html" class="mobile-nav-link">Contact</a>
-            <a href="contact.html" class="btn btn-purple py-3 rounded-full text-sm mt-6 w-full text-center">Admissions Open</a>
+            <a href="contact.html#admission-enquiry" class="btn btn-purple py-3 rounded-full text-sm mt-6 w-full text-center">Admissions Open</a>
         </div>
     </div>
     <!-- Backdrop for Mobile Drawer -->
@@ -154,56 +156,72 @@
 
     <!-- Hero Carousel Section -->
     <section id="hero" class="relative overflow-hidden w-full">
-        <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+        <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
             <!-- Carousel Indicators -->
             <div class="carousel-indicators z-20">
                 <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="3"></button>
             </div>
             
             <div class="carousel-inner">
-                <!-- Slide 1 -->
+                <!-- Slide 1: Group Photo -->
                 <div class="carousel-item carousel-custom-item active">
                     <div class="carousel-overlay"></div>
-                    <img src="static/images/campus.png" class="absolute inset-0 w-full h-full object-cover" alt="Hamda International Campus">
+                    <img src="static/images/group photo.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Hamda International Campus Students">
                     <div class="carousel-custom-caption">
                         <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">PREMIUM GIRLS RESIDENTIAL CAMPUS</span>
                         <h1 class="display-3 font-serif fw-bold text-white mb-3">Hamda <span class="text-purple">International Campus</span></h1>
-                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Excellence, Ethics, and Empowerment. Kerala's dedicated residential campus offering Plus One & Plus Two in Science, Commerce, and Humanities with integrated entrance coaching.</p>
-                        <div class="flex gap-3 justify-center">
-                            <a href="contact.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">Secure Your Seat</a>
-                            <a href="about.html" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold">Discover Campus</a>
+                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Excellence, Ethics, and Empowerment. Kerala's dedicated residential campus offering Higher Secondary in Science, Commerce, and Humanities with integrated coaching.</p>
+                        <div class="flex gap-3 justify-center flex-wrap">
+                            <a href="contact.html#admission-enquiry" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">Admissions Open</a>
+                            <a href="gallery.html" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold">Campus Gallery</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Slide 2 -->
+                <!-- Slide 2: Students with Book 01 -->
                 <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
-                    <img src="static/images/hero2.png" class="absolute inset-0 w-full h-full object-cover" alt="Science, Commerce & Humanities Streams">
+                    <img src="static/images/students with book 01.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Academic Excellence at Hamda">
                     <div class="carousel-custom-caption">
-                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">COMPREHENSIVE STREAMS</span>
+                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">HIGHER SECONDARY & ENTRANCE COACHING</span>
                         <h2 class="display-4 font-serif fw-bold text-white mb-3">Science • <span class="text-purple">Commerce</span> • Humanities</h2>
                         <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Senior secondary board coaching with integrated NEET, JEE, CA Foundation, and Civil Services orientation under premier educators.</p>
-                        <div class="flex gap-3 justify-center">
+                        <div class="flex gap-3 justify-center flex-wrap">
                             <a href="courses.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">Our Programs</a>
                             <a href="contact.html" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold">Enquire Today</a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Slide 3 -->
+                <!-- Slide 3: Campus Overview -->
+                <div class="carousel-item carousel-custom-item">
+                    <div class="carousel-overlay"></div>
+                    <img src="static/images/campus.png" class="absolute inset-0 w-full h-full object-cover" alt="Hamda Campus View">
+                    <div class="carousel-custom-caption">
+                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">SAFE & SECURE GIRLS CAMPUS</span>
+                        <h2 class="display-4 font-serif fw-bold text-white mb-3">A Safe & Inspiring <span class="text-purple">Oasis</span></h2>
+                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Providing a peaceful, strictly monitored, and value-rich residential atmosphere located at Thazhapra, Cheruthuruthy, Thrissur.</p>
+                        <div class="flex gap-3 justify-center flex-wrap">
+                            <a href="about.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">About Campus</a>
+                            <a href="tel:+919562744006" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold"><i class="fas fa-phone me-2"></i> Call Us</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Campus Building & Character -->
                 <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
                     <img src="static/images/hamda_building.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Hamda International Campus Building">
                     <div class="carousel-custom-caption">
-                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">SAFE & SECURE HOSTEL</span>
-                        <h2 class="display-4 font-serif fw-bold text-white mb-3">A Safe & Inspiring <span class="text-purple">Oasis</span></h2>
-                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Providing a peaceful, strictly monitored, and value-rich residential atmosphere located at Thazhapra, Cheruthuruthy, Thrissur.</p>
-                        <div class="flex gap-3 justify-center">
-                            <a href="about.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">About Campus</a>
-                            <a href="tel:+919562744006" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold"><i class="fas fa-phone me-2"></i> Call Us</a>
+                        <span class="inline-block bg-[#8D1B3D]/80 text-white border border-white/30 px-3 py-1 rounded-full text-xs uppercase tracking-wider mb-3">MORAL & ETHICAL DEVELOPMENT</span>
+                        <h2 class="display-4 font-serif fw-bold text-white mb-3">Character, Values & <span class="text-purple">Spiritual Care</span></h2>
+                        <p class="fs-5 text-slate-100 mb-4 max-w-2xl mx-auto">Nurturing holistic Islamic discipline, Quranic literacy, and moral leadership alongside competitive academics.</p>
+                        <div class="flex gap-3 justify-center flex-wrap">
+                            <a href="gallery.html" class="btn btn-purple px-5 py-3 rounded-full text-sm font-bold">View Gallery</a>
+                            <a href="contact.html" class="btn btn-maroon px-5 py-3 rounded-full text-sm font-bold">Get In Touch</a>
                         </div>
                     </div>
                 </div>
@@ -779,6 +797,7 @@
                         <li><a href="index.html" class="text-slate-400 hover:text-white transition-colors">Home</a></li>
                         <li><a href="about.html" class="text-slate-400 hover:text-white transition-colors">About Us</a></li>
                         <li><a href="courses.html" class="text-slate-400 hover:text-white transition-colors">Academic Programs</a></li>
+                        <li><a href="gallery.html" class="text-slate-400 hover:text-white transition-colors">Campus Gallery</a></li>
                         <li><a href="contact.html" class="text-slate-400 hover:text-white transition-colors">Admissions & Contact</a></li>
                     </ul>
                 </div>
@@ -828,7 +847,7 @@
 
     <!-- Mobile Bottom Navigation Bar -->
     <div class="mobile-bottom-nav md:hidden">
-        <a href="index.html" class="mobile-bottom-nav-item" id="bottomNavHome">
+        <a href="index.html" class="mobile-bottom-nav-item active" id="bottomNavHome">
             <i class="fas fa-home"></i>
             <span>Home</span>
         </a>
@@ -840,14 +859,14 @@
             <i class="fas fa-graduation-cap"></i>
             <span>Courses</span>
         </a>
+        <a href="gallery.html" class="mobile-bottom-nav-item" id="bottomNavGallery">
+            <i class="fas fa-images"></i>
+            <span>Gallery</span>
+        </a>
         <a href="contact.html" class="mobile-bottom-nav-item" id="bottomNavContact">
             <i class="fas fa-envelope"></i>
             <span>Contact</span>
         </a>
-        <button class="mobile-bottom-nav-item" id="bottomNavMenu">
-            <i class="fas fa-bars"></i>
-            <span>Menu</span>
-        </button>
     </div>
 
     <!-- Bootstrap Bundle JS -->
