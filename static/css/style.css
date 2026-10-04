@@ -1413,7 +1413,7 @@ section, footer {
 /* Admission Course Cards (Zaitoon-Style) */
 .admission-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.75rem;
 }
 
@@ -1473,6 +1473,43 @@ section, footer {
     color: var(--text-muted);
     line-height: 1.6;
     margin-bottom: 1.5rem;
+}
+
+.course-substream-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.course-substream-item {
+    background: #FAF3F5;
+    border-left: 3px solid var(--qatar-maroon);
+    border-radius: 0.5rem;
+    padding: 0.65rem 0.85rem;
+    transition: var(--transition-fast);
+}
+
+.course-substream-item:hover {
+    background: #F5E6EA;
+}
+
+.course-substream-title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--qatar-maroon);
+    margin-bottom: 0.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.course-substream-desc {
+    font-size: 0.82rem;
+    color: var(--text-body);
+    line-height: 1.45;
+    margin: 0;
 }
 
 .admission-card-btn {
