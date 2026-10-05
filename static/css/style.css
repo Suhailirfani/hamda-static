@@ -61,8 +61,8 @@ body {
     background-color: #E5E7EB !important;
     color: var(--text-body);
     font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.65;
+    font-size: 1.05rem;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -80,6 +80,39 @@ h1, h2, h3, h4, h5, h6,
 
 p, span, li, a, input, select, textarea, button, .btn {
     font-family: var(--font-body);
+}
+
+p {
+    font-size: 1.025rem;
+    line-height: 1.7;
+}
+
+.text-sm {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
+.text-xs {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+}
+
+.text-base {
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+}
+
+.text-lg {
+    font-size: 1.2rem !important;
+}
+
+.fs-5 {
+    font-size: 1.18rem !important;
+    line-height: 1.65 !important;
+}
+
+.fs-6 {
+    font-size: 1.05rem !important;
 }
 
 section, footer {
@@ -181,15 +214,15 @@ section, footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 3rem;
-    background: rgba(255,255,255,0.97);
+    padding: 0.65rem 2.5rem;
+    background: rgba(255,255,255,0.98);
     border-bottom: 1px solid var(--border-light);
     box-shadow: 0 2px 12px rgba(141,27,61,0.07);
     transition: var(--transition-smooth);
 }
 
 .brand-navbar.scrolled {
-    padding: 0.5rem 3rem;
+    padding: 0.4rem 2.5rem;
     background: #FFFFFF;
     border-bottom: 2px solid var(--qatar-maroon);
     box-shadow: 0 4px 20px rgba(141, 27, 61, 0.14);
@@ -199,7 +232,7 @@ section, footer {
     color: var(--text-dark);
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     letter-spacing: 0.03rem;
     padding: 0.5rem 1rem;
     position: relative;
@@ -222,18 +255,23 @@ section, footer {
 
 .nav-link-custom.active { color: var(--qatar-maroon); font-weight: 700; }
 
-/* Brand Logo (Full Emblem + Wordmark Image) */
+/* Brand Logo (Full Emblem + Wordmark Image) - Made Larger & Prominent */
 .brand-logo-img {
-    height: 48px;
-    max-height: 52px;
+    height: 60px;
+    max-height: 66px;
     width: auto;
     object-fit: contain;
     transition: var(--transition-smooth);
 }
 
+.brand-navbar.scrolled .brand-logo-img {
+    height: 50px;
+    max-height: 54px;
+}
+
 .brand-location-tag {
     font-family: var(--font-body);
-    font-size: 0.52rem;
+    font-size: 0.55rem;
     font-weight: 600;
     color: #64748B;
     letter-spacing: 0.02em;
@@ -250,16 +288,16 @@ section, footer {
 
 @media (max-width: 768px) {
     .brand-navbar {
-        padding: 0.5rem 1rem;
+        padding: 0.45rem 0.75rem;
     }
     .brand-logo-img {
-        height: 38px;
-        max-height: 42px;
-        max-width: 200px;
+        height: 48px;
+        max-height: 52px;
+        max-width: 250px;
         width: auto;
     }
     .brand-location-tag {
-        font-size: 0.44rem;
+        font-size: 0.46rem;
         letter-spacing: 0.01em;
         margin-top: 1px;
         padding-left: 0;
@@ -2044,6 +2082,47 @@ section, footer {
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.45;
     margin: 0;
+}
+
+/* ==========================================================================
+   MOBILE CONTENT EXPANSION (Maximize viewport width usage & eliminate excess side gaps)
+   ========================================================================== */
+@media (max-width: 640px) {
+    .container, 
+    .container-fluid,
+    .container-sm,
+    .container-md {
+        padding-left: 0.6rem !important;
+        padding-right: 0.6rem !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    section {
+        padding-left: 0.35rem !important;
+        padding-right: 0.35rem !important;
+    }
+
+    .px-4 {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+
+    .card-premium, 
+    .glass-panel,
+    .admission-card-item,
+    .facility-card-item-v2 {
+        padding: 1.25rem 0.85rem !important;
+        border-radius: 1rem !important;
+    }
+
+    .what-defines-grid {
+        gap: 0.75rem !important;
+    }
+
+    .marquee-wrapper {
+        padding: 0.5rem 0.25rem !important;
+    }
 }
 
 
