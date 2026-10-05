@@ -178,27 +178,27 @@
                         
                         <form id="enquiryForm" class="space-y-4">
                             <!-- Name Field -->
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control form-glass-input" id="enquiryName" name="student_name" placeholder="Full Name" required>
-                                <label for="enquiryName" class="form-glass-label">Student Name</label>
+                            <div>
+                                <label for="enquiryName" class="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-1.5">Student Full Name <span class="text-[#8D1B3D]">*</span></label>
+                                <input type="text" class="form-control form-glass-input" id="enquiryName" name="student_name" placeholder="Enter student's full name" required>
                             </div>
                             
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <!-- Phone Field -->
-                                <div class="form-floating mb-3">
-                                    <input type="tel" class="form-control form-glass-input" id="enquiryPhone" name="phone_number" placeholder="Contact Number" required>
-                                    <label for="enquiryPhone" class="form-glass-label">Contact Phone Number</label>
+                                <div>
+                                    <label for="enquiryPhone" class="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-1.5">Contact Phone Number <span class="text-[#8D1B3D]">*</span></label>
+                                    <input type="tel" class="form-control form-glass-input" id="enquiryPhone" name="phone_number" placeholder="10-digit mobile number" required>
                                 </div>
                                 <!-- Email Field -->
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control form-glass-input" id="enquiryEmail" name="email" placeholder="Email Address">
-                                    <label for="enquiryEmail" class="form-glass-label">Email Address (Optional)</label>
+                                <div>
+                                    <label for="enquiryEmail" class="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-1.5">Email Address <span class="text-slate-400 font-normal lowercase">(optional)</span></label>
+                                    <input type="email" class="form-control form-glass-input" id="enquiryEmail" name="email" placeholder="example@gmail.com">
                                 </div>
                             </div>
                             
                             <!-- Course Field -->
-                            <div class="mb-3">
-                                <label for="enquiryCourse" class="text-slate-600 text-xs font-medium block mb-2">Select Preferred Academic Stream</label>
+                            <div>
+                                <label for="enquiryCourse" class="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-1.5">Select Preferred Academic Stream <span class="text-[#8D1B3D]">*</span></label>
                                 <select class="form-select form-glass-input w-full" id="enquiryCourse" name="preferred_stream" required>
                                     <option value="" disabled selected>Select stream & combination...</option>
                                     <optgroup label="Plus One Streams">
@@ -217,12 +217,12 @@
                             </div>
                             
                             <!-- Message Field -->
-                            <div class="form-floating mb-4">
-                                <textarea class="form-control form-glass-input" id="enquiryMessage" name="message" placeholder="Your Message" style="height: 120px;"></textarea>
-                                <label for="enquiryMessage" class="form-glass-label">Questions or Custom Queries</label>
+                            <div>
+                                <label for="enquiryMessage" class="block text-slate-700 text-xs font-bold uppercase tracking-wider mb-1.5">Questions or Custom Queries <span class="text-slate-400 font-normal lowercase">(optional)</span></label>
+                                <textarea class="form-control form-glass-input" id="enquiryMessage" name="message" placeholder="Ask any questions regarding admissions, hostel, or entrance coaching..." style="height: 110px;"></textarea>
                             </div>
                             
-                            <button type="submit" id="enquirySubmitBtn" class="btn btn-purple w-full py-3 rounded-xl font-bold text-sm uppercase tracking-wider"><i class="fas fa-paper-plane me-2"></i> Submit Admission Enquiry</button>
+                            <button type="submit" id="enquirySubmitBtn" class="btn btn-purple w-full py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider shadow-lg shadow-purple/20"><i class="fas fa-paper-plane me-2"></i> Submit Admission Enquiry</button>
                         </form>
                     </div>
                 </div>
