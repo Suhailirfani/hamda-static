@@ -9,7 +9,8 @@
 :root {
     /* Color Palette */
     --bg-white: #FFFFFF;
-    --bg-light: #F8F4F5;
+    --bg-grey: #F3F4F6;
+    --bg-light: #F3F4F6;
     --bg-card: #FFFFFF;
     --bg-card-hover: #FDF0F3;
 
@@ -57,7 +58,7 @@ html {
 }
 
 body {
-    background-color: var(--bg-white);
+    background-color: #F3F4F6 !important;
     color: var(--text-body);
     font-family: var(--font-body);
     font-size: 1rem;
