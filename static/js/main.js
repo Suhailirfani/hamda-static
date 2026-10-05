@@ -330,13 +330,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     }).catch(err => console.warn('Google Sheet logging error:', err));
                 }
 
-                // 2. Format WhatsApp message
-                const waMessage = `*Hamda International Campus - Admission Enquiry (2026–27)*\n\n` +
-                    `👤 *Student Name:* ${studentName}\n` +
-                    `📱 *Phone Number:* ${studentPhone}\n` +
-                    `📚 *Preferred Stream:* ${selectedStream}\n` +
-                    `📧 *Email:* ${studentEmail}\n` +
-                    `💬 *Questions/Remarks:* ${studentMsg}`;
+                // 2. Format WhatsApp message (Universal formatting compatible with all devices)
+                const waMessage = `*HAMDA INTERNATIONAL CAMPUS*\n` +
+                    `*Admission Enquiry (2026-27)*\n\n` +
+                    `• *Student Name:* ${studentName}\n` +
+                    `• *Phone Number:* ${studentPhone}\n` +
+                    `• *Preferred Stream:* ${selectedStream}\n` +
+                    `• *Email:* ${studentEmail}\n` +
+                    `• *Questions / Remarks:* ${studentMsg}`;
 
                 const waUrl = `https://wa.me/919562844006?text=${encodeURIComponent(waMessage)}`;
 
