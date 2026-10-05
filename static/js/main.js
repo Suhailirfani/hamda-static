@@ -259,13 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Contact / Enquiry Form Interactive Response & Google Sheet Integration
-    // Replace the URL below with your deployed Google Apps Script Web App URL
-    const GOOGLE_SHEET_WEBAPP_URL = ''; 
-
+    // 9. Contact / Enquiry Form Direct WhatsApp Auto-Submission
     const enquiryForm = document.getElementById('enquiryForm');
     if (enquiryForm) {
-        enquiryForm.addEventListener('submit', async (e) => {
+        enquiryForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             // Client-side validation
@@ -300,68 +297,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isValid) {
                 // Show submitting loading state on button
-                const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
                 if (submitBtn) {
                     submitBtn.disabled = true;
-                    submitBtn.innerHTML = `<i class="fas fa-circle-notch fa-spin me-2"></i> Submitting to Google Sheet...`;
+                    submitBtn.innerHTML = `<i class="fab fa-whatsapp me-2"></i> Opening WhatsApp...`;
                 }
 
-                // Prepare FormData for Google Sheet Web App
-                const formData = new FormData();
-                formData.append('student_name', nameInput.value.trim());
-                formData.append('phone_number', phoneInput.value.trim());
-                formData.append('email', emailInput ? emailInput.value.trim() : '');
-                formData.append('preferred_stream', courseSelect.value);
-                formData.append('message', messageInput ? messageInput.value.trim() : '');
-                formData.append('timestamp', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
+                // Format WhatsApp message
+                const studentName = nameInput.value.trim();
+                const studentPhone = phoneInput.value.trim();
+                const studentEmail = emailInput && emailInput.value.trim() ? emailInput.value.trim() : 'Not Provided';
+                const selectedStream = courseSelect.value;
+                const studentMsg = messageInput && messageInput.value.trim() ? messageInput.value.trim() : 'None';
 
-                // Submit to Google Sheet if WebApp URL is configured
-                if (GOOGLE_SHEET_WEBAPP_URL && GOOGLE_SHEET_WEBAPP_URL.trim() !== '') {
-                    try {
-                        await fetch(GOOGLE_SHEET_WEBAPP_URL, {
-                            method: 'POST',
-                            body: formData,
-                            mode: 'no-cors'
-                        });
-                    } catch (err) {
-                        console.warn('Google Sheet submission fetch warning:', err);
-                    }
-                }
+                const waMessage = `*Hamda International Campus - Admission Enquiry (2026–27)*\n\n` +
+                    `👤 *Student Name:* ${studentName}\n` +
+                    `📱 *Phone Number:* ${studentPhone}\n` +
+                    `📚 *Preferred Stream:* ${selectedStream}\n` +
+                    `📧 *Email:* ${studentEmail}\n` +
+                    `💬 *Questions/Remarks:* ${studentMsg}`;
 
-                // Show a stunning glassmorphic success modal overlay
+                const waUrl = `https://wa.me/919562844006?text=${encodeURIComponent(waMessage)}`;
+
+                // Auto-open WhatsApp in new tab / application
+                window.open(waUrl, '_blank');
+
+                // Show a confirmation success card
                 const formCard = enquiryForm.closest('.card-premium');
                 const originalContent = formCard.innerHTML;
                 
                 formCard.style.opacity = '0';
                 setTimeout(() => {
-                    const waMessage = `*Hamda International Campus - Admission Enquiry*\n\n*Name:* ${nameInput.value.trim()}\n*Phone:* ${phoneInput.value.trim()}\n*Stream:* ${courseSelect.value}\n*Email:* ${emailInput.value.trim() || 'N/A'}\n*Message:* ${messageInput.value.trim() || 'N/A'}`;
-                    
                     formCard.innerHTML = `
                         <div class="text-center py-5 reveal-element active">
-                            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6" style="background: linear-gradient(135deg, var(--qatar-maroon-glow) 0%, var(--theme-purple) 100%);">
-                                <i class="fas fa-check text-white text-4xl"></i>
+                            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full mb-6" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); box-shadow: 0 8px 24px rgba(37, 211, 102, 0.35);">
+                                <i class="fab fa-whatsapp text-white text-4xl"></i>
                             </div>
-                            <h3 class="font-serif fw-bold text-purple fs-2 mb-3">Enquiry Recorded!</h3>
-                            <p class="text-slate-700 mb-2 px-3">Thank you, <b>${nameInput.value}</b>. Your admission enquiry for <b>${courseSelect.value}</b> has been received and saved.</p>
-                            <p class="text-slate-500 text-xs mb-6">Our academic admissions counselor will contact you shortly on <b>${phoneInput.value}</b>.</p>
+                            <h3 class="font-serif fw-bold text-dark fs-2 mb-3">Enquiry Ready on WhatsApp!</h3>
+                            <p class="text-slate-700 mb-2 px-3">Thank you, <b>${studentName}</b>. Your admission enquiry details for <b>${selectedStream}</b> have been transferred to our WhatsApp admissions desk.</p>
+                            <p class="text-slate-500 text-xs mb-6">If WhatsApp did not open automatically, click the button below to send your message.</p>
                             
                             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                                <a href="https://wa.me/919562844006?text=${encodeURIComponent(waMessage)}" target="_blank" class="btn btn-maroon px-5 py-2.5 rounded-full text-xs font-bold"><i class="fab fa-whatsapp me-2"></i> Message On WhatsApp</a>
+                                <a href="${waUrl}" target="_blank" class="btn btn-maroon px-5 py-2.5 rounded-full text-xs font-bold" style="background: #25D366 !important; border-color: #25D366 !important; color: #FFFFFF !important;"><i class="fab fa-whatsapp me-2"></i> Open WhatsApp Chat</a>
                                 <button id="resetFormBtn" class="btn btn-outline-purple px-5 py-2.5 rounded-full text-xs font-bold">Submit Another Enquiry</button>
                             </div>
                         </div>
                     `;
                     formCard.style.opacity = '1';
                     
-                    document.getElementById('resetFormBtn').addEventListener('click', () => {
-                        formCard.style.opacity = '0';
-                        setTimeout(() => {
-                            formCard.innerHTML = originalContent;
-                            formCard.style.opacity = '1';
-                            document.location.reload();
-                        }, 400);
-                    });
-                }, 400);
+                    const resetBtn = document.getElementById('resetFormBtn');
+                    if (resetBtn) {
+                        resetBtn.addEventListener('click', () => {
+                            formCard.style.opacity = '0';
+                            setTimeout(() => {
+                                formCard.innerHTML = originalContent;
+                                formCard.style.opacity = '1';
+                                document.location.reload();
+                            }, 300);
+                        });
+                    }
+                }, 350);
             }
         });
     }
