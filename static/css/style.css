@@ -1,10 +1,10 @@
 /* ==========================================================================
    DESIGN SYSTEM - SHARP & BOLD
    Hamda International Campus — Qatar Maroon · White
-   Typography: Sora (Headings/Branding) & Montserrat (Body/UI)
+   Typography: Raleway (Headings/Branding) & Poppins (Body/UI)
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
 
 :root {
     /* Color Palette */
@@ -33,9 +33,9 @@
     --border-light: rgba(141, 27, 61, 0.15);
     --border-maroon: rgba(141, 27, 61, 0.25);
 
-    /* Fonts (Zaithoon Typography Stack) */
-    --font-heading: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-body: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+    /* Fonts (Zaitoon Typography Stack: Raleway & Poppins) */
+    --font-heading: 'Raleway', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
 
     /* Standard Transitions */
     --transition-smooth: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
