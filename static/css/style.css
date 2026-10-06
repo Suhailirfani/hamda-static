@@ -2064,6 +2064,13 @@ section, footer {
     transform: translateY(-2px);
 }
 
+.core-values-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
 .core-values-grid-5 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
