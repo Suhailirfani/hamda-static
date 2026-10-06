@@ -260,8 +260,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 9. Contact / Enquiry Form: Google Sheet Recording + Instant WhatsApp Redirection
-    // Paste your deployed Google Apps Script Web App URL below:
-    const GOOGLE_SHEET_WEBAPP_URL = ''; 
+    // Deployed Google Apps Script Web App URL:
+    const GOOGLE_SHEET_WEBAPP_URL = 'https://script.google.com/macros/s/AKfycbz5VT6w0XgSMaaSzqufsdDH8MydDosQzeawBg6h14u3UjwnZTLKNsZAtaVa5ee04mhYsw/exec';
 
     const enquiryForm = document.getElementById('enquiryForm');
     if (enquiryForm) {
