@@ -1461,12 +1461,21 @@ section, footer {
 @media (max-width: 767px) {
     .what-defines-grid {
         grid-template-columns: 1fr;
+        gap: 0.85rem;
     }
     .what-defines-left {
-        height: 280px;
+        height: 230px;
+        border-radius: 1.25rem;
     }
     .what-defines-right {
-        display: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem;
+        height: 130px;
+    }
+    .what-defines-thumb {
+        height: 100%;
+        border-radius: 1rem;
     }
 }
 
