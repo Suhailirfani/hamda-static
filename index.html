@@ -159,15 +159,24 @@
         <div id="heroSlider" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4000">
             <!-- Carousel Indicators -->
             <div class="carousel-indicators z-20">
-                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2"></button>
-                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#heroSlider" data-bs-slide-to="4" aria-label="Slide 5"></button>
             </div>
             
             <div class="carousel-inner">
-                <!-- Slide 1: Group Photo -->
+                <!-- Slide 1: Admission Poster (adcom on desktop, admob on mobile - No Caption) -->
                 <div class="carousel-item carousel-custom-item active">
+                    <picture class="absolute inset-0 w-full h-full block">
+                        <source media="(max-width: 767px)" srcset="static/images/admob.jpeg">
+                        <img src="static/images/adcom.jpeg" class="w-full h-full object-cover" alt="Hamda International Campus Admission">
+                    </picture>
+                </div>
+
+                <!-- Slide 2: Group Photo -->
+                <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
                     <img src="static/images/group photo.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Hamda International Campus Students">
                     <div class="carousel-custom-caption">
@@ -180,7 +189,7 @@
                     </div>
                 </div>
                 
-                <!-- Slide 2: Students with Book 01 -->
+                <!-- Slide 3: Students with Book 01 -->
                 <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
                     <img src="static/images/students with book 01.jpeg" class="absolute inset-0 w-full h-full object-cover" alt="Academic Excellence at Hamda">
@@ -194,7 +203,7 @@
                     </div>
                 </div>
                 
-                <!-- Slide 3: Campus Overview -->
+                <!-- Slide 4: Campus Overview -->
                 <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
                     <img src="static/images/campus.png" class="absolute inset-0 w-full h-full object-cover" alt="Hamda Campus View">
@@ -208,7 +217,7 @@
                     </div>
                 </div>
 
-                <!-- Slide 4: Campus Building & Character -->
+                <!-- Slide 5: Campus Building & Character -->
                 <div class="carousel-item carousel-custom-item">
                     <div class="carousel-overlay"></div>
                     <img src="static/images/hamda_building.jpg" class="absolute inset-0 w-full h-full object-cover" alt="Hamda International Campus Building">
@@ -302,13 +311,9 @@
                     <p class="text-slate-800 text-sm font-semibold leading-relaxed mb-3">
                         At Hamda International Campus, we provide an integrated educational environment where academic excellence, Islamic values, discipline, character development and modern education come together.
                     </p>
-                    <p class="text-slate-800 text-sm font-semibold leading-relaxed mb-6">
+                    <p class="text-slate-800 text-sm font-semibold leading-relaxed mb-0">
                         Our institution is exclusively designed for girls, offering premium residential and academic facilities along with specialized entrance-exam and competitive-exam preparation.
                     </p>
-                    <div class="flex gap-4">
-                        <a href="about.html" class="btn btn-purple px-6 py-3 rounded-full text-sm font-bold">Discover More</a>
-                        <a href="contact.html#admission-enquiry" class="btn btn-outline-purple px-6 py-3 rounded-full text-sm font-bold">Enquire Online</a>
-                    </div>
                 </div>
 
                 <!-- Asymmetric Image Grid Column -->
