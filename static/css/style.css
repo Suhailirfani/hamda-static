@@ -511,8 +511,9 @@ section, footer {
 }
 
 .carousel-custom-item {
-    height: 100vh;
-    min-height: 700px;
+    height: calc(100vh - 60px);
+    min-height: 640px;
+    max-height: 850px;
 }
 
 .carousel-custom-caption {
@@ -737,6 +738,11 @@ section, footer {
 @media (max-width: 991px) {
     .brand-navbar { padding: 0.6rem 1.5rem; }
     .brand-navbar.scrolled { padding: 0.5rem 1.5rem; }
+    .carousel-custom-item {
+        height: calc(52vh - 10px) !important;
+        min-height: 340px !important;
+        max-height: 480px !important;
+    }
     .carousel-custom-caption { padding: 2rem 1.5rem; top: 55%; }
 }
 
@@ -751,9 +757,9 @@ section, footer {
         height: 60px;
     }
     .carousel-custom-item {
-        height: 50vh !important;
-        min-height: 280px !important;
-        max-height: 440px !important;
+        height: calc(48vh - 10px) !important;
+        min-height: 260px !important;
+        max-height: 400px !important;
     }
     .carousel-custom-caption {
         padding: 0.75rem 0.5rem !important;
@@ -788,8 +794,9 @@ section, footer {
 
 @media (max-width: 480px) {
     .carousel-custom-item {
-        height: 50vh !important;
-        min-height: 260px !important;
+        height: calc(46vh - 10px) !important;
+        min-height: 240px !important;
+        max-height: 360px !important;
     }
     .carousel-custom-caption h1,
     .carousel-custom-caption h2 {
