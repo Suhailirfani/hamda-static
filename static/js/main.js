@@ -383,3 +383,38 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+// =========================================================
+// Campus Video Tour Interactive Player Controller
+// =========================================================
+window.playCampusVideo = function() {
+    const video = document.getElementById('campusMainVideo');
+    const screen = document.getElementById('campusVideoScreen');
+    if (video && screen) {
+        screen.classList.add('is-playing');
+        video.controls = true;
+        const playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function(error) {
+                console.log('Autoplay / playback interrupted:', error);
+            });
+        }
+    }
+};
+
+// Auto-pause video if user scrolls out of viewport
+document.addEventListener('DOMContentLoaded', function() {
+    const video = document.getElementById('campusMainVideo');
+    const screen = document.getElementById('campusVideoScreen');
+    if (video && 'IntersectionObserver' in window) {
+        const videoObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting && !video.paused) {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.25 });
+        videoObserver.observe(video);
+    }
+});

@@ -167,11 +167,11 @@
             </div>
             
             <div class="carousel-inner">
-                <!-- Slide 1: Admission Poster (adcom3 on desktop, admob2 on mobile - No Caption) -->
+                <!-- Slide 1: Admission Poster (adcom3.jpg on desktop, admob2.png on mobile) -->
                 <div class="carousel-item carousel-custom-item active">
-                    <picture class="absolute inset-0 w-full h-full block">
+                    <picture class="d-block position-absolute top-0 start-0 w-100 h-100">
                         <source media="(max-width: 767px)" srcset="static/images/admob2.png">
-                        <img src="static/images/adcom3.jpg" class="w-full h-full object-cover" alt="Hamda International Campus Admission">
+                        <img src="static/images/adcom3.jpg" class="d-block position-absolute top-0 start-0 w-100 h-100 object-cover" alt="Hamda International Campus Admission">
                     </picture>
                 </div>
 
@@ -596,6 +596,77 @@
                         <p>Safe and convenient transportation facilities for students.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Campus Video Tour Section (Optimized Lazy Loading Video Tour) -->
+    <section class="py-16 md:py-24 px-4 campus-video-section overflow-hidden" id="campus-video-tour">
+        <div class="container max-w-6xl mx-auto">
+            <div class="text-center mb-10 md:mb-14">
+                <div class="mb-3">
+                    <span class="inline-block bg-[#8D1B3D]/10 text-purple border border-purple/20 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
+                        <i class="fas fa-video me-1.5 text-purple"></i> Virtual Campus Tour
+                    </span>
+                </div>
+                <h2 class="display-5 font-serif fw-bold text-dark section-title">Take a Video Tour of Our Campus</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-4 text-sm md:text-base">
+                    Explore the serene environment, modern air-conditioned classrooms, hi-tech laboratories, and secure residential facilities of Hamda International Campus at Cheruthuruthy, Thrissur.
+                </p>
+            </div>
+
+            <!-- Video Player Card Container -->
+            <div class="campus-video-player-wrapper reveal-element" data-aos="zoom-in">
+                <div class="campus-video-screen" id="campusVideoScreen">
+                    <!-- HTML5 Video with Preload None for Instant Page Loading Speed -->
+                    <video id="campusMainVideo" playsinline preload="none" poster="static/images/campus_video_poster.jpg">
+                        <source src="static/images/campus_video.mp4" type="video/mp4">
+                        Your browser does not support HTML5 video.
+                    </video>
+
+                    <!-- Rich Poster Overlay with Interactive Play Button -->
+                    <div class="campus-video-poster-overlay" id="campusVideoPosterOverlay" style="background-image: url('static/images/campus_video_poster.jpg');" onclick="playCampusVideo()">
+                        <div class="campus-video-play-btn" title="Watch Campus Video Tour">
+                            <i class="fas fa-play ml-1"></i>
+                        </div>
+                        <div class="campus-video-badge-pill">
+                            <i class="fas fa-film"></i>
+                            <span>Campus Cinematic Tour • 0:47</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights Tags Bar -->
+            <div class="campus-video-features-bar">
+                <div class="campus-video-feature-tag">
+                    <i class="fas fa-building text-purple"></i>
+                    <span>Modern Academic Blocks</span>
+                </div>
+                <div class="campus-video-feature-tag">
+                    <i class="fas fa-snowflake text-purple"></i>
+                    <span>AC Smart Classrooms & Labs</span>
+                </div>
+                <div class="campus-video-feature-tag">
+                    <i class="fas fa-shield-alt text-purple"></i>
+                    <span>100% Safe Residential Campus</span>
+                </div>
+                <div class="campus-video-feature-tag">
+                    <i class="fas fa-mosque text-purple"></i>
+                    <span>Islamic Moral Environment</span>
+                </div>
+                <div class="campus-video-feature-tag">
+                    <i class="fas fa-map-marker-alt text-purple"></i>
+                    <span>Cheruthuruthy, Thrissur</span>
+                </div>
+            </div>
+
+            <!-- View Full Gallery CTA -->
+            <div class="text-center mt-8">
+                <a href="gallery.html" class="inline-flex items-center gap-2 text-purple font-semibold text-sm hover:underline">
+                    <span>View More Campus Photos & Video Highlights in Gallery</span>
+                    <i class="fas fa-arrow-right text-xs"></i>
+                </a>
             </div>
         </div>
     </section>

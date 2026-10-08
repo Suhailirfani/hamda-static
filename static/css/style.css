@@ -514,6 +514,16 @@ section, footer {
     height: calc(100vh - 60px);
     min-height: 640px;
     max-height: 850px;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-custom-item picture,
+.carousel-custom-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .carousel-custom-caption {
@@ -2200,6 +2210,156 @@ section, footer {
         right: 0 !important;
     }
 }
+
+/* ===================================================
+   CAMPUS VIDEO TOUR SECTION (Landing Page & Gallery)
+   =================================================== */
+.campus-video-section {
+    position: relative;
+    background: linear-gradient(180deg, #F8F4F5 0%, #EFE5E8 50%, #F8F4F5 100%);
+    overflow: hidden;
+}
+
+.campus-video-player-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    border-radius: 1.5rem;
+    padding: 8px;
+    background: linear-gradient(135deg, rgba(141, 27, 61, 0.35), rgba(255, 255, 255, 0.95), rgba(88, 16, 37, 0.3));
+    box-shadow: 0 20px 50px -10px rgba(88, 16, 37, 0.25), 0 0 30px rgba(141, 27, 61, 0.15);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.campus-video-player-wrapper:hover {
+    box-shadow: 0 25px 60px -10px rgba(88, 16, 37, 0.35), 0 0 45px rgba(141, 27, 61, 0.25);
+}
+
+.campus-video-screen {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #0B0406;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.campus-video-screen video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.25rem;
+    z-index: 2;
+}
+
+.campus-video-poster-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.campus-video-poster-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(11, 4, 6, 0.85) 0%, rgba(11, 4, 6, 0.35) 50%, rgba(11, 4, 6, 0.45) 100%);
+}
+
+.campus-video-screen.is-playing .campus-video-poster-overlay {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.campus-video-play-btn {
+    position: relative;
+    z-index: 4;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8D1B3D 0%, #A1234A 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.85rem;
+    box-shadow: 0 8px 30px rgba(141, 27, 61, 0.6), 0 0 0 8px rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    animation: playPulseGlow 2.5s infinite;
+}
+
+.campus-video-screen:hover .campus-video-play-btn {
+    transform: scale(1.12);
+    background: linear-gradient(135deg, #A1234A 0%, #8D1B3D 100%);
+    box-shadow: 0 12px 35px rgba(141, 27, 61, 0.8), 0 0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+@keyframes playPulseGlow {
+    0% {
+        box-shadow: 0 8px 25px rgba(141, 27, 61, 0.5), 0 0 0 0 rgba(141, 27, 61, 0.4);
+    }
+    70% {
+        box-shadow: 0 12px 30px rgba(141, 27, 61, 0.6), 0 0 0 18px rgba(141, 27, 61, 0);
+    }
+    100% {
+        box-shadow: 0 8px 25px rgba(141, 27, 61, 0.5), 0 0 0 0 rgba(141, 27, 61, 0);
+    }
+}
+
+.campus-video-badge-pill {
+    position: relative;
+    z-index: 4;
+    margin-top: 1.25rem;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.4rem 1.1rem;
+    border-radius: 9999px;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.campus-video-features-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem 1.25rem;
+    margin-top: 1.75rem;
+}
+
+.campus-video-feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(141, 27, 61, 0.15);
+    color: #420C1C;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.45rem 0.95rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
 
 
 
