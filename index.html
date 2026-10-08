@@ -1001,5 +1001,95 @@
             });
         }
     </script>
+    <!-- Automatic Enquiry Registration Modal (Appears after 5 seconds) -->
+    <div id="enquiryPopupModal" class="enquiry-modal-backdrop" aria-modal="true" role="dialog" aria-hidden="true">
+        <div class="enquiry-modal-container">
+            <!-- Close Button (×) -->
+            <button id="closeEnquiryModalBtn" class="enquiry-modal-close" aria-label="Close Modal" onclick="closeEnquiryModal()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <div class="enquiry-modal-content-grid">
+                <!-- Left Side: Registration Form -->
+                <div class="enquiry-modal-form-col">
+                    <div class="enquiry-modal-header">
+                        <span class="enquiry-modal-pill">
+                            <i class="fas fa-graduation-cap text-[#8D1B3D]"></i> Admissions Open 2026–27
+                        </span>
+                        <h3 class="enquiry-modal-title">Register Your Enquiry</h3>
+                        <p class="enquiry-modal-subtitle">
+                            Get personalized counseling, fee structure, and scholarship guidance for Plus One & Plus Two.
+                        </p>
+                    </div>
+
+                    <form id="popupEnquiryForm" class="enquiry-modal-form">
+                        <!-- Student Name -->
+                        <div class="enquiry-form-group">
+                            <label for="popupStudentName" class="enquiry-form-label">Student Name <span class="text-rose-600">*</span></label>
+                            <div class="enquiry-input-wrapper">
+                                <i class="fas fa-user enquiry-input-icon"></i>
+                                <input type="text" id="popupStudentName" class="enquiry-form-input" placeholder="Enter student full name" required>
+                            </div>
+                        </div>
+
+                        <!-- Contact Number -->
+                        <div class="enquiry-form-group">
+                            <label for="popupStudentPhone" class="enquiry-form-label">Phone / WhatsApp Number <span class="text-rose-600">*</span></label>
+                            <div class="enquiry-input-wrapper">
+                                <i class="fas fa-phone-alt enquiry-input-icon"></i>
+                                <input type="tel" id="popupStudentPhone" class="enquiry-form-input" placeholder="+91 98765 43210" pattern="[0-9+ -]{10,15}" required>
+                            </div>
+                        </div>
+
+                        <!-- Stream Selection -->
+                        <div class="enquiry-form-group">
+                            <label for="popupStream" class="enquiry-form-label">Academic Stream <span class="text-rose-600">*</span></label>
+                            <div class="enquiry-input-wrapper">
+                                <i class="fas fa-book-open enquiry-input-icon"></i>
+                                <select id="popupStream" class="enquiry-form-input enquiry-select" required>
+                                    <option value="" disabled selected>Select stream / course</option>
+                                    <option value="Plus One Science (NEET / JEE / KEAM Integrated)">Science (NEET / JEE / KEAM)</option>
+                                    <option value="Plus One Commerce (CA / CMA Foundation)">Commerce (CA / CMA Foundation)</option>
+                                    <option value="Plus One Humanities (PSC / UPSC / CUET)">Humanities (PSC / UPSC / CUET)</option>
+                                    <option value="School of Islamic Studies (Hadiya + Commerce)">Hadiya + Commerce (Islamic Studies)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Location / District -->
+                        <div class="enquiry-form-group">
+                            <label for="popupLocation" class="enquiry-form-label">Place / District</label>
+                            <div class="enquiry-input-wrapper">
+                                <i class="fas fa-map-marker-alt enquiry-input-icon"></i>
+                                <input type="text" id="popupLocation" class="enquiry-form-input" placeholder="e.g. Thrissur, Malappuram, Palakkad">
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="enquiry-modal-submit-btn">
+                            <span>Register & Connect via WhatsApp</span>
+                            <i class="fab fa-whatsapp ml-2 text-base"></i>
+                        </button>
+
+                        <div class="enquiry-modal-footer-note">
+                            <i class="fas fa-shield-alt text-[#8D1B3D]"></i>
+                            <span>100% Safe Residential Girls Campus • Cheruthuruthy</span>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Side: Admission Poster Image (admob.jpeg) -->
+                <div class="enquiry-modal-image-col">
+                    <div class="enquiry-modal-image-wrap">
+                        <img src="static/images/admob.jpeg" alt="Hamda Admission 2026-27" class="enquiry-modal-img" loading="eager">
+                        <div class="enquiry-image-overlay-badge">
+                            <i class="fas fa-star text-amber-300 me-1"></i> Admissions Open 2026–27
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

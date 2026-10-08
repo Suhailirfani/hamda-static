@@ -418,3 +418,129 @@ document.addEventListener('DOMContentLoaded', function() {
         videoObserver.observe(video);
     }
 });
+
+
+// =========================================================
+// Automatic 5-Second Enquiry Registration Modal Handler
+// =========================================================
+function openEnquiryModal() {
+    const modal = document.getElementById('enquiryPopupModal');
+    if (modal) {
+        modal.classList.add('is-active');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeEnquiryModal() {
+    const modal = document.getElementById('enquiryPopupModal');
+    if (modal) {
+        modal.classList.remove('is-active');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        // Save session flag so it does not auto-pop again during same session
+        try {
+            sessionStorage.setItem('hamda_enquiry_modal_closed', 'true');
+        } catch (e) {}
+    }
+}
+
+// Window exposure
+window.openEnquiryModal = openEnquiryModal;
+window.closeEnquiryModal = closeEnquiryModal;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('enquiryPopupModal');
+    if (!modal) return;
+
+    // 1. Auto-show modal after 5 seconds (5000ms)
+    const isClosedInSession = sessionStorage.getItem('hamda_enquiry_modal_closed');
+    if (!isClosedInSession) {
+        setTimeout(function() {
+            // Only open if user is still on page and modal isn't open yet
+            if (!sessionStorage.getItem('hamda_enquiry_modal_closed')) {
+                openEnquiryModal();
+            }
+        }, 5000);
+    }
+
+    // 2. Click or touch outside to disappear
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeEnquiryModal();
+        }
+    });
+
+    modal.addEventListener('touchstart', function(e) {
+        if (e.target === modal) {
+            closeEnquiryModal();
+        }
+    }, { passive: true });
+
+    // 3. Escape key to close
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-active')) {
+            closeEnquiryModal();
+        }
+    });
+
+    // 4. Handle Popup Form Submission with WhatsApp integration
+    const popupForm = document.getElementById('popupEnquiryForm');
+    if (popupForm) {
+        popupForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('popupStudentName')?.value.trim();
+            const phone = document.getElementById('popupStudentPhone')?.value.trim();
+            const stream = document.getElementById('popupStream')?.value;
+            const location = document.getElementById('popupLocation')?.value.trim() || 'Not specified';
+
+            if (!name || !phone || !stream) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            const waText = 
+                `*New Admission Registration Enquiry - Hamda International Campus*
+
+` +
+                `• *Student Name:* ${name}
+` +
+                `• *Phone / WhatsApp:* ${phone}
+` +
+                `• *Selected Stream:* ${stream}
+` +
+                `• *Place / District:* ${location}
+` +
+                `• *Source:* Website Landing Popup
+
+` +
+                `Please provide admission guidance and fee structure.`;
+
+            const waUrl = `https://wa.me/919562744006?text=${encodeURIComponent(waText)}`;
+            
+            // Open WhatsApp
+            window.open(waUrl, '_blank');
+
+            // Success feedback inside form column
+            const formCol = popupForm.closest('.enquiry-modal-form-col');
+            if (formCol) {
+                formCol.innerHTML = `
+                    <div class="text-center py-6">
+                        <div class="inline-flex items-center justify-center w-16 h-16 rounded-full mb-4" style="background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);">
+                            <i class="fab fa-whatsapp text-white text-3xl"></i>
+                        </div>
+                        <h4 class="font-serif fw-bold text-dark text-xl mb-2">Enquiry Sent Successfully!</h4>
+                        <p class="text-slate-600 text-xs mb-5">Thank you <b>${name}</b>. Your details for <b>${stream}</b> have been connected to our admissions desk on WhatsApp.</p>
+                        <button class="btn btn-purple px-5 py-2 rounded-full text-xs font-bold" onclick="closeEnquiryModal()">Done & Close</button>
+                    </div>
+                `;
+            }
+
+            // Auto close modal after 4 seconds
+            setTimeout(function() {
+                closeEnquiryModal();
+            }, 4000);
+        });
+    }
+});
