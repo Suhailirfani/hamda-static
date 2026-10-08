@@ -438,10 +438,6 @@ function closeEnquiryModal() {
         modal.classList.remove('is-active');
         modal.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
-        // Save session flag so it does not auto-pop again during same session
-        try {
-            sessionStorage.setItem('hamda_enquiry_modal_closed', 'true');
-        } catch (e) {}
     }
 }
 
@@ -453,16 +449,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('enquiryPopupModal');
     if (!modal) return;
 
-    // 1. Auto-show modal after 5 seconds (5000ms)
-    const isClosedInSession = sessionStorage.getItem('hamda_enquiry_modal_closed');
-    if (!isClosedInSession) {
-        setTimeout(function() {
-            // Only open if user is still on page and modal isn't open yet
-            if (!sessionStorage.getItem('hamda_enquiry_modal_closed')) {
-                openEnquiryModal();
-            }
-        }, 5000);
-    }
+    // 1. Auto-show modal every time after 5 seconds (5000ms) on visiting home page
+    setTimeout(function() {
+        openEnquiryModal();
+    }, 5000);
 
     // 2. Click or touch outside to disappear
     modal.addEventListener('click', function(e) {
