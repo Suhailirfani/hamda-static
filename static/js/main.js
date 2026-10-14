@@ -507,7 +507,7 @@ document.addEventListener('DOMContentLoaded', function() {
 ` +
                 `Please provide admission guidance and fee structure.`;
 
-            const waUrl = `https://wa.me/919562744006?text=${encodeURIComponent(waText)}`;
+            const waUrl = `https://wa.me/919562844006?text=${encodeURIComponent(waText)}`;
             
             // Open WhatsApp
             window.open(waUrl, '_blank');

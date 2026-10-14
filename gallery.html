@@ -246,8 +246,8 @@
                     <div class="col-lg-4 col-md-5 border-end-desktop">
                         <p class="mb-0 text-white d-flex align-items-center gap-2">
                             <i class="fas fa-phone-alt text-[#FFD0DA]"></i>
-                            <a href="tel:+919562744006" class="hover:underline">+91 9562 744 006</a> / 
-                            <a href="tel:+919562844006" class="hover:underline">844 006</a>
+                            <a href="tel:+919562844006" class="hover:underline">+91 9562 844 006</a> / 
+                            <a href="tel:+919562744006" class="hover:underline">9562 744 006</a>
                         </p>
                     </div>
                     <div class="col-lg-4 col-md-7 border-end-desktop text-center">
@@ -286,7 +286,7 @@
 
             <!-- Mobile Quick Actions & Menu Toggle -->
             <div class="flex items-center gap-4 md:hidden">
-                <a href="tel:+919562744006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
+                <a href="tel:+919562844006" class="text-purple text-lg hover:opacity-85 transition-opacity" aria-label="Call Us">
                     <i class="fas fa-phone-alt"></i>
                 </a>
                 <button id="menuToggle" class="mobile-menu-toggle" aria-label="Toggle Menu">
@@ -365,7 +365,7 @@
                 <!-- Featured Item: Campus Video Tour -->
                 <div class="gallery-item" data-category="videos" data-aos="fade-up" data-aos-delay="50">
                     <span class="gallery-badge bg-[#8D1B3D]"><i class="fas fa-video me-1"></i> Featured Campus Tour</span>
-                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/campus_video.mp4', 'Hamda Campus Full Video Tour | Cheruthuruthy, Thrissur', 'video')">
+                    <div class="gallery-item-img-wrap cursor-pointer" onclick="openLightbox('static/images/main.mov', 'Hamda Campus Full Video Tour | Cheruthuruthy, Thrissur', 'video')">
                         <img src="static/images/campus_video_poster.jpg" alt="Hamda Campus Video Tour" loading="lazy">
                         <div class="play-overlay-btn"><i class="fas fa-play"></i></div>
                     </div>
@@ -573,8 +573,8 @@
                 <a href="contact.html#admission-enquiry" class="btn btn-purple bg-white text-[#8D1B3D] hover:bg-slate-100 font-bold px-6 py-3 rounded-full text-sm">
                     Apply Online
                 </a>
-                <a href="tel:+919562744006" class="btn btn-outline-light font-bold px-6 py-3 rounded-full text-sm">
-                    <i class="fas fa-phone me-2"></i> Call: +91 9562 744 006
+                <a href="tel:+919562844006" class="btn btn-outline-light font-bold px-6 py-3 rounded-full text-sm">
+                    <i class="fas fa-phone me-2"></i> Call: +91 9562 844 006
                 </a>
             </div>
         </div>
@@ -627,8 +627,13 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-phone-alt text-[#C4566E]"></i>
-                            <a href="tel:+919562744006" class="hover:text-white transition-colors">+91 9562 744 006</a> / 
-                            <a href="tel:+919562844006" class="hover:text-white transition-colors">+91 9562 844 006</a>
+                            <a href="tel:+919562844006" class="hover:text-white transition-colors">+91 9562 844 006</a> / 
+                            <a href="tel:+919562744006" class="hover:text-white transition-colors">9562 744 006</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-phone-alt text-[#C4566E]"></i>
+                            <a href="tel:+919961209007" class="hover:text-white transition-colors">+91 9961 209 007</a> / 
+                            <a href="tel:+919947264747" class="hover:text-white transition-colors">9947 264 747</a>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-[#C4566E]"></i>
@@ -652,7 +657,7 @@
         <a href="https://wa.me/919562844006" target="_blank" class="social-btn whatsapp" title="WhatsApp Enquiry">
             <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="tel:+919562744006" class="social-btn" style="background: var(--qatar-maroon);" title="Call Us Directly">
+        <a href="tel:+919562844006" class="social-btn" style="background: var(--qatar-maroon);" title="Call Us Directly">
             <i class="fas fa-phone-alt"></i>
         </a>
     </div>
@@ -731,11 +736,29 @@
 
             if (type === 'video') {
                 const video = document.createElement('video');
-                video.src = src;
                 video.controls = true;
                 video.autoplay = true;
+                video.playsInline = true;
                 video.style.maxWidth = '100%';
                 video.style.maxHeight = '75vh';
+                video.style.borderRadius = '12px';
+
+                if (src.toLowerCase().endsWith('.mov')) {
+                    const src1 = document.createElement('source');
+                    src1.src = src;
+                    src1.type = 'video/quicktime';
+                    const src2 = document.createElement('source');
+                    src2.src = src;
+                    src2.type = 'video/mp4';
+                    const fallback = document.createElement('source');
+                    fallback.src = 'static/images/campus_video.mp4';
+                    fallback.type = 'video/mp4';
+                    video.appendChild(src1);
+                    video.appendChild(src2);
+                    video.appendChild(fallback);
+                } else {
+                    video.src = src;
+                }
                 mediaContainer.appendChild(video);
             } else {
                 const img = document.createElement('img');
